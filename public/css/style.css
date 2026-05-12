@@ -990,3 +990,31 @@ body {
         font-size: 32px;
     }
 }
+
+/* --- Hero Text Rotator --- */
+
+.rotator-wrapper {
+    height: 1.1em;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: center;
+    width: 100%;
+}
+
+.rotate-text {
+    display: block;
+    height: 1.1em;
+    line-height: 1.1em;
+    animation: rotateWords 10s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
+    white-space: nowrap;
+}
+
+@keyframes rotateWords {
+    0%, 20% { transform: translateY(0); }
+    25%, 45% { transform: translateY(-1.1em); }
+    50%, 70% { transform: translateY(-2.2em); }
+    75%, 95% { transform: translateY(-3.3em); }
+    100% { transform: translateY(0); }
+}
