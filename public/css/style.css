@@ -44,20 +44,35 @@ body {
     transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.nav-links-centered {
+.nav-links-left, .nav-links-right {
     display: flex;
     gap: 20px;
-    justify-content: flex-start;
+    align-items: center;
 }
 
-.nav-logo-wrapper {
-    display: flex;
-    justify-content: center;
+.nav-links-left a, .nav-links-right a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.nav-links-left a:hover, .nav-links-right a:hover {
+    color: var(--accent-gold);
 }
 
 .nav-right {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 30px; /* Increased gap to accommodate links and button */
+}
+
+.nav-logo-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 #main-nav.scrolled .nav-container {
@@ -74,21 +89,6 @@ body {
 
 #main-nav.scrolled .brand-logo {
     height: 40px; /* Shrink on scroll */
-}
-
-.nav-links-centered a {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 300;
-    white-space: nowrap;
-}
-
-.nav-right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 20px;
 }
 
 .btn-reserve {
