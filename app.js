@@ -36,6 +36,12 @@ pages.forEach(page => {
 // STATIC FILES SECOND - to serve CSS, JS, and Assets
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(PORT, () => {
-    console.log(`Narizari Multi-Page Server is running on http://localhost:${PORT}`);
-});
+// Export for Vercel
+module.exports = app;
+
+// Listen only if not running as a Vercel function
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Narizari Multi-Page Server is running on http://localhost:${PORT}`);
+    });
+}
