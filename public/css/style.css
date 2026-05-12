@@ -1051,3 +1051,39 @@ nav.scrolled .brand-logo {
         height: 1px;
     }
 }
+
+/* Light Section Styles */
+.platform-partners {
+    background-color: #FFFFFF !important;
+    padding: 100px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.platform-partners .partners-label {
+    color: #180508 !important;
+    opacity: 0.8;
+}
+
+.platform-partners .partners-line {
+    background: rgba(24, 5, 8, 0.1) !important;
+}
+
+.platform-partners .partner-item {
+    color: #180508 !important;
+    opacity: 0.5;
+}
+
+.platform-partners .partner-item:hover {
+    opacity: 1;
+}
+
+.platform-partners .p-sub {
+    color: #180508 !important;
+    opacity: 0.6;
+}
+
+/* Ensure the wave mask matches the white section */
+.hero-wave-mask {
+    background: #FFFFFF !important;
+}
