@@ -428,6 +428,7 @@ body {
     align-items: center;
     gap: 10px;
     z-index: 10000;
+    transition: color 0.4s ease;
 }
 
 .menu-close-btn span {
@@ -437,6 +438,7 @@ body {
     background: white;
     transform: rotate(45deg);
     position: relative;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), background 0.4s ease;
 }
 .menu-close-btn span::after {
     content: '';
@@ -445,6 +447,21 @@ body {
     height: 1px;
     background: white;
     transform: rotate(-90deg);
+    transition: background 0.4s ease;
+}
+
+/* Close Button Hover Animation */
+.menu-close-btn:hover {
+    color: var(--accent-gold);
+}
+
+.menu-close-btn:hover span {
+    transform: rotate(225deg); /* 45 + 180 degrees */
+    background: var(--accent-gold);
+}
+
+.menu-close-btn:hover span::after {
+    background: var(--accent-gold);
 }
 
 .menu-list {
@@ -454,7 +471,7 @@ body {
 
 .menu-list li {
     margin: 20px 0;
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to allow translation to overflow gracefully */
 }
 
 .menu-list a {
@@ -465,10 +482,10 @@ body {
     font-weight: 300;
     text-transform: uppercase;
     position: relative;
-    display: block;
-    transform: translateY(100%);
+    display: inline-block;
+    transform: translateY(50px);
     opacity: 0;
-    transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease, color 0.4s ease, filter 0.4s ease;
 }
 
 .menu-overlay.active .menu-list a {
@@ -482,8 +499,19 @@ body {
 .menu-list li:nth-child(4) a { transition-delay: 0.25s; }
 .menu-list li:nth-child(5) a { transition-delay: 0.3s; }
 .menu-list li:nth-child(6) a { transition-delay: 0.35s; }
+.menu-list li:nth-child(7) a { transition-delay: 0.4s; }
+
+/* Modern Hover Effect on Menu List */
+.menu-list:hover a {
+    opacity: 0.3;
+    filter: blur(4px);
+    transform: scale(0.98);
+}
 
 .menu-list a:hover {
-    color: var(--accent-gold);
+    opacity: 1 !important;
+    filter: blur(0px) !important;
+    color: var(--accent-gold) !important;
+    transform: scale(1.05) translateX(15px) !important;
     font-style: italic;
 }
