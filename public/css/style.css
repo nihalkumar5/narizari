@@ -24,25 +24,39 @@ body {
 /* Nav Pill */
 #main-nav {
     position: fixed;
-    top: 20px;
+    top: 30px;
     left: 0;
     width: 100%;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px; /* Screen edge padding */
+    transition: all 0.5s ease;
+}
+
+#main-nav.scrolled {
+    top: 15px;
+}
+
+.floating-menu-btn, .floating-reserve-btn {
+    flex: 0 0 auto;
 }
 
 .nav-container {
-    max-width: 1150px; /* Slightly wider for better breathing room */
-    margin: 0 auto;
-    background: rgba(15, 5, 8, 0.4); /* Thinner glass */
+    max-width: 800px; /* Significantly smaller pill */
+    flex: 1;
+    margin: 0 30px;
+    background: rgba(15, 5, 8, 0.5);
     backdrop-filter: blur(25px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08); /* Sophisticated border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
-    padding: 12px 45px;
+    padding: 8px 35px; /* Tighter padding */
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .nav-links-left {
@@ -78,21 +92,18 @@ body {
 .nav-logo-wrapper {
     display: flex;
     justify-content: center;
-    padding: 0 60px; /* Defined gap around logo */
+    padding: 0 30px;
 }
 
 .brand-logo {
-    height: 75px; /* Even bigger for presence */
+    height: 55px; /* Smaller initial logo */
     width: auto;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
 }
 
-.nav-right {
+.nav-right-side {
     display: flex;
-    justify-content: space-between; /* Links on left of column, actions on right */
-    align-items: center;
-    width: 100%;
+    justify-content: flex-start;
 }
 
 .nav-actions-right {
@@ -102,14 +113,13 @@ body {
 }
 
 #main-nav.scrolled .nav-container {
-    padding: 8px 35px;
-    max-width: 1000px;
-    background: rgba(15, 5, 8, 0.8);
-    transform: translateY(10px);
+    padding: 6px 25px;
+    max-width: 700px;
+    background: rgba(15, 5, 8, 0.9);
 }
 
 #main-nav.scrolled .brand-logo {
-    height: 45px;
+    height: 38px;
 }
 
 .btn-reserve {
