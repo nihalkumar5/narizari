@@ -44,19 +44,19 @@ body {
 }
 
 .nav-container {
-    max-width: 800px; /* Significantly smaller pill */
+    max-width: 650px; /* Even narrower pill */
     flex: 1;
     margin: 0 30px;
-    background: rgba(15, 5, 8, 0.5);
+    background: rgba(15, 5, 8, 0.4);
     backdrop-filter: blur(25px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
-    padding: 8px 35px; /* Tighter padding */
+    padding: 18px 40px; /* Increased height via padding */
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
 
 .nav-links-left {
@@ -96,7 +96,7 @@ body {
 }
 
 .brand-logo {
-    height: 55px; /* Smaller initial logo */
+    height: 65px; /* Restored size to fit taller header */
     width: auto;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -126,19 +126,38 @@ body {
     position: relative;
     color: white;
     text-decoration: none;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-size: 10px;
+    padding: 15px 40px; /* Significantly larger */
+    border-radius: 40px;
+    font-size: 13px; /* Slightly larger text */
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
+    box-shadow: 
+        0 4px 0 rgba(0, 0, 0, 0.3), /* 3D bottom edge */
+        0 10px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-reserve:hover {
+    transform: translateY(-4px) scale(1.02); /* Lift effect */
+    box-shadow: 
+        0 8px 0 rgba(0, 0, 0, 0.3),
+        0 15px 30px rgba(0, 0, 0, 0.5);
+    color: var(--accent-gold);
+}
+
+.btn-reserve:active {
+    transform: translateY(2px); /* Press effect */
+    box-shadow: 
+        0 2px 0 rgba(0, 0, 0, 0.3),
+        0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 .btn-reserve::before {
@@ -151,6 +170,7 @@ body {
     background: conic-gradient(from 0deg, transparent, var(--accent-gold), transparent 40%);
     animation: rotate-border 3s linear infinite;
     z-index: -2;
+    opacity: 0.6; /* Subtler for 3D look */
 }
 
 .btn-reserve::after {
