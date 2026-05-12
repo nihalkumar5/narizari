@@ -25,11 +25,19 @@ const pages = [
 
 pages.forEach(page => {
     app.get(page.path, (req, res) => {
-        res.render('page', {
-            pageTitle: page.title,
-            pageHeadline: page.headline,
-            pageDescription: page.description
-        });
+        if (page.path === '/services') {
+            res.render('services', {
+                pageTitle: page.title,
+                pageHeadline: page.headline,
+                pageDescription: page.description
+            });
+        } else {
+            res.render('page', {
+                pageTitle: page.title,
+                pageHeadline: page.headline,
+                pageDescription: page.description
+            });
+        }
     });
 });
 

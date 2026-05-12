@@ -1,0 +1,251 @@
+<%- include('partials/header') %>
+
+<main class="section-padding">
+    <div class="container">
+        <!-- Header -->
+        <div class="reveal">
+            <p class="hero-tagline">• OUR STRATEGIC INTELLIGENCE</p>
+            <h1 class="page-main-title">Crafting the Future of <span class="masked">Varanasi Silk</span></h1>
+            <div class="page-intro">
+                <p>We provide a full-stack digital ecosystem for luxury ethnicwear brands. From the loom’s first thread to a global customer’s final click, Narizari weaves intelligence into every touchpoint.</p>
+            </div>
+        </div>
+
+        <!-- Service Section 1: eCommerce -->
+        <section class="detailed-service-row reveal">
+            <div class="service-info">
+                <span class="service-index">01</span>
+                <h2>The Silk Suite</h2>
+                <h3>E-Commerce Architecture & Management</h3>
+                <p>We build Shopify stores that don't just look like art—they perform like machines. Our e-commerce solutions are designed specifically for the unique complexities of the Saree industry, including high-res visual handling and global logistics.</p>
+                <ul class="luxury-check-list">
+                    <li>Bespoke Shopify Plus Development</li>
+                    <li>Global Multi-Currency & Logistics Setup</li>
+                    <li>Conversion Rate Optimization (CRO)</li>
+                    <li>Seamless Platform Migrations</li>
+                </ul>
+            </div>
+            <div class="service-visual">
+                <div class="glass-box">
+                    <img src="/assets/logo.png" alt="Ecom Visual" style="opacity: 0.2; width: 150px;">
+                    <div class="glow-effect"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Section 2: Marketing -->
+        <section class="detailed-service-row reverse reveal">
+            <div class="service-info">
+                <span class="service-index">02</span>
+                <h2>Intelligent Marketing</h2>
+                <h3>Precision Performance & Growth</h3>
+                <p>Using proprietary AI models, we identify high-intent luxury buyers across the globe. Our marketing isn't about noise; it's about the right signal for the right audience.</p>
+                <ul class="luxury-check-list">
+                    <li>AI-Driven Meta & Google Ad Strategies</li>
+                    <li>High-ROAS Retargeting Systems</li>
+                    <li>Luxury Fashion SEO & Content Authority</li>
+                    <li>Email & WhatsApp VIP Automations</li>
+                </ul>
+            </div>
+            <div class="service-visual">
+                <div class="glass-box">
+                    <div class="stat-circle">12x+</div>
+                    <p class="stat-desc">Targeted ROAS for Legacy Brands</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Section 3: Branding -->
+        <section class="detailed-service-row reveal">
+            <div class="service-info">
+                <span class="service-index">03</span>
+                <h2>Creative Couture</h2>
+                <h3>Editorial Branding & Storytelling</h3>
+                <p>We treat every brand identity like a couture piece. Our creative team combines traditional Banaras aesthetics with modern editorial standards to create a brand that commands respect.</p>
+                <ul class="luxury-check-list">
+                    <li>Brand Identity & Visual DNA</li>
+                    <li>Editorial Photography & Film Production</li>
+                    <li>High-End Packaging & Unboxing Design</li>
+                    <li>Strategic Narrative & Copywriting</li>
+                </ul>
+            </div>
+            <div class="service-visual">
+                <div class="glass-box video-placeholder">
+                    <span>CINEMATIC PRODUCTION</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="page-cta reveal">
+            <div class="cta-inner">
+                <h2>Ready to weave your success?</h2>
+                <p>Discuss your brand’s global potential with our strategic architects.</p>
+                <a href="/connect" class="btn-reserve">Start a Conversation</a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
+
+<style>
+    .page-main-title {
+        font-size: clamp(48px, 6vw, 100px);
+        font-weight: 300;
+        margin-bottom: 30px;
+        line-height: 1.1;
+    }
+
+    .page-intro {
+        max-width: 800px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 100px;
+    }
+
+    .detailed-service-row {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 80px;
+        padding: 100px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        align-items: center;
+    }
+
+    .detailed-service-row.reverse {
+        grid-template-columns: 1fr 1.2fr;
+    }
+
+    .detailed-service-row.reverse .service-info {
+        order: 2;
+    }
+
+    .service-index {
+        font-family: 'Outfit', sans-serif;
+        font-size: 14px;
+        color: var(--accent-gold);
+        display: block;
+        margin-bottom: 20px;
+        letter-spacing: 0.3em;
+    }
+
+    .service-info h2 {
+        font-size: 42px;
+        font-weight: 400;
+        margin-bottom: 10px;
+        color: white;
+    }
+
+    .service-info h3 {
+        font-size: 18px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--accent-gold);
+        margin-bottom: 30px;
+        opacity: 0.8;
+    }
+
+    .service-info p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 40px;
+    }
+
+    .luxury-check-list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .luxury-check-list li {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .luxury-check-list li::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent-gold);
+        display: block;
+    }
+
+    .glass-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 40px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stat-circle {
+        font-size: 80px;
+        font-weight: 600;
+        color: white;
+        font-family: 'Outfit', sans-serif;
+    }
+
+    .stat-desc {
+        color: var(--accent-gold);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-top: 20px;
+    }
+
+    .video-placeholder {
+        background: linear-gradient(45deg, rgba(15, 5, 8, 0.5), rgba(212, 175, 55, 0.05));
+    }
+
+    .page-cta {
+        padding: 150px 0;
+        text-align: center;
+    }
+
+    .cta-inner h2 {
+        font-size: 56px;
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
+
+    .cta-inner p {
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 50px;
+    }
+
+    @media (max-width: 992px) {
+        .detailed-service-row, .detailed-service-row.reverse {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        .detailed-service-row.reverse .service-info {
+            order: 0;
+        }
+
+        .luxury-check-list {
+            grid-template-columns: 1fr;
+        }
+
+        .glass-box {
+            height: 300px;
+        }
+    }
+</style>
