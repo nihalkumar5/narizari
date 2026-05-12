@@ -50,17 +50,17 @@ body {
 }
 
 .nav-container {
-    max-width: 700px; /* Slightly wider for better text flow */
+    max-width: 900px; /* Wider to fit Book Now */
     flex: 1;
-    margin: 0 20px;
+    margin: 0 40px;
     background: rgba(15, 5, 8, 0.4);
     backdrop-filter: blur(25px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
-    padding: 15px 45px;
+    padding: 10px 35px; /* Slightly lower padding to look sleeker */
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    align-items: center; /* Center logo and text vertically */
+    align-items: center;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
@@ -114,7 +114,8 @@ body {
 .nav-right-side {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between; /* Space links and button */
+    gap: 30px;
 }
 
 .hamburger {
@@ -151,30 +152,25 @@ body {
     position: relative;
     color: white;
     text-decoration: none;
-    padding: 14px 35px;
-    border-radius: 40px;
-    font-size: 12px;
+    padding: 10px 25px; /* Smaller to fit pill */
+    border-radius: 30px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.05) 100%);
+    background: rgba(255, 255, 255, 0.05);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
-    box-shadow: 
-        0 4px 0 rgba(0, 0, 0, 0.3),
-        0 10px 20px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-reserve:hover {
-    transform: translateY(-4px) scale(1.02); /* Lift effect */
-    box-shadow: 
-        0 8px 0 rgba(0, 0, 0, 0.3),
-        0 15px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
     color: var(--accent-gold);
 }
 
