@@ -1,24 +1,96 @@
 <%- include('partials/header') %>
 
 <main>
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="reveal">
-                <p class="hero-tagline">Heritage x Intelligence</p>
-                <h1>The Art of <br><span>Digital Silk</span></h1>
-                <p style="max-width: 450px; color: var(--text-secondary); margin-bottom: 40px; font-size: 16px; font-weight: 100; letter-spacing: 0.02em;">
-                    Narizari is a bespoke AI marketing laboratory dedicated to the preservation and global expansion of Varanasi's silk legacy.
-                </p>
-                <a href="/services" class="btn-premium">Explore Strategies</a>
-            </div>
-        </div>
-        <div class="hero-image-container">
-            <video autoplay loop muted playsinline class="hero-video">
+    <section class="hero-fs">
+        <!-- Background Video -->
+        <div class="hero-bg-wrapper">
+            <video autoplay loop muted playsinline class="hero-video-fs">
                 <source src="/assets/hero-video.mp4" type="video/mp4">
             </video>
+            <div class="hero-overlay"></div>
         </div>
+
+        <!-- Side Navigation Elements -->
+        <div class="side-nav-left">
+            <div class="follow-us">
+                <span>FOLLOW US</span>
+                <div class="line"></div>
+                <div class="social-links">
+                    <a href="#">IG</a>
+                    <a href="#">X</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-nav-right">
+            <div class="pagination">
+                <span class="active">01</span>
+                <span>02</span>
+                <span>03</span>
+            </div>
+        </div>
+
+        <!-- Hero Content Centered -->
+        <div class="hero-center-content">
+            <div class="hero-text-wrapper reveal">
+                <h2 class="hero-subheading">Explore and weave</h2>
+                <h1 class="hero-main-heading">Tailoring the <br><span>digital silk</span></h1>
+                <p class="hero-description">
+                    Bespoke AI strategies for the global Varanasi silk industry, <br>
+                    shaped around tradition, technology, and pure luxury.
+                </p>
+
+                <!-- Booking Bar -->
+                <div class="booking-bar-wrapper">
+                    <div class="booking-bar">
+                        <div class="bb-item">
+                            <div class="bb-icon">📍</div>
+                            <div class="bb-info">
+                                <label>LOCATION</label>
+                                <span>Varanasi</span>
+                            </div>
+                        </div>
+                        <div class="bb-divider"></div>
+                        <div class="bb-item">
+                            <div class="bb-icon">📅</div>
+                            <div class="bb-info">
+                                <label>DATE</label>
+                                <span>13/05/2026</span>
+                            </div>
+                        </div>
+                        <div class="bb-divider"></div>
+                        <div class="bb-item">
+                            <div class="bb-icon">👤</div>
+                            <div class="bb-info">
+                                <label>STRATEGY</label>
+                                <span>Consultation</span>
+                            </div>
+                        </div>
+                        <button class="bb-search-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bottom Indicators -->
+                <div class="hero-bottom-indicators">
+                    <div class="explore-departures">
+                        <span>EXPLORE SERVICES</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l10-10M7 7h10v10"></path></svg>
+                    </div>
+                    <div class="scroll-down">
+                        <span>scroll down</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M12 18V6"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Wave Cut -->
+        <div class="hero-wave-mask"></div>
     </section>
 
+    <!-- Platform Partners -->
     <section class="platform-partners reveal">
         <div class="container">
             <div class="partners-header">
@@ -44,7 +116,6 @@
             </div>
         </div>
     </section>
-
 </main>
 
 <%- include('partials/footer') %>
