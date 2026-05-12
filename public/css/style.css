@@ -45,19 +45,26 @@ body {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-.nav-links-left, .nav-links-right {
+.nav-links-left {
     display: flex;
-    gap: 35px; /* Increased gap */
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-end; /* Push towards logo */
+}
+
+.nav-links-right {
+    display: flex;
+    gap: 30px;
     align-items: center;
 }
 
 .nav-links-left a, .nav-links-right a {
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 11px; /* Smaller but more spaced for editorial look */
+    font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.2em; /* Premium spacing */
+    letter-spacing: 0.15em;
     white-space: nowrap;
     transition: all 0.4s ease;
     opacity: 0.7;
@@ -66,13 +73,12 @@ body {
 .nav-links-left a:hover, .nav-links-right a:hover {
     color: var(--accent-gold);
     opacity: 1;
-    transform: translateY(-1px);
 }
 
 .nav-logo-wrapper {
     display: flex;
     justify-content: center;
-    padding: 0 40px;
+    padding: 0 60px; /* Defined gap around logo */
 }
 
 .brand-logo {
@@ -84,9 +90,15 @@ body {
 
 .nav-right {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between; /* Links on left of column, actions on right */
     align-items: center;
-    gap: 35px;
+    width: 100%;
+}
+
+.nav-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 #main-nav.scrolled .nav-container {
