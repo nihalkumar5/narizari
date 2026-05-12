@@ -31,21 +31,33 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1050px; /* Reduced width */
     margin: 0 auto;
     background: var(--glass-dark);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 100px;
-    padding: 10px 40px;
+    padding: 15px 40px; /* Slightly taller initial padding */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#main-nav.scrolled .nav-container {
+    padding: 8px 30px;
+    max-width: 950px; /* Shrinks even further on scroll */
+    background: rgba(0, 0, 0, 0.6); /* Slightly darker on scroll */
 }
 
 .brand-logo {
-    height: 45px;
+    height: 65px; /* Bigger initial logo */
     width: auto;
+    transition: height 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#main-nav.scrolled .brand-logo {
+    height: 40px; /* Shrink on scroll */
 }
 
 .nav-links-centered {
