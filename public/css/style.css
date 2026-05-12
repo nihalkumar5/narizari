@@ -857,3 +857,136 @@ body {
     text-transform: uppercase;
     margin-bottom: 20px;
 }
+
+/* --- Impact Services (PurpleChalk Inspired) --- */
+
+.services-impact {
+    padding: 150px 0;
+    background: #000000;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+.section-subtitle {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 700px;
+    margin: 20px auto 0;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.impact-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+    margin-bottom: 150px;
+}
+
+.impact-row.reverse {
+    grid-template-columns: 1.2fr 1fr;
+}
+
+.impact-row.reverse .impact-content {
+    order: 2;
+}
+
+.service-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--accent-gold);
+    margin-bottom: 25px;
+    display: block;
+    font-weight: 600;
+}
+
+.impact-content h3 {
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.impact-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.impact-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.impact-features li {
+    font-size: 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.impact-features li::before {
+    content: '';
+    width: 8px;
+    height: 1px;
+    background: var(--accent-gold);
+}
+
+.text-link {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.text-link:hover {
+    opacity: 0.7;
+}
+
+.impact-visual {
+    position: relative;
+    width: 100%;
+}
+
+.rounded-visual {
+    width: 100%;
+    height: auto;
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.impact-row:hover .rounded-visual {
+    transform: scale(1.02);
+}
+
+@media (max-width: 992px) {
+    .impact-row, .impact-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        margin-bottom: 100px;
+    }
+    
+    .impact-row.reverse .impact-content {
+        order: 0;
+    }
+    
+    .impact-content h3 {
+        font-size: 32px;
+    }
+}
