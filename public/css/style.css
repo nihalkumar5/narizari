@@ -666,3 +666,159 @@ body {
     color: var(--accent-gold) !important;
     transform: scale(1.05) translateX(15px) !important;
 }
+
+/* --- New Content Sections (PurpleChalk Inspired) --- */
+
+.section-label {
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* About Brief */
+.about-brief {
+    padding: 150px 0;
+    background: transparent;
+}
+
+.section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.about-text {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.6;
+    max-width: 900px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+}
+
+/* Services Detailed */
+.services-detailed {
+    padding: 100px 0;
+    background: rgba(10, 5, 5, 0.3);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px;
+    border-radius: 40px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(212, 175, 55, 0.2);
+    transform: translateY(-10px);
+}
+
+.service-no {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-gold);
+    margin-bottom: 30px;
+    display: block;
+    opacity: 0.5;
+}
+
+.service-card h3 {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: white;
+    letter-spacing: 0.02em;
+}
+
+.service-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 30px;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-list li {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-list li::before {
+    content: '—';
+    color: var(--accent-gold);
+    font-size: 10px;
+}
+
+/* Impact Stats */
+.impact-stats {
+    padding: 150px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 60px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stat-value {
+    font-size: 64px;
+    font-weight: 500;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+        padding: 40px;
+    }
+    
+    .stat-value {
+        font-size: 48px;
+    }
+}
