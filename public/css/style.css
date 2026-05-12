@@ -843,3 +843,17 @@ body {
         font-size: 48px;
     }
 }
+
+/* Page Layout */
+.section-padding {
+    padding: 200px 0 100px 0; /* Space for the fixed header */
+    min-height: 100vh;
+}
+
+.hero-tagline {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
