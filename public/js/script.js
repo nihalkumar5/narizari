@@ -17,12 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Navbar scroll effect
-    const nav = document.getElementById('mainNav');
+    const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
+        if (nav) {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
         }
     });
 
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Menu Toggle Logic
-const menuToggle = document.getElementById('menuToggle');
+const menuToggle = document.getElementById('menu-toggle');
 const menuClose = document.getElementById('menuClose');
 const menuOverlay = document.getElementById('menuOverlay');
 const menuLinks = document.querySelectorAll('.menu-list a');
