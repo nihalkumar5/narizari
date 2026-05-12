@@ -11,3 +11,36 @@
     <script src="/js/script.js"></script>
 </body>
 </html>
+<script>
+    // Reveal animation
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Menu toggle logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menuClose');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuOverlay.classList.add('active');
+        });
+    }
+
+    if (menuClose) {
+        menuClose.addEventListener('click', () => {
+            menuOverlay.classList.remove('active');
+        });
+    }
+</script>
