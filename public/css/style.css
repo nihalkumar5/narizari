@@ -88,6 +88,7 @@ body {
     flex: 1;
     justify-content: flex-end; /* Push links to the right */
     padding-right: 50px;
+    transform: translateY(4px); /* Shift down for perfect baseline alignment */
 }
 
 .nav-links-wrapper a {
@@ -312,6 +313,7 @@ body {
     max-width: 1000px;
     text-align: center;
     z-index: 5;
+    margin-top: 100px; /* Shift text down */
 }
 
 .script-wrapper {
