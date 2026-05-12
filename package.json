@@ -1,8 +1,8 @@
 {
   "name": "narizari",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
+  "description": "Narizari Luxury AI Agency",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^5.0.2",
-    "express": "^5.2.1"
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
   }
 }
