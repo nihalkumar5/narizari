@@ -10,12 +10,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // ROUTES FIRST - to ensure EJS handles the pages
 app.get('/', (req, res) => {
-    res.render('services', {
-        pageTitle: 'Services',
-        pageHeadline: 'Our Strategic Intelligence',
-        pageDescription: 'Bespoke AI solutions designed for the luxury saree industry.',
-        path: '/services'
-    });
+    res.render('index');
 });
 
 const pages = [
