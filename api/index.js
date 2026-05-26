@@ -10,11 +10,19 @@ app.set('views', path.join(__dirname, '../views'));
 
 // ROUTES FIRST
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('services', {
+        pageTitle: 'Services',
+        pageHeadline: 'Our Strategic Intelligence',
+        pageDescription: 'Bespoke AI solutions designed for the luxury saree industry.',
+        path: '/services'
+    });
 });
 
 const pages = [
     { path: '/services', title: 'Services', headline: 'Our Strategic Intelligence', description: 'Bespoke AI solutions designed for the luxury saree industry.' },
+    { path: '/ecommerce-marketing', title: 'eCommerce & Marketing', headline: 'Full-Suite Tactical Co-Pilot', description: 'Platform management, performance campaigns, SEO and analytics.' },
+    { path: '/digital-marketing', title: 'Intelligent Marketing', headline: 'High-ROAS Paid Campaigns', description: 'Precision audience targeting and advanced funnel optimization.' },
+    { path: '/branding', title: 'Creative Couture', headline: 'Cinematic Storytelling & Visual DNA', description: 'Bespoke film shoots and editorial visual assets directed in Varanasi.' },
     { path: '/industries', title: 'Industries', headline: 'Sectors We Transform', description: 'From traditional looms to global digital retail.' },
     { path: '/agency', title: 'Agency', headline: 'The Neural Laboratory', description: 'Our philosophy blends century-old craftsmanship with future-tech.' },
     { path: '/our-team', title: 'Our Team', headline: 'The Architects of Silk', description: 'A diverse group of AI researchers, designers, and textile experts.' },
@@ -26,11 +34,49 @@ const pages = [
 
 pages.forEach(page => {
     app.get(page.path, (req, res) => {
-        res.render('page', {
-            pageTitle: page.title,
-            pageHeadline: page.headline,
-            pageDescription: page.description
-        });
+        if (page.path === '/services') {
+            res.render('services', {
+                pageTitle: page.title,
+                pageHeadline: page.headline,
+                pageDescription: page.description,
+                path: page.path
+            });
+        } else if (page.path === '/ecommerce-marketing') {
+            res.render('ecommerce-marketing', {
+                pageTitle: page.title,
+                pageHeadline: page.headline,
+                pageDescription: page.description,
+                path: page.path
+            });
+        } else if (page.path === '/digital-marketing') {
+            res.render('digital-marketing', {
+                pageTitle: page.title,
+                pageHeadline: page.headline,
+                pageDescription: page.description,
+                path: page.path
+            });
+        } else if (page.path === '/branding') {
+            res.render('branding', {
+                pageTitle: page.title,
+                pageHeadline: page.headline,
+                pageDescription: page.description,
+                path: page.path
+            });
+        } else if (page.path === '/book-now') {
+            res.render('book-now', {
+                pageTitle: page.title,
+                pageHeadline: page.headline,
+                pageDescription: page.description,
+                path: page.path
+            });
+        } else {
+            res.render('page', {
+                pageTitle: page.title,
+                pageHeadline: page.headline,
+                pageDescription: page.description,
+                path: page.path
+            });
+        }
     });
 });
 

@@ -1,6 +1,7 @@
 <%- include('partials/header') %>
 
 <main>
+    <!-- Hero Section -->
     <section class="hero-fs">
         <!-- Background Video -->
         <div class="hero-bg-wrapper">
@@ -13,7 +14,7 @@
         <!-- Left Side Bar -->
         <div class="side-nav-left">
             <div class="follow-us-wrapper">
-                <span class="vertical-text">Follow us</span>
+                <span class="vertical-text">FOLLOW US</span>
                 <div class="social-icons">
                     <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/instagram-new.png" alt="IG"></a>
                     <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/twitter.png" alt="X"></a>
@@ -21,25 +22,21 @@
             </div>
         </div>
 
-
-
         <!-- Hero Content -->
         <div class="hero-container">
             <div class="hero-content-inner reveal">
-
-
                 <!-- Main Heading with Typing Effect -->
-                <h1 class="main-heading">
+                <h1 class="main-heading" style="margin-top: 15px;">
                     Weaving <br>
                     <span id="typing-text" class="masked">Intelligence</span><span class="typing-cursor">|</span>
                 </h1>
 
                 <!-- Body Text -->
-                <p class="hero-subtext">
-                    From Varanasi’s looms to the world’s digital storefronts. <br>
-                    We build high-performing digital experiences for luxury Saree & Ethnicwear brands.
+                <p class="hero-subtext" style="font-size: 19px; max-width: 650px; line-height: 1.6;">
+                    From Varanasi’s ancient looms to the world’s global storefronts. <br>
+                    We engineer high-performance e-commerce and precision marketing suites for luxury Saree & Ethnicwear brands.
                 </p>
-
+            </div>
         </div>
 
         <!-- Scroll Down -->
@@ -49,35 +46,73 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Brief Section -->
     <section class="about-brief reveal">
         <div class="container">
-            <h2 class="section-title">Hey, We're Narizari.</h2>
-            <p class="about-text">
-                We blend the timeless artistry of Banaras with bold digital creativity to craft solutions that don’t just look good — they deliver real, measurable growth. 
-                Whether you're a legacy loom or a modern D2C startup, we create scalable, future-ready digital experiences that turn audiences into loyal patrons.
+            <span class="section-label">• THE CONFLUENCE</span>
+            <h2 class="section-title" style="margin-top: 10px;">We are Narizari. <br>The Neural Loom.</h2>
+            <p class="about-text" style="max-width: 850px; font-size: 21px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.75);">
+                We blend the 500-year-old silk craftsmanship of Banaras with bold performance marketing to craft digital storefronts that don’t just look like fine art — they convert like machines. 
+                Whether you are a historic family handloom cooperative or a modern D2C ethnicwear startup, we scale your narrative globally, transforming clicks into absolute brand loyalty.
             </p>
         </div>
     </section>
 
-    <!-- Our Services - Crafted for Impact -->
+    <!-- Interactive Saree Growth Calculator Section -->
+    <section class="growth-calculator-section reveal">
+        <div class="container">
+            <div class="calc-container">
+                <div class="calc-header">
+                    <span class="section-label">• PERFORMANCE PROJECTION</span>
+                    <h3>Measure the Loom's Digital Capacity</h3>
+                    <p>Slide to input your brand's current monthly online revenue to project your scaled performance with Narizari's marketing suite.</p>
+                </div>
+
+                <div class="slider-group">
+                    <div class="slider-labels">
+                        <span>Current Revenue</span>
+                        <span id="current-revenue-display" style="color: white; font-weight: 600;">₹5 Lakh</span>
+                    </div>
+                    <input type="range" id="revenue-slider" class="range-slider" min="1" max="50" value="5">
+                </div>
+
+                <div class="calc-results-grid">
+                    <div class="result-box">
+                        <span class="result-label">Projected Revenue (with Narizari)</span>
+                        <div class="result-value gold" id="projected-revenue-display">₹17.5 Lakh</div>
+                    </div>
+                    <div class="result-box">
+                        <span class="result-label">Qualified Leads / Orders per Month</span>
+                        <div class="result-value" id="projected-leads-display">1,050</div>
+                    </div>
+                </div>
+
+                <div class="calc-cta-wrapper">
+                    <a href="/book-now" class="btn-reserve" style="font-size: 12px; padding: 12px 35px;">LOCK IN 12X ROAS BLUEPRINT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services - Crafted for High Conversion -->
     <section class="services-impact reveal">
         <div class="container">
             <div class="services-header">
-                <h2 class="section-title">Our Services - Crafted for Impact</h2>
-                <p class="section-subtitle">This isn't a list of "services." It's a toolkit built to make your brand unforgettable — and unstoppable</p>
+                <span class="section-label">• BRAND WEAVING SERVICES</span>
+                <h2 class="section-title" style="margin-top: 15px;">The Luxury Strategic Suite</h2>
+                <p class="section-subtitle">We don't sell generic "marketing services." We craft specific digital engines designed to make your saree brand unforgettable and highly profitable.</p>
             </div>
 
             <!-- Service Row 1: Shopify -->
             <div class="impact-row reveal">
                 <div class="impact-content">
                     <span class="service-tag">Shopify</span>
-                    <h3>Your Store, Your Brand — Built for Growth</h3>
-                    <p class="impact-desc">Whether you’re starting from scratch or upgrading an existing site, we craft high-performance Shopify stores that blend legacy aesthetics with modern conversion science.</p>
+                    <h3>Your Virtual Loom — Built for Direct Scale</h3>
+                    <p class="impact-desc">We build Shopify Plus e-commerce storefronts that mirror the tactile luxury of a Banarasi showroom. Optimized for high-resolution silk detailing, multi-currency NRI sales, and high-volume orders.</p>
                     <ul class="impact-features">
-                        <li>Bespoke Theme Development</li>
-                        <li>Global Multi-Currency & Logistics</li>
-                        <li>High-Speed Performance Audit</li>
+                        <li>Heritage Visual DNA Development</li>
+                        <li>Global Shipping & Multi-Currency Architecture</li>
+                        <li>Sub-Second Performance & Speed Audits</li>
                     </ul>
                     <a href="/services" class="text-link">Explore the Silk Suite →</a>
                 </div>
@@ -89,13 +124,13 @@
             <!-- Service Row 2: Digital Marketing -->
             <div class="impact-row reverse reveal">
                 <div class="impact-content">
-                    <span class="service-tag">Growth</span>
-                    <h3>Digital Marketing — Precision & Scale</h3>
-                    <p class="impact-desc">We don't just run ads; we engineer growth. Our AI-driven marketing suites identify your most valuable customers and keep them coming back.</p>
+                    <span class="service-tag">Performance</span>
+                    <h3>Precision Digital Marketing & AI Scaling</h3>
+                    <p class="impact-desc">We identify high-intent luxury ethnicwear buyers worldwide. Using predictive AI models, we deliver ultra-targeted search and social campaigns that maximize average ROAS and customer lifetime value.</p>
                     <ul class="impact-features">
-                        <li>12x+ Average ROAS</li>
-                        <li>Performance SEO for Luxury</li>
-                        <li>VIP WhatsApp Automations</li>
+                        <li>12x+ Verified Average ROAS</li>
+                        <li>Omnichannel Search Authority (SEO) for Luxury</li>
+                        <li>High-Ticket WhatsApp & Email VIP Nurtures</li>
                     </ul>
                     <a href="/services" class="text-link">See Intelligent Marketing →</a>
                 </div>
@@ -107,13 +142,13 @@
             <!-- Service Row 3: Branding -->
             <div class="impact-row reveal">
                 <div class="impact-content">
-                    <span class="service-tag">Creative</span>
-                    <h3>Creative Couture — Editorial Branding</h3>
-                    <p class="impact-desc">Your heritage deserves a story that captivates. We build visual identities and cinematic content that position your brand at the pinnacle of luxury.</p>
+                    <span class="service-tag">Creative Couture</span>
+                    <h3>Editorial Visual Branding & Narrative</h3>
+                    <p class="impact-desc">Your brand deserves a cinematic heritage. We orchestrate luxury photoshoot and film productions along Varanasi’s ghats and historic looms, presenting the master craftsmanship behind every thread.</p>
                     <ul class="impact-features">
-                        <li>Visual Identity Design</li>
-                        <li>Cinematic Film Production</li>
-                        <li>Editorial Storytelling</li>
+                        <li>Visual Identity & Logo DNA</li>
+                        <li>Cinematic Film Production in Varanasi</li>
+                        <li>Premium Editorial Packaging Design</li>
                     </ul>
                     <a href="/services" class="text-link">View Creative Couture →</a>
                 </div>
@@ -124,26 +159,40 @@
         </div>
     </section>
 
-    <!-- Impact Stats -->
-    <section class="impact-stats reveal">
+    <!-- Client Success Metrics & Urgency Banner -->
+    <section class="impact-stats reveal" style="background: rgba(24,5,8,0.5); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
                     <span class="stat-value">12x+</span>
-                    <span class="stat-label">Average ROAS</span>
+                    <span class="stat-label">Average Ads ROAS</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value">7-Figure</span>
-                    <span class="stat-label">Revenues for Saree Brands</span>
+                    <span class="stat-value">7-Fig</span>
+                    <span class="stat-label">Monthly NRI Revenue scaled</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-value">150+</span>
-                    <span class="stat-label">Stores Built & Launched</span>
+                    <span class="stat-label">Stores Built & Optimized</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-value">20K+</span>
-                    <span class="stat-label">Qualified Leads Generated</span>
+                    <span class="stat-label">Qualified Leads Weaved</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Varanasi Luxury CTA Section -->
+    <section class="page-cta reveal" style="background: linear-gradient(180deg, var(--brand-burgundy) 0%, #000 100%);">
+        <div class="container">
+            <div class="cta-inner" style="max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 80px 40px; border-radius: 40px; backdrop-filter: blur(20px);">
+                <span class="section-label" style="display: block; margin-bottom: 25px;">• WEAVE YOUR SUCCESS •</span>
+                <h2 style="font-size: clamp(32px, 5vw, 56px); font-weight: 300; line-height: 1.1; margin-bottom: 25px;">Ready to Scale Your Varanasi Heritage Globally?</h2>
+                <p style="font-size: 17px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 45px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    We are accepting only a select few premium saree brands this season to maintain elite campaign performance. Claim your complimentary strategy roadmap audit today.
+                </p>
+                <a href="/book-now" class="btn-reserve" style="font-size: 13px; padding: 14px 40px;">RESERVE COMPLIMENTARY STRATEGY SESSION →</a>
             </div>
         </div>
     </section>

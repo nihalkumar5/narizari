@@ -2,21 +2,229 @@
 
 <main class="section-padding">
     <div class="container">
-        <div class="reveal">
-            <p class="hero-tagline">• <%= pageTitle %></p>
-            <h1 style="font-size: 80px; margin-bottom: 40px;"><%= pageHeadline %></h1>
-            <div style="max-width: 800px; color: var(--text-secondary); font-size: 18px;">
+        
+        <!-- Standard Header (Dynamic text from app.js) -->
+        <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+            <p class="hero-tagline">• <%= pageTitle.toUpperCase() %></p>
+            <h1 style="font-size: clamp(38px, 5vw, 76px); font-weight: 300; margin-bottom: 25px; font-family: 'Outfit', sans-serif; line-height: 1.1;"><%= pageHeadline %></h1>
+            <div style="max-width: 800px; margin: 0 auto; color: var(--text-secondary); font-size: 17px; line-height: 1.6;">
                 <p><%= pageDescription %></p>
             </div>
         </div>
 
-        <!-- Dynamic content for each page can go here -->
-        <div class="reveal" style="margin-top: 80px;">
-            <div class="service-card" style="padding: 100px; text-align: center;">
-                <h3 style="font-size: 40px; margin-bottom: 20px;">Coming Soon</h3>
-                <p>We are currently weaving the digital experience for this section.</p>
+        <!-- DYNAMIC CONTENT SECTIONS BY ROUTE PATH -->
+
+        <!-- 1. INDUSTRIES & SECTORS PAGE -->
+        <% if (path === '/industries') { %>
+            <div class="reveal">
+                <div class="industry-grid">
+                    
+                    <!-- Card 1 -->
+                    <div class="industry-card">
+                        <span class="industry-tag">Heritage Scale</span>
+                        <h3>Varanasi Handlooms & Heritage Cooperatives</h3>
+                        <p>We work directly with generation-old weaving families and local cooperatives in Varanasi to establish direct global retail pathways, skipping middlemen and retaining premium profit margins for the artisans.</p>
+                        <ul class="industry-bullets">
+                            <li>Direct-to-Consumer (D2C) Launch blueprints</li>
+                            <li>Legacy Storytelling & Artisan Showcasing</li>
+                            <li>Fair-Trade Collective Branding Funnels</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="industry-card" style="border-color: rgba(166,141,106,0.25); background: rgba(166,141,106,0.02);">
+                        <span class="industry-tag" style="color: white;">Luxury Growth</span>
+                        <h3>Premium D2C Saree & Ethnicwear Brands</h3>
+                        <p>For modern designer boutiques and high-scale online saree stores aiming for hyper-growth. We deploy hyper-optimized conversion layouts and AI performance ads targeting high-ticket bridal buyers globally.</p>
+                        <ul class="industry-bullets">
+                            <li>12x+ ROAS Paid Campaign Architectures</li>
+                            <li>NRI Global Checkout & Multi-Currency Systems</li>
+                            <li>VIP WhatsApp Loyalty Funnels</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="industry-card">
+                        <span class="industry-tag">Logistics Scale</span>
+                        <h3>B2B Silk Exporters & Wholesalers</h3>
+                        <p>We build institutional trust for major textile mills, exporters, and wholesale operations, establishing digital credibility that attracts high-volume luxury bridal retailers from London to Dubai.</p>
+                        <ul class="industry-bullets">
+                            <li>High-Authority Lead Generation engines</li>
+                            <li>Digital Cataloguing & Video Audits</li>
+                            <li>Supply Chain Digitization Consults</li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
-        </div>
+
+            <!-- Parallax Heritage Visual Callout -->
+            <div class="reveal" style="margin-top: 100px; text-align: center;">
+                <div style="background: linear-gradient(135deg, rgba(24,5,8,0.8) 0%, rgba(166,141,106,0.1) 100%); border: 1px solid rgba(255,255,255,0.06); border-radius: 40px; padding: 60px 40px; max-width: 800px; margin: 0 auto;">
+                    <span class="option-icon" style="font-size: 40px; display: block; margin-bottom: 15px;">🏺</span>
+                    <h4 style="font-size: 22px; color: white; font-family: 'Outfit', sans-serif; font-weight: 300;">Weaving Cultural Integrity with Neural Precision</h4>
+                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Every Banarasi thread contains a story of dedication. Our technical strategy honors this heritage by ensuring every brand we work with maintains the highest creative standards.
+                    </p>
+                    <a href="/book-now" class="btn-reserve" style="margin-top: 30px; font-size: 11px;">DISCOVER YOUR BRAND VALUE</a>
+                </div>
+            </div>
+
+        <!-- 2. OUR TEAM / THE LAB PAGE -->
+        <% } else if (path === '/our-team') { %>
+            <div class="reveal">
+                
+                <div class="team-lab-grid">
+                    
+                    <!-- Team 1 -->
+                    <div class="architect-card">
+                        <div class="architect-avatar-wrapper">AM</div>
+                        <h3>Aditya Mehta</h3>
+                        <span class="architect-role">Chief Growth Architect</span>
+                        <p class="architect-desc">Ex-Growth Director for international fashion houses. Aditya engineers the AI paid search and social campaign engines that deliver our signature 12x+ ROAS benchmarks.</p>
+                    </div>
+
+                    <!-- Team 2 -->
+                    <div class="architect-card">
+                        <div class="architect-avatar-wrapper" style="background: linear-gradient(135deg, var(--accent-gold) 0%, #180508 100%);">SS</div>
+                        <h3>Shruti Sen</h3>
+                        <span class="architect-role">Chief Creative Officer</span>
+                        <p class="architect-desc">A premium editorial art director with 10+ years capturing Varanasi’s essence. Shruti oversees all cinematic films, photoshoots, and luxury packaging designs.</p>
+                    </div>
+
+                    <!-- Team 3 -->
+                    <div class="architect-card">
+                        <div class="architect-avatar-wrapper">KD</div>
+                        <h3>Kabir Das</h3>
+                        <span class="architect-role">Master Handloom Consultant</span>
+                        <p class="architect-desc">Generational weaver and heritage advisor. Kabir ensures every digital campaign and brand identity respects and represents the ancient authenticity of Banarasi silk.</p>
+                    </div>
+
+                    <!-- Team 4 -->
+                    <div class="architect-card">
+                        <div class="architect-avatar-wrapper">RS</div>
+                        <h3>Dr. Rhea Sharma</h3>
+                        <span class="architect-role">Principal AI Lead</span>
+                        <p class="architect-desc">PhD in Neural Personalization Systems. Rhea designs our proprietary audience segment models that connect NRI buyers with customized handloom designs.</p>
+                    </div>
+
+                </div>
+
+                <!-- Laboratory Principles Grid -->
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <span class="principle-num">01</span>
+                        <h4>Heritage First</h4>
+                        <p>We never compromise on cultural authenticity. The thread is ancient; the strategy is future.</p>
+                    </div>
+                    <div class="principle-card">
+                        <span class="principle-num">02</span>
+                        <h4>Precision Scale</h4>
+                        <p>We are obsessed with return. We build metrics-driven architectures designed to maximize profit.</p>
+                    </div>
+                    <div class="principle-card">
+                        <span class="principle-num">03</span>
+                        <h4>Cinematic Depth</h4>
+                        <p>No basic stock photos. We shoot premium, customized editorial visuals in Varanasi's ghats.</p>
+                    </div>
+                    <div class="principle-card">
+                        <span class="principle-num">04</span>
+                        <h4>Infinite Innovation</h4>
+                        <p>From AI-driven WhatsApp models to global multi-currency hubs, we continuously iterate.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        <!-- 3. BLOGS & ARTICLE PAGE -->
+        <% } else if (path === '/blogs') { %>
+            <div class="reveal">
+                
+                <!-- Featured Article Block -->
+                <div class="featured-blog-container">
+                    <div class="featured-content">
+                        <span class="blog-tag">• FEATURED ARTICLE •</span>
+                        <h2>The Digital Renaissance of Varanasi Weaving</h2>
+                        <p>Discover how generative artificial intelligence and high-speed e-commerce systems are allowing historic weaving families on Varanasi's ghats to bypass colonial-era middlemen and double their direct revenues by selling direct-to-consumer to luxury buyers in Dubai and New York.</p>
+                        <div class="blog-meta-footer" style="margin-bottom: 25px;">
+                            <span>By Shruti Sen</span>
+                            <span>•</span>
+                            <span>6 min read</span>
+                        </div>
+                        <a href="/book-now" class="btn-reserve" style="font-size: 11px;">READ THE FULL STORY →</a>
+                    </div>
+                    <div class="featured-visual-wrapper">
+                        Narizari Labs
+                    </div>
+                </div>
+
+                <!-- Blog Grid -->
+                <div class="normal-blogs-grid">
+                    
+                    <!-- Blog 1 -->
+                    <div class="blog-card">
+                        <span class="blog-tag">E-Commerce Strategy</span>
+                        <h3>How to Scale a Banarasi Saree Brand Online (12x ROAS Blueprint)</h3>
+                        <p>Deep-diving into high-intent targeting parameters, luxury Shopify landing optimizations, and setup guides for NRI customer retention.</p>
+                        <div class="blog-meta-footer">
+                            <span>By Aditya Mehta</span>
+                            <span>4 min read</span>
+                        </div>
+                    </div>
+
+                    <!-- Blog 2 -->
+                    <div class="blog-card">
+                        <span class="blog-tag">Audience Insights</span>
+                        <h3>Understanding the NRI Luxury Buyer: Key Festive Triggers</h3>
+                        <p>An anatomical look at high-value purchasers in London and Silicon Valley, their styling preferences, and how to configure multi-currency logistics.</p>
+                        <div class="blog-meta-footer">
+                            <span>By Dr. Rhea Sharma</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+
+                    <!-- Blog 3 -->
+                    <div class="blog-card">
+                        <span class="blog-tag">Conversion Science</span>
+                        <h3>Why Speed is the Golden Thread in Ethnicwear Conversion</h3>
+                        <p>How an 800ms delay in high-resolution saree page loading translates directly to a 24% drop in global cart completion, and how to optimize it.</p>
+                        <div class="blog-meta-footer">
+                            <span>By Dr. Rhea Sharma</span>
+                            <span>3 min read</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        <!-- 4. CONNECT / CONTACT PAGE -->
+        <% } else if (path === '/connect') { %>
+            <div class="reveal" style="text-align: center; margin-top: 50px;">
+                <div style="max-width: 600px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 60px 40px; border-radius: 30px;">
+                    <span class="option-icon" style="font-size: 40px; display: block; margin-bottom: 20px;">✉</span>
+                    <h3 style="font-size: 26px; color: white; font-family: 'Outfit', sans-serif; font-weight: 300; margin-bottom: 15px;">Initiate a Strategic Partnership</h3>
+                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-bottom: 35px;">
+                        Have a legacy loom, wholesale cooperative, or an emerging D2C brand? Let's connect you with our lead strategists to discuss how we can weave global growth for your business.
+                    </p>
+                    <a href="/book-now" class="btn-reserve" style="font-size: 12px; padding: 14px 40px; display: inline-block;">START DIRECT GROWTH ASSESSMENT →</a>
+                </div>
+            </div>
+
+        <!-- 5. DEFAULT GENERIC PAGES (Careers, Agency, etc.) -->
+        <% } else { %>
+            <div class="reveal" style="margin-top: 50px;">
+                <div class="service-card" style="padding: 100px; text-align: center; background: rgba(255,255,255,0.02);">
+                    <span class="option-icon" style="font-size: 48px; display: block; margin-bottom: 20px;">🛡️</span>
+                    <h3 style="font-size: 32px; margin-bottom: 20px; font-weight: 300; font-family: 'Outfit', sans-serif;">The Neural Laboratory</h3>
+                    <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 30px; font-size: 15px; line-height: 1.6;">
+                        We are currently weaving dynamic interactive case files for this section. In the meantime, discover how we can transform your specific digital channels.
+                    </p>
+                    <a href="/book-now" class="btn-reserve">APPLY FOR AUDIT CONSULTATION</a>
+                </div>
+            </div>
+        <% } %>
+
     </div>
 </main>
 

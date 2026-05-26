@@ -1,0 +1,151 @@
+<%- include('partials/header') %>
+
+<main class="section-padding">
+    <div class="booking-page-container">
+        
+        <!-- Header -->
+        <div class="booking-header reveal">
+            <span class="hero-tagline">• DIRECT STRATEGIC RESERVE</span>
+            <h1>Secure Your <span class="masked">Global Growth</span> Audit</h1>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary); font-size: 16px; line-height: 1.6;">
+                We only accept 3 premium Varanasi Saree or Ethnicwear brands per quarter to guarantee absolute dedication. Fill out our assessment to unlock a dedicated consulting strategy.
+            </p>
+            <div class="booking-urgency-banner">
+                ⚡ Only 2 complimentary strategic audit slots left for this month.
+            </div>
+        </div>
+
+        <!-- Luxury Multi-Step Form Wrapper -->
+        <div class="questionnaire-box reveal" style="margin-top: 50px;">
+            
+            <!-- Step Indicators -->
+            <div class="step-indicator-bar">
+                <div class="step-progress-line" id="step-progress"></div>
+                <div class="step-node active" data-step="1">1</div>
+                <div class="step-node" data-step="2">2</div>
+                <div class="step-node" data-step="3">3</div>
+                <div class="step-node" data-step="4">4</div>
+            </div>
+
+            <form id="saree-booking-form">
+                
+                <!-- STEP 1: Brand Stage -->
+                <div class="questionnaire-step active" data-step-type="stage" style="display: block;">
+                    <h3 class="step-title">What is your Saree/Ethnicwear brand's current stage?</h3>
+                    <div class="options-grid">
+                        <div class="luxury-option" data-value="legacy">
+                            <span class="option-icon">🏛️</span>
+                            <span class="option-title">Legacy Loom / Family Cooperative</span>
+                            <span class="option-desc">Centuries-old legacy ready for digital transformation and global direct scaling.</span>
+                        </div>
+                        <div class="luxury-option" data-value="d2c">
+                            <span class="option-icon">✨</span>
+                            <span class="option-title">Established D2C / Boutique</span>
+                            <span class="option-desc">Already selling online but looking to scale rapidly and dominate the luxury market.</span>
+                        </div>
+                        <div class="luxury-option" data-value="startup">
+                            <span class="option-icon">🚀</span>
+                            <span class="option-title">Emerging Startup Brand</span>
+                            <span class="option-desc">Launching soon or in early stages, wanting to build a luxurious foundation.</span>
+                        </div>
+                    </div>
+                    <div class="step-actions" style="justify-content: flex-end;">
+                        <!-- Auto-advances on click, but fallback next btn if needed -->
+                    </div>
+                </div>
+
+                <!-- STEP 2: Main Bottleneck -->
+                <div class="questionnaire-step" data-step-type="bottleneck">
+                    <h3 class="step-title">What is your brand's biggest bottleneck right now?</h3>
+                    <div class="options-grid">
+                        <div class="luxury-option" data-value="ads">
+                            <span class="option-icon">📈</span>
+                            <span class="option-title">Low Advertising Return (ROAS)</span>
+                            <span class="option-desc">Spending on Meta/Google ads but not generating highly profitable high-ticket purchases.</span>
+                        </div>
+                        <div class="luxury-option" data-value="conversions">
+                            <span class="option-icon">🛒</span>
+                            <span class="option-title">Website Drop-offs & Conversion</span>
+                            <span class="option-desc">Website traffic is high, but visitors are not purchasing your premium sarees.</span>
+                        </div>
+                        <div class="luxury-option" data-value="branding">
+                            <span class="option-icon">🎬</span>
+                            <span class="option-title">Lack of Luxury Editorial Appeal</span>
+                            <span class="option-desc">Struggling to showcase the absolute finest details and cinematic heritage of your weaves.</span>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button type="button" class="btn-back">← Back</button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Scale Goal -->
+                <div class="questionnaire-step" data-step-type="goal">
+                    <h3 class="step-title">What is your monthly online revenue scaling target?</h3>
+                    <div class="options-grid">
+                        <div class="luxury-option" data-value="tier1">
+                            <span class="option-icon">💎</span>
+                            <span class="option-title">Scale to ₹10 Lakhs / month</span>
+                            <span class="option-desc">Building strong core funnels and launching initial high-ROAS campaign engines.</span>
+                        </div>
+                        <div class="luxury-option" data-value="tier2">
+                            <span class="option-icon">👑</span>
+                            <span class="option-title">Scale to ₹50 Lakhs / month</span>
+                            <span class="option-desc">Accelerating Shopify architecture and expanding to domestic and NRI markets.</span>
+                        </div>
+                        <div class="luxury-option" data-value="tier3">
+                            <span class="option-icon">🔱</span>
+                            <span class="option-title">Scale to ₹1 Crore+ / month</span>
+                            <span class="option-desc">Complete market domination through AI modeling, omnichannel SEO, and VIP loyalty scaling.</span>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button type="button" class="btn-back">← Back</button>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Personal / Contact details -->
+                <div class="questionnaire-step" data-step-type="contact">
+                    <h3 class="step-title">Let's craft the threads of your growth. Who should we contact?</h3>
+                    
+                    <div style="max-width: 500px; margin: 0 auto;">
+                        <div class="luxury-input-group">
+                            <label for="client-name">Your Full Name</label>
+                            <input type="text" id="client-name" class="luxury-field" placeholder="e.g., Ananya Mishra" required>
+                        </div>
+                        
+                        <div class="luxury-input-group">
+                            <label for="brand-name">Loom / Saree Brand Name</label>
+                            <input type="text" id="brand-name" class="luxury-field" placeholder="e.g., Banaras Heritage Silks">
+                        </div>
+
+                        <div class="luxury-input-group">
+                            <label for="client-contact">Contact Details (Phone / Email)</label>
+                            <input type="text" id="client-contact" class="luxury-field" placeholder="e.g., +91 98765 43210 or contact@brand.com" required>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-back">← Back</button>
+                        <button type="submit" class="btn-reserve" style="font-size: 13px; padding: 14px 40px;">SUBMIT ASSESSMENT →</button>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- Success State -->
+            <div class="success-state" id="booking-success-state" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
+                <div class="success-ring">✓</div>
+                <h3 style="font-size: 28px; font-weight: 300; color: white; margin-bottom: 15px; font-family: 'Outfit', sans-serif;">Assessment Submitted Successfully</h3>
+                <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 35px; font-size: 15px; line-height: 1.6;">
+                    Our Chief Growth Architect will analyze your responses. We will reach out within 24 hours to present a customized digital scaling strategy tailored to your loom's unique heritage.
+                </p>
+                <a href="/" class="btn-reserve">RETURN HOME</a>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+<%- include('partials/footer') %>
