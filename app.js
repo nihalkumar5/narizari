@@ -21,6 +21,7 @@ const pages = [
     { path: '/industries', title: 'Industries', headline: 'Sectors We Transform', description: 'From traditional looms to global digital retail.' },
     { path: '/agency', title: 'Agency', headline: 'The Neural Laboratory', description: 'Our philosophy blends century-old craftsmanship with future-tech.' },
     { path: '/our-team', title: 'Our Team', headline: 'The Architects of Silk', description: 'A diverse group of AI researchers, designers, and textile experts.' },
+    { path: '/about', title: 'About Us', headline: 'The Legacy & Neural Loom', description: 'At home, with us. Weaving tradition and intelligence.' },
     { path: '/blogs', title: 'Blogs', headline: 'Silk & Intelligence', description: 'Insights, trends, and the future of Varanasi silk.' },
     { path: '/careers', title: 'Careers', headline: 'Join the Legacy', description: 'We are always looking for visionary minds to join our mission.' },
     { path: '/connect', title: 'Connect', headline: 'Start a Conversation', description: 'Let us discuss how we can elevate your brand to the global stage.' },
@@ -52,6 +53,13 @@ pages.forEach(page => {
             });
         } else if (page.path === '/branding') {
             res.render('branding', {
+                pageTitle: page.title,
+                pageHeadline: page.headline,
+                pageDescription: page.description,
+                path: page.path
+            });
+        } else if (page.path === '/about') {
+            res.render('about', {
                 pageTitle: page.title,
                 pageHeadline: page.headline,
                 pageDescription: page.description,
