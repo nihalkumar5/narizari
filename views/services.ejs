@@ -11,6 +11,19 @@
     transition: all 0.5s ease;
 }
 
+/* Transparent Nav Link Color Override for Light Background */
+#main-nav:not(.scrolled) .nav-links-wrapper a {
+    color: #24090D !important;
+    opacity: 0.85 !important;
+}
+#main-nav:not(.scrolled) .nav-links-wrapper a:hover {
+    color: var(--accent-gold) !important;
+    opacity: 1 !important;
+}
+#main-nav:not(.scrolled) .hamburger span {
+    background-color: #24090D !important;
+}
+
 @media (max-width: 991px) {
     .ser-hero-img {
         object-position: center 110px; /* Shifts the face down below the logo on mobile too */
