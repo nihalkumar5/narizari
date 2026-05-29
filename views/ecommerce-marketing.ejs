@@ -15,7 +15,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left 120px; /* Shifts the image to show the woman on the left, and pushes her face down below the logo */
+    object-position: left top; /* True full screen (no vertical offset) */
     opacity: 1;
     transition: all 0.5s ease;
 }
@@ -73,7 +73,7 @@
 
 @media (max-width: 991px) {
     .ecom-hero-img {
-        object-position: center 110px; /* Center image on mobile and show full face below logo */
+        object-position: center top; /* Center top on mobile too */
     }
     .ecom-hero-content {
         text-align: center;
@@ -94,7 +94,10 @@
 
 <main class="anatomy-main">
     
-    <section class="section-anatomy" style="padding-top: 190px; padding-bottom: 130px; position: relative; overflow: hidden; background: #1b0509; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+    <section class="section-anatomy" style="height: 100vh; min-height: 100vh; padding: 0; display: flex; align-items: center; overflow: hidden; position: relative; background-color: #FAF4F1;">
+        <!-- Subtle Premium Vignette for White Header Readability (True Full-Screen!) -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 160px; background: linear-gradient(to bottom, rgba(27, 5, 9, 0.45) 0%, rgba(27, 5, 9, 0) 100%); z-index: 2; pointer-events: none;"></div>
+        
         <div class="ecom-hero-bg">
             <img src="/ecom1.jpg" alt="eCommerce & Marketing Suite Background" class="ecom-hero-img">
             <div class="ecom-hero-overlay"></div>

@@ -6,7 +6,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left 90px; /* Shifts her head higher up closer to the header */
+    object-position: left top; /* True full screen (no vertical offset) */
     opacity: 1;
     transition: all 0.5s ease;
 }
@@ -24,7 +24,7 @@
 
 @media (max-width: 991px) {
     .ser-hero-img {
-        object-position: center 80px; /* Shifts her head higher up on mobile too */
+        object-position: center top; /* Center top on mobile too */
     }
     
     .ser-hero-content {
@@ -43,30 +43,15 @@
     }
 }
 
-/* Solid header background bar (no gradient) */
-.ser-hero-header-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background-color: #1b0509;
-    z-index: 1;
-}
-
-@media (max-width: 991px) {
-    .ser-hero-header-bar {
-        height: 110px;
-    }
-}
+/* Solid header background bar is now removed for full-screen layout */
 </style>
 
 <main class="anatomy-main">
     
     <!-- 1. HERO SECTION (Light/Aligned Full-Screen) -->
     <section class="section-anatomy section-light-anatomy" style="height: 100vh; min-height: 100vh; padding: 0; display: flex; align-items: center; overflow: hidden; position: relative; background-color: #FAF4F1;">
-        <!-- Solid Burgundy Header Background Bar (No Gradient!) -->
-        <div class="ser-hero-header-bar"></div>
+        <!-- Subtle Premium Vignette for White Header Readability (True Full-Screen!) -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 160px; background: linear-gradient(to bottom, rgba(27, 5, 9, 0.45) 0%, rgba(27, 5, 9, 0) 100%); z-index: 2; pointer-events: none;"></div>
 
         <!-- Background Image -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
