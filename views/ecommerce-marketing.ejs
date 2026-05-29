@@ -2,13 +2,18 @@
 
 <main class="anatomy-main">
     
-    <!-- 1. HERO SECTION (Dark Luxury) -->
-    <section class="section-anatomy" style="padding-top: 180px; padding-bottom: 120px; position: relative; overflow: hidden; background: linear-gradient(180deg, #1b0509 0%, #24090D 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-        <!-- Floating Ambient Orbs -->
-        <div class="egf-orb" style="width: 500px; height: 500px; top: -100px; left: -150px; background: radial-gradient(circle, rgba(166,141,106,0.08) 0%, transparent 70%); pointer-events: none; position: absolute; filter: blur(80px); z-index: 0;"></div>
-        <div class="egf-orb" style="width: 450px; height: 450px; bottom: -50px; right: -100px; background: radial-gradient(circle, rgba(166,141,106,0.05) 0%, transparent 70%); pointer-events: none; position: absolute; filter: blur(80px); z-index: 0;"></div>
+    <section class="section-anatomy" style="padding-top: 180px; padding-bottom: 120px; position: relative; overflow: hidden; background: #1b0509; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+        <!-- Background Image with Dark Vignette Overlay -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+            <img src="/ecom.jpg" alt="eCommerce & Marketing Suite Background" style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.16; filter: grayscale(10%) contrast(110%);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27, 5, 9, 0.8) 0%, #24090D 100%);"></div>
+        </div>
 
-        <div class="container-anatomy" style="position: relative; z-index: 1;">
+        <!-- Floating Ambient Orbs -->
+        <div class="egf-orb" style="width: 500px; height: 500px; top: -100px; left: -150px; background: radial-gradient(circle, rgba(166,141,106,0.08) 0%, transparent 70%); pointer-events: none; position: absolute; filter: blur(80px); z-index: 1;"></div>
+        <div class="egf-orb" style="width: 450px; height: 450px; bottom: -50px; right: -100px; background: radial-gradient(circle, rgba(166,141,106,0.05) 0%, transparent 70%); pointer-events: none; position: absolute; filter: blur(80px); z-index: 1;"></div>
+
+        <div class="container-anatomy" style="position: relative; z-index: 2;">
             <div style="text-align: center; max-width: 800px; margin: 0 auto;">
                 <span class="glass-badge-anatomy reveal">• TACTICAL CO-PILOT</span>
                 <h1 class="section-title-anatomy reveal" style="font-size: clamp(36px, 5.5vw, 72px); line-height: 1.15; margin-top: 20px;">
