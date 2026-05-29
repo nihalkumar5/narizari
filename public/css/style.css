@@ -28,7 +28,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #25090e 0%, #3e1017 35%, #561822 70%, #762736 100%);
+    background: radial-gradient(ellipse at 20% 0%, #3e0f17 0%, #1e050a 60%, #0d0204 100%);
     z-index: -100;
     pointer-events: none;
 }
@@ -434,9 +434,9 @@ body {
 
 .main-heading {
     font-family: 'Outfit', sans-serif;
-    font-size: clamp(60px, 10vw, 140px);
-    font-weight: 400;
-    line-height: 0.9;
+    font-size: clamp(44px, 7vw, 100px);
+    font-weight: 300;
+    line-height: 1.0;
     margin-bottom: 30px;
     letter-spacing: -0.02em;
     color: #FFFFFF;
@@ -2001,5 +2001,275 @@ body {
         transform: none !important;
         transition: none !important;
         opacity: 1 !important;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM FOOTER — NARIZARI
+═══════════════════════════════════════════════════════════════ */
+
+.nz-footer {
+    position: relative;
+    background: #060102;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Subtle top ambient glow */
+.nz-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(166,141,106,0.4), transparent);
+    pointer-events: none;
+}
+
+.nz-footer-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(166,141,106,0.2) 30%, rgba(166,141,106,0.5) 50%, rgba(166,141,106,0.2) 70%, transparent 100%);
+}
+
+/* ── Footer Body ── */
+.nz-footer-body {
+    padding: 80px 60px 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.nz-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 60px;
+}
+
+/* ── Brand Column ── */
+.nz-footer-logo {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #FFFFFF 30%, var(--accent-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity 0.3s ease;
+}
+
+.nz-footer-logo:hover {
+    opacity: 0.8;
+}
+
+.nz-footer-tagline {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.38);
+    margin-bottom: 28px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+}
+
+.nz-footer-socials {
+    display: flex;
+    gap: 10px;
+}
+
+.nz-social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.03);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+}
+
+.nz-social-btn:hover {
+    border-color: rgba(166,141,106,0.5);
+    color: var(--accent-gold);
+    background: rgba(166,141,106,0.08);
+    transform: translateY(-2px);
+}
+
+/* ── Nav Columns ── */
+.nz-footer-col-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 24px;
+    font-family: 'Inter', sans-serif;
+}
+
+.nz-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.nz-footer-links li a,
+.nz-footer-links li span {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.nz-footer-links li a:hover {
+    color: rgba(255,255,255,0.85);
+}
+
+/* ── Contact Column ── */
+.nz-footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.nz-footer-contact li svg {
+    margin-top: 1px;
+    flex-shrink: 0;
+    opacity: 0.35;
+    color: var(--accent-gold);
+}
+
+.nz-footer-cta {
+    display: inline-block;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase;
+    color: var(--accent-gold) !important;
+    border: 1px solid rgba(166,141,106,0.3) !important;
+    border-radius: 100px;
+    padding: 10px 22px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    text-decoration: none;
+}
+
+.nz-footer-cta:hover {
+    background: rgba(166,141,106,0.1) !important;
+    border-color: rgba(166,141,106,0.7) !important;
+    color: #c9a86b !important;
+    transform: translateY(-1px);
+}
+
+/* ── Wordmark Hover Section ── */
+.nz-footer-wordmark-section {
+    padding: 0 0 0;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    overflow: hidden;
+}
+
+.nz-footer-wordmark-wrap {
+    position: relative;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.nz-hover-text {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: default;
+    user-select: none;
+}
+
+.nz-text-base {
+    transition: stroke 0.3s ease;
+}
+
+.nz-footer-wordmark-wrap:hover .nz-text-base {
+    stroke: rgba(255,255,255,0.09);
+}
+
+/* ── Bottom Bar ── */
+.nz-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px 28px;
+    max-width: 1300px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.nz-footer-copyright {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.05em;
+}
+
+.nz-footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nz-footer-legal a {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+}
+
+.nz-footer-legal a:hover {
+    color: rgba(255,255,255,0.5);
+}
+
+.nz-sep {
+    color: rgba(255,255,255,0.1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .nz-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+
+    .nz-footer-body {
+        padding: 60px 40px 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .nz-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .nz-footer-body {
+        padding: 50px 24px 30px;
+    }
+
+    .nz-footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 24px 24px;
+        text-align: center;
+    }
+
+    .nz-footer-wordmark-wrap {
+        padding: 0 10px;
     }
 }
