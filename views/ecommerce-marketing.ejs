@@ -1,11 +1,78 @@
 <%- include('partials/header') %>
 
+<style>
+/* Responsive Hero Overrides for ecom.jpg */
+.ecom-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+.ecom-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 68% 10%; /* Shifts the image slightly right and pushes it down to show the face fully */
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+.ecom-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #1b0509 0%, #1b0509 35%, rgba(27, 5, 9, 0.7) 60%, rgba(27, 5, 9, 0) 100%);
+    z-index: 1;
+}
+
+.ecom-hero-content {
+    text-align: left;
+    max-width: 640px;
+    margin: 0 auto 0 0;
+    padding-right: 20px;
+}
+.ecom-hero-sub {
+    margin: 30px 0 45px 0;
+    text-align: left;
+    max-width: 620px;
+    font-size: clamp(16px, 1.8vw, 19px);
+}
+.ecom-hero-ctas {
+    justify-content: flex-start;
+}
+
+@media (max-width: 991px) {
+    .ecom-hero-img {
+        object-position: center 10%; /* Center image on mobile and show full face */
+    }
+    .ecom-hero-overlay {
+        background: linear-gradient(180deg, rgba(27, 5, 9, 0.45) 0%, rgba(27, 5, 9, 0.85) 60%, #1b0509 100%);
+    }
+    .ecom-hero-content {
+        text-align: center;
+        max-width: 100%;
+        margin: 0 auto;
+        padding-right: 0;
+    }
+    .ecom-hero-sub {
+        margin: 30px auto 45px auto;
+        text-align: center;
+        max-width: 680px;
+    }
+    .ecom-hero-ctas {
+        justify-content: center;
+    }
+}
+</style>
+
 <main class="anatomy-main">
     
-    <section class="section-anatomy" style="padding-top: 180px; padding-bottom: 120px; position: relative; overflow: hidden; background: #1b0509; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-        <!-- Background Image at Full Opacity -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
-            <img src="/ecom.jpg" alt="eCommerce & Marketing Suite Background" style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 1;">
+    <section class="section-anatomy" style="padding-top: 190px; padding-bottom: 130px; position: relative; overflow: hidden; background: #1b0509; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+        <!-- Background Image at Full Opacity shifted to Right, with horizontal luxury fade -->
+        <div class="ecom-hero-bg">
+            <img src="/ecom.jpg" alt="eCommerce & Marketing Suite Background" class="ecom-hero-img">
+            <div class="ecom-hero-overlay"></div>
         </div>
 
         <!-- Floating Ambient Orbs -->
@@ -13,15 +80,15 @@
         <div class="egf-orb" style="width: 450px; height: 450px; bottom: -50px; right: -100px; background: radial-gradient(circle, rgba(166,141,106,0.05) 0%, transparent 70%); pointer-events: none; position: absolute; filter: blur(80px); z-index: 1;"></div>
 
         <div class="container-anatomy" style="position: relative; z-index: 2;">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <span class="glass-badge-anatomy reveal">• TACTICAL CO-PILOT</span>
-                <h1 class="section-title-anatomy reveal" style="font-size: clamp(36px, 5.5vw, 72px); line-height: 1.15; margin-top: 20px;">
+            <div class="ecom-hero-content reveal">
+                <span class="glass-badge-anatomy">• TACTICAL CO-PILOT</span>
+                <h1 class="section-title-anatomy" style="font-size: clamp(36px, 5.5vw, 72px); line-height: 1.15; margin-top: 20px;">
                     eCommerce & <br><span class="masked">Marketing Suite</span>
                 </h1>
-                <p class="section-subtitle-anatomy reveal" style="margin: 30px auto 45px auto; text-align: center; max-width: 680px; font-size: clamp(16px, 1.8vw, 19px); line-height: 1.7; font-weight: 200;">
+                <p class="section-subtitle-anatomy ecom-hero-sub" style="font-weight: 200; line-height: 1.7;">
                     We quietly manage the systems behind growth—commerce, marketing, retention, and operations—so luxury brands can focus on creating exceptional products.
                 </p>
-                <div class="hero-cta-row reveal" style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <div class="hero-cta-row ecom-hero-ctas" style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
                     <a href="/book-now" class="btn-anatomy-primary" style="font-size: 11px; padding: 16px 36px; border-radius: 30px;">Book Growth Consultation</a>
                     <a href="#growth-architecture" class="btn-anatomy-secondary" style="font-size: 11px; padding: 16px 36px; border-radius: 30px;">Explore Framework</a>
                 </div>
