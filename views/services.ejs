@@ -156,43 +156,145 @@
         </div>
     </section>
 
-    <!-- 3. THE STRUGGLE (Why Most Fashion Brands Struggle) -->
-    <section class="section-anatomy section-light-anatomy reveal" id="struggle" style="background-color: #FAF4F1; padding: 120px 0;">
+    <!-- 3. THE STRUGGLE — Split Layout (Image + FAQ Accordion) -->
+    <section class="section-anatomy section-light-anatomy" id="struggle" style="background-color: #FAF4F1; padding: 120px 0; overflow: hidden;">
         <div class="container-anatomy">
-            <div class="reveal" style="text-align: center; margin-bottom: 80px;">
+
+            <!-- Section Label + Title (centered above) -->
+            <div class="reveal" style="text-align: center; margin-bottom: 70px;">
                 <span class="section-label-anatomy" style="color: #8c7453;">• WHY MOST FASHION BRANDS STRUGGLE</span>
-                <h2 class="section-title-anatomy" style="color: #24090D; font-family: var(--font-serif); font-size: clamp(34px, 4.5vw, 54px); font-weight: 300; margin-top: 15px;">
+                <h2 class="section-title-anatomy" style="color: #24090D; font-family: var(--font-serif); font-size: clamp(28px, 3.5vw, 46px); font-weight: 300; margin-top: 15px; max-width: 700px; margin-left: auto; margin-right: auto;">
                     More Traffic Doesn't Automatically Create More Revenue
                 </h2>
             </div>
 
-            <!-- 3-Column Layout -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-                
-                <!-- Problem 01 -->
-                <div class="glass-panel-anatomy" style="background: rgba(36, 9, 13, 0.03); border: 1px solid rgba(36, 9, 13, 0.08); padding: 50px 40px; border-radius: 32px; display: flex; flex-direction: column; justify-content: flex-start; transition: var(--transition-smooth);">
-                    <span style="font-family: var(--font-sans); font-size: 11px; font-weight: 600; color: #8c7453; letter-spacing: 0.2em; display: block; margin-bottom: 25px;">PROBLEM 01</span>
-                    <h3 style="font-family: var(--font-serif); font-size: 26px; font-weight: 300; color: #24090D; margin-bottom: 15px; line-height: 1.3;">Beautiful products.</h3>
-                    <p style="font-size: 15px; line-height: 1.6; color: rgba(36, 9, 13, 0.7); margin: 0;">Poor digital experience.</p>
+            <!-- Split: Image + Accordion -->
+            <div class="struggle-split reveal">
+
+                <!-- LEFT: Image -->
+                <div class="struggle-image-col">
+                    <div class="struggle-img-wrap">
+                        <img src="/saree_fashion_editorial_1778574464550.png" alt="Fashion Brand Struggles" class="struggle-img">
+                        <!-- Floating stat badge -->
+                        <div class="struggle-badge">
+                            <span class="struggle-badge-num">83%</span>
+                            <span class="struggle-badge-label">of fashion brands fail to convert traffic into loyal buyers</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Problem 02 -->
-                <div class="glass-panel-anatomy" style="background: rgba(36, 9, 13, 0.03); border: 1px solid rgba(36, 9, 13, 0.08); padding: 50px 40px; border-radius: 32px; display: flex; flex-direction: column; justify-content: flex-start; transition: var(--transition-smooth);">
-                    <span style="font-family: var(--font-sans); font-size: 11px; font-weight: 600; color: #8c7453; letter-spacing: 0.2em; display: block; margin-bottom: 25px;">PROBLEM 02</span>
-                    <h3 style="font-family: var(--font-serif); font-size: 26px; font-weight: 300; color: #24090D; margin-bottom: 15px; line-height: 1.3;">Marketing generates clicks.</h3>
-                    <p style="font-size: 15px; line-height: 1.6; color: rgba(36, 9, 13, 0.7); margin: 0;">Not profitable customers.</p>
-                </div>
+                <!-- RIGHT: FAQ Accordion -->
+                <div class="struggle-faq-col">
 
-                <!-- Problem 03 -->
-                <div class="glass-panel-anatomy" style="background: rgba(36, 9, 13, 0.03); border: 1px solid rgba(36, 9, 13, 0.08); padding: 50px 40px; border-radius: 32px; display: flex; flex-direction: column; justify-content: flex-start; transition: var(--transition-smooth);">
-                    <span style="font-family: var(--font-sans); font-size: 11px; font-weight: 600; color: #8c7453; letter-spacing: 0.2em; display: block; margin-bottom: 25px;">PROBLEM 03</span>
-                    <h3 style="font-family: var(--font-serif); font-size: 26px; font-weight: 300; color: #24090D; margin-bottom: 15px; line-height: 1.3;">Strong collections.</h3>
-                    <p style="font-size: 15px; line-height: 1.6; color: rgba(36, 9, 13, 0.7); margin: 0;">Weak brand perception.</p>
-                </div>
+                    <!-- Item 01 -->
+                    <div class="struggle-faq-item" id="faq-01">
+                        <button class="struggle-faq-trigger" aria-expanded="false" aria-controls="faq-body-01" onclick="toggleFaq(this)">
+                            <div class="struggle-faq-trigger-left">
+                                <span class="struggle-faq-num">01</span>
+                                <div>
+                                    <span class="struggle-faq-tag">Beautiful products.</span>
+                                    <span class="struggle-faq-sub">Poor digital experience.</span>
+                                </div>
+                            </div>
+                            <span class="struggle-faq-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+                            </span>
+                        </button>
+                        <div class="struggle-faq-body" id="faq-body-01" role="region" hidden>
+                            <div class="struggle-faq-content">
+                                <p>Your sarees are exquisite — hand-woven with centuries of craft. But a slow-loading Shopify store, cluttered product pages, and a generic checkout experience silently kill your conversion rate before a customer ever reaches the cart.</p>
+                                <p>Narizari engineers the entire digital journey — from first scroll to final payment — to mirror the tactile luxury of your physical showroom. We turn browsers into believers, and believers into buyers.</p>
+                                <a href="/ecommerce-marketing" class="struggle-faq-link">Explore our eCommerce Suite →</a>
+                            </div>
+                        </div>
+                    </div>
 
-            </div>
+                    <!-- Item 02 -->
+                    <div class="struggle-faq-item" id="faq-02">
+                        <button class="struggle-faq-trigger" aria-expanded="false" aria-controls="faq-body-02" onclick="toggleFaq(this)">
+                            <div class="struggle-faq-trigger-left">
+                                <span class="struggle-faq-num">02</span>
+                                <div>
+                                    <span class="struggle-faq-tag">Marketing generates clicks.</span>
+                                    <span class="struggle-faq-sub">Not profitable customers.</span>
+                                </div>
+                            </div>
+                            <span class="struggle-faq-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+                            </span>
+                        </button>
+                        <div class="struggle-faq-body" id="faq-body-02" role="region" hidden>
+                            <div class="struggle-faq-content">
+                                <p>Running Meta or Google ads without a precision targeting system is like weaving silk on a broken loom — effort without output. Most fashion brands attract high volumes of low-intent traffic that drains budget and delivers little ROI.</p>
+                                <p>We deploy AI-modeled audience systems that identify high-intent NRI and luxury ethnic wear buyers globally. Our campaigns average 12x+ ROAS — because we target people ready to invest in heritage, not just browse it.</p>
+                                <a href="/digital-marketing" class="struggle-faq-link">See how we scale campaigns →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 03 -->
+                    <div class="struggle-faq-item" id="faq-03">
+                        <button class="struggle-faq-trigger" aria-expanded="false" aria-controls="faq-body-03" onclick="toggleFaq(this)">
+                            <div class="struggle-faq-trigger-left">
+                                <span class="struggle-faq-num">03</span>
+                                <div>
+                                    <span class="struggle-faq-tag">Strong collections.</span>
+                                    <span class="struggle-faq-sub">Weak brand perception.</span>
+                                </div>
+                            </div>
+                            <span class="struggle-faq-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+                            </span>
+                        </button>
+                        <div class="struggle-faq-body" id="faq-body-03" role="region" hidden>
+                            <div class="struggle-faq-content">
+                                <p>A Banarasi saree that sells for ₹8,000 in a Varanasi lane should command ₹40,000 online — if the brand narrative matches the product's true worth. Most brands undervalue themselves because their visual identity and storytelling don't communicate luxury.</p>
+                                <p>We build cinematic brand identities rooted in your heritage. Editorial shoots along the ghats, custom visual DNA systems, and luxury packaging design — all engineered to position your brand where it belongs: at the top.</p>
+                                <a href="/branding" class="struggle-faq-link">Explore Creative Branding →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- end .struggle-faq-col -->
+            </div><!-- end .struggle-split -->
+
         </div>
     </section>
+
+    <script>
+    function toggleFaq(btn) {
+        const bodyId = btn.getAttribute('aria-controls');
+        const body = document.getElementById(bodyId);
+        const icon = btn.querySelector('.struggle-faq-icon svg');
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        const allItems = document.querySelectorAll('.struggle-faq-trigger');
+
+        // Close all
+        allItems.forEach(function(b) {
+            const bId = b.getAttribute('aria-controls');
+            const bBody = document.getElementById(bId);
+            const bIcon = b.querySelector('.struggle-faq-icon svg');
+            b.setAttribute('aria-expanded', 'false');
+            b.closest('.struggle-faq-item').classList.remove('is-open');
+            if (bBody) {
+                bBody.style.maxHeight = '0px';
+                setTimeout(function() { if (b.getAttribute('aria-expanded') === 'false') bBody.hidden = true; }, 400);
+            }
+            if (bIcon) bIcon.style.transform = 'rotate(0deg)';
+        });
+
+        // Open clicked (if it was closed)
+        if (!isOpen) {
+            btn.setAttribute('aria-expanded', 'true');
+            btn.closest('.struggle-faq-item').classList.add('is-open');
+            body.hidden = false;
+            requestAnimationFrame(function() {
+                body.style.maxHeight = body.scrollHeight + 'px';
+            });
+            if (icon) icon.style.transform = 'rotate(45deg)';
+        }
+    }
+    </script>
 
     <!-- 4. ENGAGEMENT TIERS (Dark) -->
     <section class="section-anatomy reveal" id="tiers" style="background-color: #120305; padding: 120px 0;">
