@@ -20,10 +20,7 @@
     transition: all 0.5s ease;
 }
 .ecom-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, #1b0509 0%, #1b0509 35%, rgba(27, 5, 9, 0.7) 60%, rgba(27, 5, 9, 0) 100%);
-    z-index: 1;
+    display: none; /* No gradient overlay! Raw opaque image */
 }
 
 .ecom-hero-content {
@@ -37,17 +34,55 @@
     text-align: left;
     max-width: 620px;
     font-size: clamp(16px, 1.8vw, 19px);
+    color: rgba(24, 5, 8, 0.85) !important;
+    text-shadow: none !important;
 }
 .ecom-hero-ctas {
     justify-content: flex-start;
 }
 
+/* Dark Typography & Elements for Opaque Light Image Background */
+.ecom-hero-content h1 {
+    color: #180508 !important;
+    text-shadow: none !important;
+}
+.ecom-hero-content h1 .masked {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #8c7453 !important;
+    color: #8c7453 !important;
+    -webkit-text-stroke: 0px !important;
+    text-shadow: none !important;
+    display: inline-block;
+}
+.ecom-hero-content .glass-badge-anatomy {
+    color: #180508 !important;
+    border-color: rgba(24, 5, 8, 0.3) !important;
+    background: rgba(24, 5, 8, 0.05) !important;
+    text-shadow: none !important;
+}
+.ecom-hero-ctas .btn-anatomy-secondary {
+    border-color: rgba(24, 5, 8, 0.45) !important;
+    color: #180508 !important;
+}
+.ecom-hero-ctas .btn-anatomy-secondary:hover {
+    background: rgba(24, 5, 8, 0.08) !important;
+    color: #180508 !important;
+}
+.ecom-hero-ctas .btn-anatomy-primary {
+    background: #180508 !important;
+    color: #ffffff !important;
+    border-color: #180508 !important;
+}
+.ecom-hero-ctas .btn-anatomy-primary:hover {
+    background: #3e0f17 !important;
+    border-color: #3e0f17 !important;
+    color: #ffffff !important;
+}
+
 @media (max-width: 991px) {
     .ecom-hero-img {
         object-position: center 10%; /* Center image on mobile and show full face */
-    }
-    .ecom-hero-overlay {
-        background: linear-gradient(180deg, rgba(27, 5, 9, 0.45) 0%, rgba(27, 5, 9, 0.85) 60%, #1b0509 100%);
     }
     .ecom-hero-content {
         text-align: center;
