@@ -1,151 +1,243 @@
 <%- include('partials/header') %>
 
-<main class="section-padding">
-    <div class="booking-page-container">
-        
-        <!-- Header -->
-        <div class="booking-header reveal">
-            <span class="hero-tagline">• DIRECT STRATEGIC RESERVE</span>
-            <h1>Secure Your <span class="masked">Global Growth</span> Audit</h1>
-            <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary); font-size: 16px; line-height: 1.6;">
-                We only accept 3 premium Varanasi Saree or Ethnicwear brands per quarter to guarantee absolute dedication. Fill out our assessment to unlock a dedicated consulting strategy.
-            </p>
-            <div class="booking-urgency-banner">
-                ⚡ Only 2 complimentary strategic audit slots left for this month.
-            </div>
-        </div>
-
-        <!-- Luxury Multi-Step Form Wrapper -->
-        <div class="questionnaire-box reveal" style="margin-top: 50px;">
+<main class="anatomy-main">
+    <section class="section-anatomy section-light-anatomy" style="padding-top: 160px; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-bottom: 100px;">
+        <div class="container-anatomy" style="width: 100%;">
             
-            <!-- Step Indicators -->
-            <div class="step-indicator-bar">
-                <div class="step-progress-line" id="step-progress"></div>
-                <div class="step-node active" data-step="1">1</div>
-                <div class="step-node" data-step="2">2</div>
-                <div class="step-node" data-step="3">3</div>
-                <div class="step-node" data-step="4">4</div>
+            <!-- Header -->
+            <div class="booking-header reveal" style="text-align: center; margin-bottom: 50px;">
+                <span class="section-label-anatomy">• DIRECT STRATEGIC RESERVE</span>
+                <h1 class="section-title-anatomy">Secure Your <span class="masked">Global Growth</span> Audit</h1>
+                <p class="section-subtitle-anatomy" style="max-width: 600px; margin: 20px auto 0; font-size: 16px; line-height: 1.6;">
+                    We only accept 3 premium Varanasi Saree or Ethnicwear brands per quarter to guarantee absolute dedication. Fill out our assessment to unlock a dedicated consulting strategy.
+                </p>
+                <div class="booking-urgency-banner" style="margin-top: 25px; display: inline-block; font-size: 11px; color: var(--brand-burgundy); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">
+                    ⚡ Only 2 complimentary strategic audit slots left for this month.
+                </div>
             </div>
 
-            <form id="saree-booking-form">
+            <!-- Luxury Multi-Step Form Wrapper -->
+            <div class="glass-panel-anatomy questionnaire-box reveal" style="margin: 0 auto; max-width: 800px; padding: 50px; border-radius: 32px;">
                 
-                <!-- STEP 1: Brand Stage -->
-                <div class="questionnaire-step active" data-step-type="stage" style="display: block;">
-                    <h3 class="step-title">What is your Saree/Ethnicwear brand's current stage?</h3>
-                    <div class="options-grid">
-                        <div class="luxury-option" data-value="legacy">
-                            <span class="option-icon">🏛️</span>
-                            <span class="option-title">Legacy Loom / Family Cooperative</span>
-                            <span class="option-desc">Centuries-old legacy ready for digital transformation and global direct scaling.</span>
-                        </div>
-                        <div class="luxury-option" data-value="d2c">
-                            <span class="option-icon">✨</span>
-                            <span class="option-title">Established D2C / Boutique</span>
-                            <span class="option-desc">Already selling online but looking to scale rapidly and dominate the luxury market.</span>
-                        </div>
-                        <div class="luxury-option" data-value="startup">
-                            <span class="option-icon">🚀</span>
-                            <span class="option-title">Emerging Startup Brand</span>
-                            <span class="option-desc">Launching soon or in early stages, wanting to build a luxurious foundation.</span>
-                        </div>
-                    </div>
-                    <div class="step-actions" style="justify-content: flex-end;">
-                        <!-- Auto-advances on click, but fallback next btn if needed -->
-                    </div>
+                <!-- Step Indicators -->
+                <div class="step-indicator-bar" style="display: flex; justify-content: space-between; position: relative; margin-bottom: 40px; align-items: center;">
+                    <div class="step-progress-line" id="step-progress" style="position: absolute; top: 50%; left: 0; width: 0%; height: 1px; background: var(--accent-gold); z-index: 1; transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);"></div>
+                    <div class="step-node active" data-step="1" style="width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--accent-gold); background: #24090D; color: white; display: flex; align-items: center; justify-content: center; font-size: 11px; z-index: 2;">1</div>
+                    <div class="step-node" data-step="2" style="width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); background: #24090D; color: rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; font-size: 11px; z-index: 2;">2</div>
+                    <div class="step-node" data-step="3" style="width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); background: #24090D; color: rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; font-size: 11px; z-index: 2;">3</div>
+                    <div class="step-node" data-step="4" style="width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); background: #24090D; color: rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; font-size: 11px; z-index: 2;">4</div>
                 </div>
 
-                <!-- STEP 2: Main Bottleneck -->
-                <div class="questionnaire-step" data-step-type="bottleneck">
-                    <h3 class="step-title">What is your brand's biggest bottleneck right now?</h3>
-                    <div class="options-grid">
-                        <div class="luxury-option" data-value="ads">
-                            <span class="option-icon">📈</span>
-                            <span class="option-title">Low Advertising Return (ROAS)</span>
-                            <span class="option-desc">Spending on Meta/Google ads but not generating highly profitable high-ticket purchases.</span>
-                        </div>
-                        <div class="luxury-option" data-value="conversions">
-                            <span class="option-icon">🛒</span>
-                            <span class="option-title">Website Drop-offs & Conversion</span>
-                            <span class="option-desc">Website traffic is high, but visitors are not purchasing your premium sarees.</span>
-                        </div>
-                        <div class="luxury-option" data-value="branding">
-                            <span class="option-icon">🎬</span>
-                            <span class="option-title">Lack of Luxury Editorial Appeal</span>
-                            <span class="option-desc">Struggling to showcase the absolute finest details and cinematic heritage of your weaves.</span>
-                        </div>
-                    </div>
-                    <div class="step-actions">
-                        <button type="button" class="btn-back">← Back</button>
-                    </div>
-                </div>
-
-                <!-- STEP 3: Scale Goal -->
-                <div class="questionnaire-step" data-step-type="goal">
-                    <h3 class="step-title">What is your monthly online revenue scaling target?</h3>
-                    <div class="options-grid">
-                        <div class="luxury-option" data-value="tier1">
-                            <span class="option-icon">💎</span>
-                            <span class="option-title">Scale to ₹10 Lakhs / month</span>
-                            <span class="option-desc">Building strong core funnels and launching initial high-ROAS campaign engines.</span>
-                        </div>
-                        <div class="luxury-option" data-value="tier2">
-                            <span class="option-icon">👑</span>
-                            <span class="option-title">Scale to ₹50 Lakhs / month</span>
-                            <span class="option-desc">Accelerating Shopify architecture and expanding to domestic and NRI markets.</span>
-                        </div>
-                        <div class="luxury-option" data-value="tier3">
-                            <span class="option-icon">🔱</span>
-                            <span class="option-title">Scale to ₹1 Crore+ / month</span>
-                            <span class="option-desc">Complete market domination through AI modeling, omnichannel SEO, and VIP loyalty scaling.</span>
-                        </div>
-                    </div>
-                    <div class="step-actions">
-                        <button type="button" class="btn-back">← Back</button>
-                    </div>
-                </div>
-
-                <!-- STEP 4: Personal / Contact details -->
-                <div class="questionnaire-step" data-step-type="contact">
-                    <h3 class="step-title">Let's craft the threads of your growth. Who should we contact?</h3>
+                <form id="saree-booking-form">
                     
-                    <div style="max-width: 500px; margin: 0 auto;">
-                        <div class="luxury-input-group">
-                            <label for="client-name">Your Full Name</label>
-                            <input type="text" id="client-name" class="luxury-field" placeholder="e.g., Ananya Mishra" required>
+                    <!-- STEP 1: Brand Stage -->
+                    <div class="questionnaire-step active" data-step-type="stage" style="display: block;">
+                        <h3 class="step-title" style="font-family: var(--font-serif); font-size: 24px; font-weight: 300; margin-bottom: 30px; text-align: center; color: white;">What is your Saree/Ethnicwear brand's current stage?</h3>
+                        <div class="options-grid">
+                            <div class="luxury-option" data-value="legacy">
+                                <span class="option-icon">🏛️</span>
+                                <span class="option-title">Legacy Loom / Family Cooperative</span>
+                                <span class="option-desc">Centuries-old legacy ready for digital transformation and global direct scaling.</span>
+                            </div>
+                            <div class="luxury-option" data-value="d2c">
+                                <span class="option-icon">✨</span>
+                                <span class="option-title">Established D2C / Boutique</span>
+                                <span class="option-desc">Already selling online but looking to scale rapidly and dominate the luxury market.</span>
+                            </div>
+                            <div class="luxury-option" data-value="startup">
+                                <span class="option-icon">🚀</span>
+                                <span class="option-title">Emerging Startup Brand</span>
+                                <span class="option-desc">Launching soon or in early stages, wanting to build a luxurious foundation.</span>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- STEP 2: Main Bottleneck -->
+                    <div class="questionnaire-step" data-step-type="bottleneck" style="display: none;">
+                        <h3 class="step-title" style="font-family: var(--font-serif); font-size: 24px; font-weight: 300; margin-bottom: 30px; text-align: center; color: white;">What is your brand's biggest bottleneck right now?</h3>
+                        <div class="options-grid">
+                            <div class="luxury-option" data-value="ads">
+                                <span class="option-icon">📈</span>
+                                <span class="option-title">Low Advertising Return (ROAS)</span>
+                                <span class="option-desc">Spending on Meta/Google ads but not generating highly profitable high-ticket purchases.</span>
+                            </div>
+                            <div class="luxury-option" data-value="conversions">
+                                <span class="option-icon">🛒</span>
+                                <span class="option-title">Website Drop-offs & Conversion</span>
+                                <span class="option-desc">Website traffic is high, but visitors are not purchasing your premium sarees.</span>
+                            </div>
+                            <div class="luxury-option" data-value="branding">
+                                <span class="option-icon">🎬</span>
+                                <span class="option-title">Lack of Luxury Editorial Appeal</span>
+                                <span class="option-desc">Struggling to showcase the absolute finest details and cinematic heritage of your weaves.</span>
+                            </div>
+                        </div>
+                        <div class="step-actions">
+                            <button type="button" class="btn-back-anatomy" style="color: rgba(255,255,255,0.6); background: none; border: none; font-size: 11px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;">← Back</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Scale Goal -->
+                    <div class="questionnaire-step" data-step-type="goal" style="display: none;">
+                        <h3 class="step-title" style="font-family: var(--font-serif); font-size: 24px; font-weight: 300; margin-bottom: 30px; text-align: center; color: white;">What is your monthly online revenue scaling target?</h3>
+                        <div class="options-grid">
+                            <div class="luxury-option" data-value="tier1">
+                                <span class="option-icon">💎</span>
+                                <span class="option-title">Scale to ₹10 Lakhs / month</span>
+                                <span class="option-desc">Building strong core funnels and launching initial high-ROAS campaign engines.</span>
+                            </div>
+                            <div class="luxury-option" data-value="tier2">
+                                <span class="option-icon">👑</span>
+                                <span class="option-title">Scale to ₹50 Lakhs / month</span>
+                                <span class="option-desc">Accelerating Shopify architecture and expanding to domestic and NRI markets.</span>
+                            </div>
+                            <div class="luxury-option" data-value="tier3">
+                                <span class="option-icon">🔱</span>
+                                <span class="option-title">Scale to ₹1 Crore+ / month</span>
+                                <span class="option-desc">Complete market domination through AI modeling, omnichannel SEO, and VIP loyalty scaling.</span>
+                            </div>
+                        </div>
+                        <div class="step-actions">
+                            <button type="button" class="btn-back-anatomy" style="color: rgba(255,255,255,0.6); background: none; border: none; font-size: 11px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;">← Back</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Personal / Contact details -->
+                    <div class="questionnaire-step" data-step-type="contact" style="display: none;">
+                        <h3 class="step-title" style="font-family: var(--font-serif); font-size: 24px; font-weight: 300; margin-bottom: 30px; text-align: center; color: white;">Let's craft the threads of your growth. Who should we contact?</h3>
                         
-                        <div class="luxury-input-group">
-                            <label for="brand-name">Loom / Saree Brand Name</label>
-                            <input type="text" id="brand-name" class="luxury-field" placeholder="e.g., Banaras Heritage Silks">
+                        <div style="max-width: 500px; margin: 0 auto;" class="inputs-stack-anatomy">
+                            <input type="text" id="client-name" class="input-underline-anatomy" placeholder="YOUR FULL NAME" required>
+                            <input type="text" id="brand-name" class="input-underline-anatomy" placeholder="LOOM / BRAND NAME" required>
+                            <input type="text" id="client-contact" class="input-underline-anatomy" placeholder="WHATSAPP / EMAIL ADDRESS" required>
                         </div>
 
-                        <div class="luxury-input-group">
-                            <label for="client-contact">Contact Details (Phone / Email)</label>
-                            <input type="text" id="client-contact" class="luxury-field" placeholder="e.g., +91 98765 43210 or contact@brand.com" required>
+                        <div class="step-actions">
+                            <button type="button" class="btn-back-anatomy" style="color: rgba(255,255,255,0.6); background: none; border: none; font-size: 11px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;">← Back</button>
+                            <button type="submit" class="btn-anatomy-primary" style="font-size: 11px; padding: 14px 40px;">SUBMIT ASSESSMENT →</button>
                         </div>
                     </div>
 
-                    <div class="step-actions">
-                        <button type="button" class="btn-back">← Back</button>
-                        <button type="submit" class="btn-reserve" style="font-size: 13px; padding: 14px 40px;">SUBMIT ASSESSMENT →</button>
-                    </div>
+                </form>
+
+                <!-- Success State -->
+                <div class="success-state" id="booking-success-state" style="display: none; opacity: 0; text-align: center; transition: opacity 0.5s ease;">
+                    <div class="success-ring" style="width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--accent-gold); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 20px;">✓</div>
+                    <h3 style="font-size: 28px; font-weight: 300; color: white; margin-bottom: 15px; font-family: var(--font-serif);">Assessment Submitted</h3>
+                    <p style="color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 35px; font-size: 15px; line-height: 1.6;">
+                        Our Chief Growth Architect will analyze your responses. We will reach out within 24 hours to present a customized digital scaling strategy tailored to your loom's unique heritage.
+                    </p>
+                    <a href="/" class="btn-anatomy-primary">RETURN HOME</a>
                 </div>
 
-            </form>
-
-            <!-- Success State -->
-            <div class="success-state" id="booking-success-state" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
-                <div class="success-ring">✓</div>
-                <h3 style="font-size: 28px; font-weight: 300; color: white; margin-bottom: 15px; font-family: 'Outfit', sans-serif;">Assessment Submitted Successfully</h3>
-                <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 35px; font-size: 15px; line-height: 1.6;">
-                    Our Chief Growth Architect will analyze your responses. We will reach out within 24 hours to present a customized digital scaling strategy tailored to your loom's unique heritage.
-                </p>
-                <a href="/" class="btn-reserve">RETURN HOME</a>
             </div>
 
         </div>
-
-    </div>
+    </section>
 </main>
 
 <%- include('partials/footer') %>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('saree-booking-form');
+        const steps = document.querySelectorAll('.questionnaire-step');
+        const nodes = document.querySelectorAll('.step-node');
+        const progressLine = document.getElementById('step-progress');
+        const successState = document.getElementById('booking-success-state');
+        let currentStepIdx = 0;
+
+        const bookingData = {
+            stage: '',
+            bottleneck: '',
+            goal: '',
+            name: '',
+            brand: '',
+            contact: ''
+        };
+
+        function updateProgress() {
+            const percentage = (currentStepIdx / (steps.length - 1)) * 100;
+            progressLine.style.width = `${percentage}%`;
+
+            nodes.forEach((node, idx) => {
+                if (idx < currentStepIdx) {
+                    node.style.borderColor = 'var(--accent-gold)';
+                    node.style.background = 'var(--accent-gold)';
+                    node.style.color = '#120305';
+                } else if (idx === currentStepIdx) {
+                    node.style.borderColor = 'var(--accent-gold)';
+                    node.style.background = '#24090D';
+                    node.style.color = 'white';
+                } else {
+                    node.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    node.style.background = '#24090D';
+                    node.style.color = 'rgba(255, 255, 255, 0.4)';
+                }
+            });
+        }
+
+        function showStep(stepIdx) {
+            steps[currentStepIdx].style.display = 'none';
+            steps[currentStepIdx].classList.remove('active');
+            
+            currentStepIdx = stepIdx;
+            
+            steps[currentStepIdx].style.display = 'block';
+            setTimeout(() => {
+                steps[currentStepIdx].classList.add('active');
+            }, 50);
+
+            updateProgress();
+        }
+
+        // Option selection
+        document.querySelectorAll('.luxury-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const parentStep = this.closest('.questionnaire-step');
+                const stepType = parentStep.getAttribute('data-step-type');
+                
+                parentStep.querySelectorAll('.luxury-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                bookingData[stepType] = this.getAttribute('data-value');
+
+                // Auto-advance after small delay
+                setTimeout(() => {
+                    if (currentStepIdx < steps.length - 1) {
+                        showStep(currentStepIdx + 1);
+                    }
+                }, 400);
+            });
+        });
+
+        // Back button
+        document.querySelectorAll('.btn-back-anatomy').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStepIdx > 0) {
+                    showStep(currentStepIdx - 1);
+                }
+            });
+        });
+
+        // Form submit
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                bookingData.name = document.getElementById('client-name').value;
+                bookingData.brand = document.getElementById('brand-name').value;
+                bookingData.contact = document.getElementById('client-contact').value;
+
+                form.style.display = 'none';
+                document.querySelector('.step-indicator-bar').style.display = 'none';
+                
+                successState.style.display = 'block';
+                setTimeout(() => {
+                    successState.style.opacity = '1';
+                }, 50);
+
+                console.log('Direct growth audit request submitted:', bookingData);
+            });
+        }
+    });
+</script>
