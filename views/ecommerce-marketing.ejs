@@ -15,7 +15,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 68% 10%; /* Shifts the image slightly right and pushes it down to show the face fully */
+    object-position: left 22%; /* Shifts the image to show the woman on the left, and pushes her face down below the header */
     opacity: 1;
     transition: all 0.5s ease;
 }
@@ -24,21 +24,21 @@
 }
 
 .ecom-hero-content {
-    text-align: left;
-    max-width: 640px;
-    margin: 0 auto 0 0;
-    padding-right: 20px;
+    text-align: right;
+    max-width: 620px;
+    margin: 0 0 0 auto; /* Pushes the content to the right side of the screen */
+    padding-left: 20px;
 }
 .ecom-hero-sub {
-    margin: 30px 0 45px 0;
-    text-align: left;
-    max-width: 620px;
+    margin: 30px 0 45px auto;
+    text-align: right;
+    max-width: 580px;
     font-size: clamp(16px, 1.8vw, 19px);
     color: rgba(24, 5, 8, 0.85) !important;
     text-shadow: none !important;
 }
 .ecom-hero-ctas {
-    justify-content: flex-start;
+    justify-content: flex-end;
 }
 
 /* Dark Typography & Elements for Opaque Light Image Background */
