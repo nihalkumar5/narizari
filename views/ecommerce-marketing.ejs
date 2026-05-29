@@ -23,77 +23,35 @@
     display: none; /* No gradient overlay! Raw opaque image */
 }
 
-.ecom-hero-content {
-    text-align: right;
-    max-width: 620px;
-    margin: 0 0 0 auto; /* Pushes the content to the right side of the screen */
-    padding-left: 20px;
+/* Premium Crisp Heading Override for eCommerce Hero (100% matched with Services page) */
+.ser-hero-content h1 {
+    color: #24090D !important; /* Rich brand burgundy */
 }
-.ecom-hero-sub {
-    margin: 30px 0 45px auto;
-    text-align: right;
-    max-width: 580px;
-    font-size: clamp(16px, 1.8vw, 19px);
-    color: rgba(24, 5, 8, 0.85) !important;
-    text-shadow: none !important;
-}
-.ecom-hero-ctas {
-    justify-content: flex-end;
-}
-
-/* Dark Typography & Elements for Opaque Light Image Background */
-.ecom-hero-content h1 {
-    color: #24090D !important; /* Rich brand burgundy from Services page */
-    text-shadow: none !important;
-}
-.ecom-hero-content h1 .masked {
+.ser-hero-content h1 .masked {
     background: none !important;
     -webkit-background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
     color: #D4AF37 !important; /* Royal brand gold (solid, high contrast light color) */
-}
-.ecom-hero-content .glass-badge-anatomy {
-    color: #180508 !important;
-    border-color: rgba(24, 5, 8, 0.3) !important;
-    background: rgba(24, 5, 8, 0.05) !important;
-    text-shadow: none !important;
-}
-.ecom-hero-ctas .btn-anatomy-secondary {
-    border-color: rgba(24, 5, 8, 0.45) !important;
-    color: #180508 !important;
-}
-.ecom-hero-ctas .btn-anatomy-secondary:hover {
-    background: rgba(24, 5, 8, 0.08) !important;
-    color: #180508 !important;
-}
-.ecom-hero-ctas .btn-anatomy-primary {
-    background: #180508 !important;
-    color: #ffffff !important;
-    border-color: #180508 !important;
-}
-.ecom-hero-ctas .btn-anatomy-primary:hover {
-    background: #3e0f17 !important;
-    border-color: #3e0f17 !important;
-    color: #ffffff !important;
 }
 
 @media (max-width: 991px) {
     .ecom-hero-img {
         object-position: center top; /* Center top on mobile too */
     }
-    .ecom-hero-content {
-        text-align: center;
-        max-width: 100%;
-        margin: 0 auto;
-        padding-right: 0;
+    
+    .ser-hero-content {
+        text-align: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
     }
-    .ecom-hero-sub {
-        margin: 30px auto 45px auto;
-        text-align: center;
-        max-width: 680px;
+    
+    .ser-hero-subtext {
+        text-align: center !important;
+        margin: 30px auto 45px auto !important;
     }
-    .ecom-hero-ctas {
-        justify-content: center;
+    
+    .ser-hero-ctas {
+        justify-content: center !important;
     }
 }
 </style>
@@ -113,18 +71,18 @@
         <div class="egf-orb" style="width: 500px; height: 500px; top: -100px; left: -150px; background: radial-gradient(circle, rgba(166,141,106,0.08) 0%, transparent 70%); pointer-events: none; position: absolute; filter: blur(80px); z-index: 1;"></div>
         <div class="egf-orb" style="width: 450px; height: 450px; bottom: -50px; right: -100px; background: radial-gradient(circle, rgba(166,141,106,0.05) 0%, transparent 70%); pointer-events: none; position: absolute; filter: blur(80px); z-index: 1;"></div>
 
-        <div class="container-anatomy" style="position: relative; z-index: 2;">
-            <div class="ecom-hero-content reveal">
-                <span class="glass-badge-anatomy">• TACTICAL CO-PILOT</span>
-                <h1 class="section-title-anatomy" style="font-size: clamp(36px, 5.5vw, 72px); line-height: 1.15; margin-top: 20px;">
+        <div class="container-anatomy" style="position: relative; z-index: 2; width: 100%;">
+            <div class="ser-hero-content" style="text-align: right; max-width: 650px; margin: 0 0 0 auto; padding-top: 80px;">
+                <span class="glass-badge-anatomy animate-fade-up" style="position: relative; top: 4px;">• TACTICAL CO-PILOT</span>
+                <h1 class="section-title-anatomy animate-fade-up delay-1" style="font-size: clamp(26px, 3vw, 44px); line-height: 1.15; margin-top: 20px;">
                     eCommerce & <br><span class="masked">Marketing Suite</span>
                 </h1>
-                <p class="section-subtitle-anatomy ecom-hero-sub" style="font-weight: 200; line-height: 1.7;">
+                <p class="section-subtitle-anatomy ser-hero-subtext animate-fade-up delay-2" style="margin: 30px 0 45px auto; text-align: right; max-width: 620px; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.65; font-weight: 200;">
                     We quietly manage the systems behind growth—commerce, marketing, retention, and operations—so luxury brands can focus on creating exceptional products.
                 </p>
-                <div class="hero-cta-row ecom-hero-ctas" style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-                    <a href="/book-now" class="btn-anatomy-primary" style="font-size: 11px; padding: 16px 36px; border-radius: 30px;">Book Growth Consultation</a>
-                    <a href="#growth-architecture" class="btn-anatomy-secondary" style="font-size: 11px; padding: 16px 36px; border-radius: 30px;">Explore Framework</a>
+                <div class="hero-cta-row ser-hero-ctas animate-fade-up delay-3" style="display: flex; gap: 20px; justify-content: flex-end; align-items: center;">
+                    <a href="/book-now" class="btn-anatomy-primary" style="font-size: 11px; padding: 16px 36px;">Book Growth Consultation</a>
+                    <a href="#growth-architecture" class="btn-anatomy-secondary" style="font-size: 11px; padding: 16px 36px;">Explore Framework</a>
                 </div>
             </div>
         </div>
