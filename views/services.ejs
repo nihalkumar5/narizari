@@ -6,14 +6,32 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 120px; /* Shifts the image down by 120px to push her face below the logo/header */
+    object-position: 25% 120px; /* Zoomed & Shifted to left to show model on the left, matching eCommerce */
+    transform: scale(1.12); /* Zoomed slightly */
+    transform-origin: left center;
     opacity: 1;
     transition: all 0.5s ease;
 }
 
 @media (max-width: 991px) {
     .ser-hero-img {
-        object-position: center 110px; /* Shifts the face down below the logo on mobile too */
+        object-position: center 110px; /* Centered on mobile */
+        transform: scale(1.05);
+    }
+    
+    .ser-hero-content {
+        text-align: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .ser-hero-subtext {
+        text-align: center !important;
+        margin: 30px auto 45px auto !important;
+    }
+    
+    .ser-hero-ctas {
+        justify-content: center !important;
     }
 }
 
@@ -48,15 +66,15 @@
         </div>
 
         <div class="container-anatomy" style="position: relative; z-index: 1; width: 100%;">
-            <div style="text-align: left; max-width: 700px; margin: 0 auto 0 0; padding-top: 80px;">
+            <div class="ser-hero-content" style="text-align: right; max-width: 650px; margin: 0 0 0 auto; padding-top: 80px;">
                 <span class="glass-badge-anatomy animate-fade-up" style="position: relative; top: 4px;">• THE GROWTH ARCHITECTURE</span>
                 <h1 class="section-title-anatomy animate-fade-up delay-1" style="font-size: clamp(26px, 3vw, 44px); line-height: 1.15; margin-top: 20px;">
                     Growth Systems Engineered for <br><span class="masked">Luxury Saree & Ethnicwear Brands</span>
                 </h1>
-                <p class="section-subtitle-anatomy animate-fade-up delay-2" style="margin: 30px 0 45px 0; text-align: left; max-width: 620px; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.65; font-weight: 200;">
+                <p class="section-subtitle-anatomy ser-hero-subtext animate-fade-up delay-2" style="margin: 30px 0 45px auto; text-align: right; max-width: 620px; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.65; font-weight: 200;">
                     From commerce infrastructure and customer acquisition to brand perception and retention, every solution is designed to drive sustainable growth.
                 </p>
-                <div class="hero-cta-row animate-fade-up delay-3" style="display: flex; gap: 20px; justify-content: flex-start; align-items: center;">
+                <div class="hero-cta-row ser-hero-ctas animate-fade-up delay-3" style="display: flex; gap: 20px; justify-content: flex-end; align-items: center;">
                     <a href="/book-now" class="btn-anatomy-primary" style="font-size: 11px; padding: 16px 36px;">Schedule Strategy Session</a>
                     <a href="#silk-suite" class="btn-anatomy-secondary" style="font-size: 11px; padding: 16px 36px;">Explore Solutions</a>
                 </div>
