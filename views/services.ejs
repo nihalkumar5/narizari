@@ -1,12 +1,30 @@
 <%- include('partials/header') %>
 
+<style>
+/* Responsive Hero Overrides for Services Hero Background */
+.ser-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 120px; /* Shifts the image down by 120px to push her face below the logo/header */
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+@media (max-width: 991px) {
+    .ser-hero-img {
+        object-position: center 110px; /* Shifts the face down below the logo on mobile too */
+    }
+}
+</style>
+
 <main class="anatomy-main">
     
     <!-- 1. HERO SECTION (Light/Aligned Full-Screen) -->
     <section class="section-anatomy section-light-anatomy" style="height: 100vh; min-height: 100vh; padding: 0; display: flex; align-items: center; overflow: hidden; position: relative;">
         <!-- Background Image -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
-            <img src="/nz_serhero.jpg" alt="Services Hero Background" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 1;">
+            <img src="/nz_serhero.jpg" alt="Services Hero Background" class="ser-hero-img">
         </div>
 
         <div class="container-anatomy" style="position: relative; z-index: 1; width: 100%;">
