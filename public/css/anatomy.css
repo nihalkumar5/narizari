@@ -1193,59 +1193,84 @@
 
 .struggle-img-wrap {
     position: relative;
-    border-radius: 28px;
+    border-radius: 32px;
     overflow: hidden;
     box-shadow:
-        0 30px 80px rgba(36, 9, 13, 0.14),
-        0 8px 24px rgba(36, 9, 13, 0.08);
+        0 40px 100px rgba(36, 9, 13, 0.22),
+        0 12px 32px rgba(36, 9, 13, 0.12),
+        inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+/* Bottom gradient so badge is always readable */
+.struggle-img-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 55%;
+    background: linear-gradient(
+        to top,
+        rgba(10, 3, 5, 0.72) 0%,
+        rgba(10, 3, 5, 0.3) 50%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
 }
 
 .struggle-img {
     width: 100%;
-    height: 520px;
+    height: 560px;
     object-fit: cover;
     object-position: center top;
     display: block;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .struggle-img-wrap:hover .struggle-img {
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
-/* Floating stat badge */
+/* Floating stat badge — true frosted glass */
 .struggle-badge {
     position: absolute;
-    bottom: 28px;
-    left: 28px;
-    right: 28px;
-    background: rgba(250, 244, 241, 0.92);
-    backdrop-filter: blur(16px) saturate(160%);
-    border: 1px solid rgba(36, 9, 13, 0.08);
-    border-radius: 18px;
-    padding: 20px 24px;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    z-index: 2;
+    background: rgba(12, 4, 6, 0.45);
+    backdrop-filter: blur(28px) saturate(200%) brightness(1.1);
+    -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(1.1);
+    border: 1px solid rgba(166, 141, 106, 0.22);
+    border-top-color: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 22px 26px;
     display: flex;
     align-items: center;
-    gap: 18px;
-    box-shadow: 0 8px 32px rgba(36, 9, 13, 0.1);
+    gap: 20px;
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.4),
+        0 1px 0 rgba(255,255,255,0.06) inset;
 }
 
 .struggle-badge-num {
     font-family: var(--font-serif);
-    font-size: 42px;
+    font-size: 48px;
     font-weight: 400;
-    color: #24090D;
+    color: #ffffff;
     line-height: 1;
     flex-shrink: 0;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 12px rgba(166, 141, 106, 0.4);
 }
 
 .struggle-badge-label {
-    font-size: 12px;
-    line-height: 1.55;
-    color: rgba(36, 9, 13, 0.6);
-    font-weight: 400;
-    letter-spacing: 0.01em;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.68);
+    font-weight: 300;
+    letter-spacing: 0.02em;
 }
 
 /* ── Right FAQ Accordion Column ── */
