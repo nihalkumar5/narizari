@@ -157,7 +157,7 @@
     </section>
 
     <!-- 3. THE STRUGGLE — Why Luxury Fashion Brands Struggle to Scale -->
-    <section class="section-anatomy section-light-anatomy" id="struggle" style="background-color: #FAF4F1; padding: 120px 0 0; overflow: hidden;">
+    <section class="section-anatomy section-light-anatomy" id="struggle" style="background-color: #FAF4F1; padding: 60px 0 0; overflow: hidden;">
         <div class="container-anatomy">
 
             <!-- Header -->
@@ -174,23 +174,21 @@
             <!-- Split: Image + Accordion -->
             <div class="struggle-split reveal">
 
-                <!-- LEFT: Image + Badge below -->
+                <!-- LEFT: Image with hover badge inside -->
                 <div class="struggle-image-col">
                     <div class="struggle-img-wrap">
                         <img src="/saree_fashion_editorial_1778574464550.png" alt="Why Luxury Fashion Brands Struggle" class="struggle-img">
-                        <!-- Dark gradient -->
-                        <div class="struggle-img-overlay"></div>
-                    </div>
-
-                    <!-- Frosted glass badge BELOW image -->
-                    <div class="struggle-stat-card">
-                        <div class="struggle-stat-num">83<span style="font-size: 0.45em; vertical-align: super; opacity: 0.7;">%</span></div>
-                        <div class="struggle-stat-text">of fashion brands fail to convert first-time visitors into loyal buyers.</div>
+                        <!-- Dark gradient overlay -->
+                        <!-- Frosted glass badge — revealed on hover -->
+                        <div class="struggle-badge">
+                            <span class="struggle-badge-num">83<span style="font-size:0.42em;vertical-align:super;opacity:0.75;">%</span></span>
+                            <span class="struggle-badge-label">of fashion brands fail to convert first-time visitors into loyal buyers.</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- RIGHT: FAQ Accordion -->
-                <div class="struggle-faq-col">
+                <div class="struggle-faq-col" style="justify-content: center;">
 
                     <!-- Item 01 -->
                     <div class="struggle-faq-item" id="faq-01">
@@ -331,192 +329,272 @@
     }
     </script>
 
-    <!-- 4. GROWTH FRAMEWORK — The Ethnic Commerce Growth Engine™ -->
-    <section class="section-anatomy" id="growth-framework" style="background: #07010 2; padding: 130px 0; position: relative; overflow: hidden; background: linear-gradient(180deg, #0d0204 0%, #120305 100%);">
+    <!-- 4. GROWTH FRAMEWORK — Fully Animated -->
+    <section class="egf-section" id="growth-framework">
 
-        <!-- Ambient glow background -->
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(166,141,106,0.06) 0%, transparent 70%); pointer-events: none;"></div>
+        <!-- Ambient floating orbs -->
+        <div class="egf-orb egf-orb-1"></div>
+        <div class="egf-orb egf-orb-2"></div>
+        <div class="egf-orb egf-orb-3"></div>
 
-        <div class="container-anatomy">
+        <div class="container-anatomy" style="position:relative;z-index:1;">
 
             <!-- Header -->
-            <div class="reveal" style="text-align: center; margin-bottom: 90px;">
-                <span class="section-label-anatomy">• OUR GROWTH FRAMEWORK</span>
-                <h2 style="font-family: var(--font-serif); font-size: clamp(30px, 4vw, 52px); font-weight: 300; color: #ffffff; margin-top: 18px; line-height: 1.2; letter-spacing: -0.01em;">
-                    The Ethnic Commerce<br><em style="color: var(--accent-gold); font-style: italic;">Growth Engine™</em>
+            <div class="egf-header">
+                <span class="egf-header-label">&bull; OUR GROWTH FRAMEWORK</span>
+                <h2 class="egf-header-title">
+                    The Ethnic Commerce<br>
+                    <em class="egf-header-em">Growth Engine&trade;</em>
                 </h2>
-                <p style="margin-top: 20px; font-size: 15px; color: var(--text-secondary); max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7; font-weight: 300;">
-                    A proprietary 7-stage operating system built exclusively for Saree & Ethnicwear brands to dominate digital commerce end-to-end.
-                </p>
+                <p class="egf-header-sub">A proprietary 7-stage operating system built exclusively for Saree &amp; Ethnicwear brands to dominate digital commerce end-to-end.</p>
             </div>
 
-            <!-- Framework Flow -->
-            <div class="egf-flow reveal">
+            <!-- Flow wrapper -->
+            <div class="egf-flow-wrap">
+
+                <!-- Animated SVG Timeline Line -->
+                <div class="egf-timeline-wrap" aria-hidden="true">
+                    <svg class="egf-timeline-svg" viewBox="0 0 4 700" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="timelineGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#A68D6A" stop-opacity="0.15"/>
+                                <stop offset="45%" stop-color="#A68D6A" stop-opacity="0.9"/>
+                                <stop offset="55%" stop-color="#D4AF37" stop-opacity="1"/>
+                                <stop offset="100%" stop-color="#A68D6A" stop-opacity="0.2"/>
+                            </linearGradient>
+                        </defs>
+                        <line class="egf-timeline-path" x1="2" y1="0" x2="2" y2="700" stroke="url(#timelineGrad)" stroke-width="1.5"/>
+                    </svg>
+                </div>
 
                 <!-- Step 01 -->
-                <div class="egf-step">
-                    <div class="egf-connector-top" style="opacity: 0;"></div>
-                    <div class="egf-node">
-                        <div class="egf-card egf-card--left">
-                            <div class="egf-card-inner">
-                                <span class="egf-tag">Stage 01</span>
-                                <h3 class="egf-title">Brand Positioning</h3>
-                                <p class="egf-desc">We define your brand's irreplaceable territory in the luxury ethnic market — your heritage story, visual DNA, and premium price anchoring strategy.</p>
+                <div class="egf-step-v2" data-step="1" style="--delay:0s;">
+                    <div class="egf-step-grid">
+                        <div class="egf-card-v2 egf-card-left">
+                            <div class="egf-card-v2-inner">
+                                <div class="egf-card-shimmer"></div>
+                                <span class="egf-step-tag">Stage 01</span>
+                                <h3 class="egf-step-title">Brand Positioning</h3>
+                                <p class="egf-step-desc">We define your brand&apos;s irreplaceable territory in the luxury ethnic market &mdash; your heritage story, visual DNA, and premium price anchoring strategy.</p>
+                                <div class="egf-step-pill">Positioning &rarr;</div>
                             </div>
                         </div>
-                        <div class="egf-circle">
-                            <span class="egf-num">01</span>
-                            <div class="egf-pulse"></div>
+                        <div class="egf-node-v2">
+                            <div class="egf-node-ring egf-node-ring-1"></div>
+                            <div class="egf-node-ring egf-node-ring-2"></div>
+                            <div class="egf-node-core"><span class="egf-node-num">01</span></div>
                         </div>
-                        <div class="egf-label-right">
-                            <span class="egf-step-icon">🎯</span>
-                            <span class="egf-step-name">Positioning</span>
+                        <div class="egf-step-meta egf-meta-right">
+                            <span class="egf-meta-icon">&#127919;</span>
+                            <span class="egf-meta-name">Positioning</span>
                         </div>
                     </div>
-                    <div class="egf-connector-bottom"></div>
                 </div>
 
                 <!-- Step 02 -->
-                <div class="egf-step">
-                    <div class="egf-node">
-                        <div class="egf-label-left">
-                            <span class="egf-step-name">Store Experience</span>
-                            <span class="egf-step-icon">🛍️</span>
+                <div class="egf-step-v2" data-step="2" style="--delay:0.1s;">
+                    <div class="egf-step-grid">
+                        <div class="egf-step-meta egf-meta-left">
+                            <span class="egf-meta-name">Store Experience</span>
+                            <span class="egf-meta-icon">&#128717;</span>
                         </div>
-                        <div class="egf-circle">
-                            <span class="egf-num">02</span>
-                            <div class="egf-pulse"></div>
+                        <div class="egf-node-v2">
+                            <div class="egf-node-ring egf-node-ring-1"></div>
+                            <div class="egf-node-ring egf-node-ring-2"></div>
+                            <div class="egf-node-core"><span class="egf-node-num">02</span></div>
                         </div>
-                        <div class="egf-card egf-card--right">
-                            <div class="egf-card-inner">
-                                <span class="egf-tag">Stage 02</span>
-                                <h3 class="egf-title">Store Experience</h3>
-                                <p class="egf-desc">Your Shopify storefront is engineered to mirror a luxury showroom — bespoke design, lightning-fast load times, and a seamless path from discovery to checkout.</p>
+                        <div class="egf-card-v2 egf-card-right">
+                            <div class="egf-card-v2-inner">
+                                <div class="egf-card-shimmer"></div>
+                                <span class="egf-step-tag">Stage 02</span>
+                                <h3 class="egf-step-title">Store Experience</h3>
+                                <p class="egf-step-desc">Your Shopify storefront is engineered to mirror a luxury showroom &mdash; bespoke design, lightning-fast load times, and a seamless path from discovery to checkout.</p>
+                                <div class="egf-step-pill">Store Audit &rarr;</div>
                             </div>
                         </div>
                     </div>
-                    <div class="egf-connector-bottom"></div>
                 </div>
 
                 <!-- Step 03 -->
-                <div class="egf-step">
-                    <div class="egf-node">
-                        <div class="egf-card egf-card--left">
-                            <div class="egf-card-inner">
-                                <span class="egf-tag">Stage 03</span>
-                                <h3 class="egf-title">Traffic Acquisition</h3>
-                                <p class="egf-desc">AI-modeled Meta and Google campaigns target high-intent NRI and ethnic luxury buyers globally. We don't chase clicks — we capture profitable customers.</p>
+                <div class="egf-step-v2" data-step="3" style="--delay:0.2s;">
+                    <div class="egf-step-grid">
+                        <div class="egf-card-v2 egf-card-left">
+                            <div class="egf-card-v2-inner">
+                                <div class="egf-card-shimmer"></div>
+                                <span class="egf-step-tag">Stage 03</span>
+                                <h3 class="egf-step-title">Traffic Acquisition</h3>
+                                <p class="egf-step-desc">AI-modeled Meta and Google campaigns target high-intent NRI and ethnic luxury buyers globally. We don&apos;t chase clicks &mdash; we capture profitable customers.</p>
+                                <div class="egf-step-pill">Scale Campaigns &rarr;</div>
                             </div>
                         </div>
-                        <div class="egf-circle">
-                            <span class="egf-num">03</span>
-                            <div class="egf-pulse"></div>
+                        <div class="egf-node-v2">
+                            <div class="egf-node-ring egf-node-ring-1"></div>
+                            <div class="egf-node-ring egf-node-ring-2"></div>
+                            <div class="egf-node-core"><span class="egf-node-num">03</span></div>
                         </div>
-                        <div class="egf-label-right">
-                            <span class="egf-step-icon">📡</span>
-                            <span class="egf-step-name">Traffic Acquisition</span>
+                        <div class="egf-step-meta egf-meta-right">
+                            <span class="egf-meta-icon">&#128225;</span>
+                            <span class="egf-meta-name">Traffic Acquisition</span>
                         </div>
                     </div>
-                    <div class="egf-connector-bottom"></div>
                 </div>
 
                 <!-- Step 04 -->
-                <div class="egf-step">
-                    <div class="egf-node">
-                        <div class="egf-label-left">
-                            <span class="egf-step-name">Conversion Optimization</span>
-                            <span class="egf-step-icon">⚡</span>
+                <div class="egf-step-v2" data-step="4" style="--delay:0.3s;">
+                    <div class="egf-step-grid">
+                        <div class="egf-step-meta egf-meta-left">
+                            <span class="egf-meta-name">Conversion</span>
+                            <span class="egf-meta-icon">&#9889;</span>
                         </div>
-                        <div class="egf-circle">
-                            <span class="egf-num">04</span>
-                            <div class="egf-pulse"></div>
+                        <div class="egf-node-v2">
+                            <div class="egf-node-ring egf-node-ring-1"></div>
+                            <div class="egf-node-ring egf-node-ring-2"></div>
+                            <div class="egf-node-core"><span class="egf-node-num">04</span></div>
                         </div>
-                        <div class="egf-card egf-card--right">
-                            <div class="egf-card-inner">
-                                <span class="egf-tag">Stage 04</span>
-                                <h3 class="egf-title">Conversion Optimization</h3>
-                                <p class="egf-desc">Every touchpoint — from product page to payment — is continuously tested and optimized. We eliminate friction and engineer desire at every scroll.</p>
+                        <div class="egf-card-v2 egf-card-right">
+                            <div class="egf-card-v2-inner">
+                                <div class="egf-card-shimmer"></div>
+                                <span class="egf-step-tag">Stage 04</span>
+                                <h3 class="egf-step-title">Conversion Optimization</h3>
+                                <p class="egf-step-desc">Every touchpoint &mdash; from product page to payment &mdash; is continuously tested and optimized. We eliminate friction and engineer desire at every scroll.</p>
+                                <div class="egf-step-pill">Optimize Store &rarr;</div>
                             </div>
                         </div>
                     </div>
-                    <div class="egf-connector-bottom"></div>
                 </div>
 
                 <!-- Step 05 -->
-                <div class="egf-step">
-                    <div class="egf-node">
-                        <div class="egf-card egf-card--left">
-                            <div class="egf-card-inner">
-                                <span class="egf-tag">Stage 05</span>
-                                <h3 class="egf-title">Retention Marketing</h3>
-                                <p class="egf-desc">Email sequences, WhatsApp VIP nurtures and loyalty programs that transform one-time buyers into lifelong brand ambassadors with high repeat LTV.</p>
+                <div class="egf-step-v2" data-step="5" style="--delay:0.4s;">
+                    <div class="egf-step-grid">
+                        <div class="egf-card-v2 egf-card-left">
+                            <div class="egf-card-v2-inner">
+                                <div class="egf-card-shimmer"></div>
+                                <span class="egf-step-tag">Stage 05</span>
+                                <h3 class="egf-step-title">Retention Marketing</h3>
+                                <p class="egf-step-desc">Email sequences, WhatsApp VIP nurtures and loyalty programs that transform one-time buyers into lifelong brand ambassadors with compounding LTV.</p>
+                                <div class="egf-step-pill">Build Loyalty &rarr;</div>
                             </div>
                         </div>
-                        <div class="egf-circle">
-                            <span class="egf-num">05</span>
-                            <div class="egf-pulse"></div>
+                        <div class="egf-node-v2">
+                            <div class="egf-node-ring egf-node-ring-1"></div>
+                            <div class="egf-node-ring egf-node-ring-2"></div>
+                            <div class="egf-node-core"><span class="egf-node-num">05</span></div>
                         </div>
-                        <div class="egf-label-right">
-                            <span class="egf-step-icon">💌</span>
-                            <span class="egf-step-name">Retention Marketing</span>
+                        <div class="egf-step-meta egf-meta-right">
+                            <span class="egf-meta-icon">&#128140;</span>
+                            <span class="egf-meta-name">Retention</span>
                         </div>
                     </div>
-                    <div class="egf-connector-bottom"></div>
                 </div>
 
                 <!-- Step 06 -->
-                <div class="egf-step">
-                    <div class="egf-node">
-                        <div class="egf-label-left">
-                            <span class="egf-step-name">Data Intelligence</span>
-                            <span class="egf-step-icon">📊</span>
+                <div class="egf-step-v2" data-step="6" style="--delay:0.5s;">
+                    <div class="egf-step-grid">
+                        <div class="egf-step-meta egf-meta-left">
+                            <span class="egf-meta-name">Data Intelligence</span>
+                            <span class="egf-meta-icon">&#128202;</span>
                         </div>
-                        <div class="egf-circle">
-                            <span class="egf-num">06</span>
-                            <div class="egf-pulse"></div>
+                        <div class="egf-node-v2">
+                            <div class="egf-node-ring egf-node-ring-1"></div>
+                            <div class="egf-node-ring egf-node-ring-2"></div>
+                            <div class="egf-node-core"><span class="egf-node-num">06</span></div>
                         </div>
-                        <div class="egf-card egf-card--right">
-                            <div class="egf-card-inner">
-                                <span class="egf-tag">Stage 06</span>
-                                <h3 class="egf-title">Data Intelligence</h3>
-                                <p class="egf-desc">Real-time dashboards, attribution models and predictive analytics give you complete clarity on every rupee spent and every insight needed to scale with certainty.</p>
+                        <div class="egf-card-v2 egf-card-right">
+                            <div class="egf-card-v2-inner">
+                                <div class="egf-card-shimmer"></div>
+                                <span class="egf-step-tag">Stage 06</span>
+                                <h3 class="egf-step-title">Data Intelligence</h3>
+                                <p class="egf-step-desc">Real-time dashboards, attribution models and predictive analytics give you complete clarity on every rupee spent and every insight needed to scale.</p>
+                                <div class="egf-step-pill">View Analytics &rarr;</div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="egf-connector-bottom"></div>
-                </div>
-
-                <!-- Step 07 — Final -->
-                <div class="egf-step egf-step--final">
-                    <div class="egf-node">
-                        <div class="egf-card egf-card--left egf-card--gold">
-                            <div class="egf-card-inner">
-                                <span class="egf-tag" style="color: var(--accent-gold);">Final Stage</span>
-                                <h3 class="egf-title" style="color: var(--accent-gold);">Scale</h3>
-                                <p class="egf-desc">With all systems firing, we unlock aggressive scaling — new markets, new channels, higher budgets — compounding your brand's dominance season after season.</p>
-                            </div>
-                        </div>
-                        <div class="egf-circle egf-circle--gold">
-                            <span class="egf-num">07</span>
-                            <div class="egf-pulse egf-pulse--gold"></div>
-                        </div>
-                        <div class="egf-label-right">
-                            <span class="egf-step-icon">🚀</span>
-                            <span class="egf-step-name" style="color: var(--accent-gold);">Scale</span>
                         </div>
                     </div>
                 </div>
 
-            </div><!-- end .egf-flow -->
+                <!-- Step 07 Final -->
+                <div class="egf-step-v2 egf-step-final" data-step="7" style="--delay:0.6s;">
+                    <div class="egf-step-grid">
+                        <div class="egf-card-v2 egf-card-left">
+                            <div class="egf-card-v2-inner egf-card-gold-inner">
+                                <div class="egf-card-shimmer"></div>
+                                <span class="egf-step-tag" style="color:var(--accent-gold);">Final Stage</span>
+                                <h3 class="egf-step-title" style="color:var(--accent-gold);">Scale</h3>
+                                <p class="egf-step-desc">With all systems firing, we unlock aggressive scaling &mdash; new markets, new channels, higher budgets &mdash; compounding your brand&apos;s dominance season after season.</p>
+                                <div class="egf-step-pill egf-pill-gold">Launch Scale &rarr;</div>
+                            </div>
+                        </div>
+                        <div class="egf-node-v2 egf-node-gold">
+                            <div class="egf-node-ring egf-node-ring-1"></div>
+                            <div class="egf-node-ring egf-node-ring-2"></div>
+                            <div class="egf-node-ring egf-node-ring-3"></div>
+                            <div class="egf-node-core egf-node-core-gold"><span class="egf-node-num" style="color:#0d0204;font-weight:700;">07</span></div>
+                        </div>
+                        <div class="egf-step-meta egf-meta-right">
+                            <span class="egf-meta-icon" style="font-size:26px;">&#128640;</span>
+                            <span class="egf-meta-name" style="color:var(--accent-gold);">Scale</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end .egf-flow-wrap -->
 
             <!-- Bottom CTA -->
-            <div class="reveal" style="text-align: center; margin-top: 80px;">
-                <p style="font-size: 13px; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px;">Ready to activate your Growth Engine?</p>
-                <a href="/book-now" class="btn-anatomy-primary">Claim Your Growth Blueprint →</a>
+            <div class="egf-cta-wrap">
+                <p class="egf-cta-pre">Ready to activate your Growth Engine?</p>
+                <a href="/book-now" class="egf-cta-btn">
+                    <span>Claim Your Growth Blueprint</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
             </div>
 
         </div>
     </section>
+
+    <script>
+    (function() {
+        var steps = document.querySelectorAll('.egf-step-v2');
+        if (!steps.length) return;
+
+        // Scroll-triggered reveals
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) { e.target.classList.add('egf-in'); obs.unobserve(e.target); }
+            });
+        }, { threshold: 0.2 });
+        steps.forEach(function(s) { obs.observe(s); });
+
+        // Mouse-tracking shimmer on cards
+        document.querySelectorAll('.egf-card-v2-inner').forEach(function(card) {
+            card.addEventListener('mousemove', function(e) {
+                var r = card.getBoundingClientRect();
+                card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+                card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+            });
+        });
+
+        // SVG line draw on scroll
+        var line = document.querySelector('.egf-timeline-path');
+        var wrap = document.querySelector('.egf-flow-wrap');
+        if (!line || !wrap) return;
+        var LEN = 700;
+        line.style.strokeDasharray = LEN;
+        line.style.strokeDashoffset = LEN;
+
+        function drawLine() {
+            var r = wrap.getBoundingClientRect();
+            var p = Math.min(1, Math.max(0, (window.innerHeight - r.top) / (r.height + window.innerHeight * 0.4)));
+            line.style.strokeDashoffset = LEN - (LEN * p);
+        }
+        window.addEventListener('scroll', drawLine, { passive: true });
+        drawLine();
+
+        // Node hover glow
+        document.querySelectorAll('.egf-node-v2').forEach(function(node) {
+            node.addEventListener('mouseenter', function() { node.classList.add('egf-node-hover'); });
+            node.addEventListener('mouseleave', function() { node.classList.remove('egf-node-hover'); });
+        });
+    })();
+    </script>
 
     <!-- 5. ENGAGEMENT TIERS (Dark) -->
     <section class="section-anatomy reveal" id="tiers" style="background-color: #120305; padding: 120px 0;">
