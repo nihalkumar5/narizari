@@ -1575,7 +1575,7 @@
     position: relative;
     padding: 130px 0;
     overflow: hidden;
-    background: linear-gradient(180deg, #0d0204 0%, #0a0103 50%, #120305 100%);
+    background: linear-gradient(180deg, #1b0509 0%, #25090e 50%, #160407 100%);
 }
 
 /* ── Floating Ambient Orbs ── */
@@ -1844,7 +1844,7 @@
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: #0d0204;
+    background: #25090e;
     border: 1.5px solid rgba(166,141,106,0.45);
     display: flex;
     align-items: center;
@@ -1853,7 +1853,7 @@
 }
 .egf-node-v2:hover .egf-node-core,
 .egf-node-v2.egf-node-hover .egf-node-core {
-    background: #190509;
+    background: #3e1219;
     border-color: var(--accent-gold);
     box-shadow: 0 0 24px rgba(166,141,106,0.4), 0 0 48px rgba(166,141,106,0.15);
 }
