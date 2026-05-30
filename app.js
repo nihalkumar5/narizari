@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 
 const pages = [
     { path: '/services', title: 'Services', headline: 'Our Strategic Intelligence', description: 'Bespoke AI solutions designed for the luxury saree industry.' },
+    { path: '/shopify-service', title: 'Shopify Plus Development', headline: 'The Digital Varanasi Loom', description: 'Bespoke Shopify direct-to-consumer store development for luxury handloom saree brands.' },
     { path: '/ecommerce-marketing', title: 'eCommerce & Marketing', headline: 'Full-Suite Tactical Co-Pilot', description: 'Platform management, performance campaigns, SEO and analytics.' },
     { path: '/digital-marketing', title: 'Intelligent Marketing', headline: 'High-ROAS Paid Campaigns', description: 'Precision audience targeting and advanced funnel optimization.' },
     { path: '/branding', title: 'Creative Couture', headline: 'Cinematic Storytelling & Visual DNA', description: 'Bespoke film shoots and editorial visual assets directed in Varanasi.' },
@@ -32,6 +33,13 @@ pages.forEach(page => {
     app.get(page.path, (req, res) => {
         if (page.path === '/services') {
             res.render('services', {
+                pageTitle: page.title,
+                pageHeadline: page.headline,
+                pageDescription: page.description,
+                path: page.path
+            });
+        } else if (page.path === '/shopify-service') {
+            res.render('shopify-service', {
                 pageTitle: page.title,
                 pageHeadline: page.headline,
                 pageDescription: page.description,

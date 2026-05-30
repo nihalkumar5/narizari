@@ -1,0 +1,166 @@
+<%- include('partials/header') %>
+
+<style>
+/* Responsive Hero Overrides for Shopify Hero Background */
+.shop-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top; /* True full screen (no vertical offset) */
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+/* Premium Crisp Heading Override for Shopify Hero (100% matched with Services page) */
+.ser-hero-content h1 {
+    color: #24090D !important; /* Rich brand burgundy */
+}
+.ser-hero-content h1 .masked {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    color: #D4AF37 !important; /* Royal brand gold (solid, high contrast light color) */
+    filter: none !important; /* Remove any drop shadow */
+    text-shadow: none !important; /* Remove any text shadow */
+}
+
+@media (max-width: 991px) {
+    .shop-hero-img {
+        object-position: center top; /* Center top on mobile too */
+    }
+    
+    .ser-hero-content {
+        text-align: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .ser-hero-subtext {
+        text-align: center !important;
+        margin: 30px auto 45px auto !important;
+    }
+    
+    .ser-hero-ctas {
+        justify-content: center !important;
+    }
+}
+</style>
+
+<main class="anatomy-main">
+    
+    <!-- 1. HERO SECTION (Light/Aligned Full-Screen) -->
+    <section class="section-anatomy section-light-anatomy" style="height: 100vh; min-height: 100vh; padding: 0; display: flex; align-items: center; overflow: hidden; position: relative; background-color: #FAF4F1;">
+        <!-- Subtle Premium Vignette for White Header Readability (True Full-Screen!) -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 160px; background: linear-gradient(to bottom, rgba(27, 5, 9, 0.45) 0%, rgba(27, 5, 9, 0) 100%); z-index: 2; pointer-events: none;"></div>
+        
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+            <img src="/shopify_service_hero.png" alt="Shopify Plus Luxury Development Background" class="shop-hero-img">
+        </div>
+
+        <!-- Floating Ambient Orbs -->
+        <div class="egf-orb" style="width: 500px; height: 500px; top: -100px; left: -150px; background: radial-gradient(circle, rgba(166,141,106,0.08) 0%, transparent 70%); pointer-events: none; position: absolute; filter: blur(80px); z-index: 1;"></div>
+        <div class="egf-orb" style="width: 450px; height: 450px; bottom: -50px; right: -100px; background: radial-gradient(circle, rgba(166,141,106,0.05) 0%, transparent 70%); pointer-events: none; position: absolute; filter: blur(80px); z-index: 1;"></div>
+
+        <div class="container-anatomy" style="position: relative; z-index: 2; width: 100%;">
+            <div class="ser-hero-content" style="text-align: right; max-width: 650px; margin: 0 0 0 auto; padding-top: 80px;">
+                <span class="glass-badge-anatomy animate-fade-up" style="position: relative; top: 4px;">• THE VIRTUAL LOOM</span>
+                <h1 class="section-title-anatomy animate-fade-up delay-1" style="font-size: clamp(34px, 4.8vw, 62px); line-height: 1.15; margin-top: 20px;">
+                    Shopify Plus <br><span class="masked">Luxury Storefronts</span>
+                </h1>
+                <p class="section-subtitle-anatomy ser-hero-subtext animate-fade-up delay-2" style="margin: 30px 0 45px auto; text-align: right; max-width: 620px; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.65; font-weight: 200;">
+                    We build Shopify Plus e-commerce storefronts that mirror the tactile luxury of a Banarasi showroom. Optimized for high-resolution silk detailing, multi-currency NRI sales, and high-volume orders.
+                </p>
+                <div class="hero-cta-row ser-hero-ctas animate-fade-up delay-3" style="display: flex; gap: 20px; justify-content: flex-end; align-items: center;">
+                    <a href="/book-now" class="btn-anatomy-primary" style="font-size: 11px; padding: 16px 36px;">Book Shopify Consultation</a>
+                    <a href="#shopify-pillars" class="btn-anatomy-secondary" style="font-size: 11px; padding: 16px 36px;">Explore Features</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. HIGH-END DETAILS GRID (Dark) -->
+    <section class="section-anatomy" id="shopify-pillars" style="background-color: #24090D; padding: 120px 0; position: relative; z-index: 1;">
+        <div class="container-anatomy">
+            <div class="reveal" style="text-align: center; margin-bottom: 80px;">
+                <span class="section-label-anatomy" style="color: var(--accent-gold);">• SHOPIFY INFRASTRUCTURE •</span>
+                <h2 class="section-title-anatomy">Tailored for Heritage Silk &amp; Weaves</h2>
+                <p class="section-subtitle-anatomy" style="margin: 0 auto; max-width: 600px;">We don't use standard drop-shipping templates. We build bespoke direct-to-consumer store architectures designed for high-ticket ethnicwear sales.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+                
+                <!-- Pillar 1 -->
+                <div class="glass-panel-anatomy service-card-premium" style="padding: 35px; display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; border-radius: 40px;">
+                    <div>
+                        <div class="service-card-image-wrapper" style="width: 100%; height: 200px; border-radius: 24px; overflow: hidden; margin-bottom: 25px; border: 1px solid rgba(255, 255, 255, 0.06);">
+                            <img src="/shopify_luxury_saree_composition_1778581636038.png" alt="Shopify Custom Theme Coding" class="service-card-image" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+                        </div>
+                        <h3 style="font-family: var(--font-serif); font-size: 24px; font-weight: 300; color: #ffffff; margin-bottom: 15px;">Bespoke Liquid &amp; API Development</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 30px;">Custom Shopify themes engineered from scratch with zero bloatware. High-fidelity layouts optimized for presenting rich handloom textures.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-panel-anatomy service-card-premium" style="padding: 35px; display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; border-radius: 40px;">
+                    <div>
+                        <div class="service-card-image-wrapper" style="width: 100%; height: 200px; border-radius: 24px; overflow: hidden; margin-bottom: 25px; border: 1px solid rgba(255, 255, 255, 0.06);">
+                            <img src="/luxury_unboxing_packaging.png" alt="High-End Detailing" class="service-card-image" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+                        </div>
+                        <h3 style="font-family: var(--font-serif); font-size: 24px; font-weight: 300; color: #ffffff; margin-bottom: 15px;">Luxury Unboxing &amp; Personalization</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 30px;">Custom gift wraps, handmade master-artisan notes, and elite unboxing configurations integrated directly into the checkout pipeline.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-panel-anatomy service-card-premium" style="padding: 35px; display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; border-radius: 40px;">
+                    <div>
+                        <div class="service-card-image-wrapper" style="width: 100%; height: 200px; border-radius: 24px; overflow: hidden; margin-bottom: 25px; border: 1px solid rgba(255, 255, 255, 0.06);">
+                            <img src="/assets/stage6_data.png" alt="Global NRI Infrastructure" class="service-card-image" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+                        </div>
+                        <h3 style="font-family: var(--font-serif); font-size: 24px; font-weight: 300; color: #ffffff; margin-bottom: 15px;">NRI Global Architecture</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 30px;">Multi-currency, localized geo-pricing, and priority international shipping setups optimized to capture direct global premium market capital.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SUB-SECOND SPEED HIGHLIGHT (Light) -->
+    <section class="section-anatomy section-light-anatomy" style="background-color: #FAF4F1; padding: 120px 0; border-bottom: 1px solid rgba(36, 9, 13, 0.08);">
+        <div class="container-anatomy">
+            <div class="detailed-service-row" style="border-bottom: none; padding: 0; gap: 80px; align-items: center; display: flex; flex-wrap: wrap;">
+                <div class="service-info" style="flex: 1; min-width: 320px;">
+                    <span class="service-index" style="color: #8c7453;">01</span>
+                    <h2 class="section-title-anatomy" style="font-size: 38px; color: #24090D; font-family: var(--font-serif); font-weight: 300;">Sub-Second Core Web Vitals <br>Speed Engineering</h2>
+                    <p style="font-size: 17px; line-height: 1.7; color: rgba(36, 9, 13, 0.75); margin-bottom: 25px;">
+                        A slow loading store destroys conversion rates for high-ticket silk handlooms. We write optimized JavaScript, use advanced image serving, and utilize premium edge hosting, delivering lightning-fast pages that keep customers converting instantly.
+                    </p>
+                </div>
+                <div class="service-visual" style="flex: 1; min-width: 320px; display: flex; align-items: center; justify-content: center;">
+                    <div class="glass-panel-anatomy glass-box" style="padding: 60px 45px; text-align: center; height: auto; width: 100%; border-color: rgba(36, 9, 13, 0.08); background: rgba(255, 255, 255, 0.65);">
+                        <span class="option-icon" style="font-size: 56px; display: block; margin-bottom: 20px;">⚡</span>
+                        <h4 style="font-size: 22px; font-weight: 400; line-height: 1.4; font-family: var(--font-serif); color: #24090D;">Sub-Second Speed Performance</h4>
+                        <p style="font-size: 14.5px; margin-top: 15px; line-height: 1.6; color: rgba(36, 9, 13, 0.7);">
+                            Custom-optimized JS scripts and image loading protocols ensuring elite speeds worldwide.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CTA SECTION (Light) -->
+    <section class="section-anatomy section-light-anatomy">
+        <div class="container-anatomy">
+            <div class="cta-inner" style="background: rgba(36, 9, 13, 0.95); border: 1px solid rgba(166,141,106,0.25); padding: 80px 40px; border-radius: 40px; text-align: center; box-shadow: 0 15px 40px rgba(36, 9, 13, 0.15);">
+                <h2 style="font-size: clamp(28px, 4vw, 52px); margin-bottom: 20px; font-weight: 300; font-family: var(--font-serif); color: white;">Ready to loom your digital luxury storefront?</h2>
+                <p style="margin-bottom: 40px; color: rgba(255,255,255,0.7); font-size: 17px;">We construct direct-to-consumer digital engines that scale tradition globally. Claim your Shopify blueprint review.</p>
+                <a href="/book-now" class="btn-anatomy-primary" style="font-size: 12px; padding: 16px 38px;">Start Shopify Transformation</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<%- include('partials/footer') %>
