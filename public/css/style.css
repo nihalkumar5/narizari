@@ -45,37 +45,36 @@ body {
     pointer-events: none;
 }
 
-/* Nav Pill */
+/* Modern Full-Width Top Nav Bar */
 #main-nav {
     position: fixed;
-    top: 30px;
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     display: flex;
     justify-content: center;
-    padding: 0 40px;
-    transition: all 0.5s ease;
+    background: rgba(37, 9, 14, 0.45);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #main-nav.scrolled {
-    top: 15px;
+    background: rgba(15, 5, 8, 0.85);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
-    max-width: 1050px; /* Slightly narrower */
+    max-width: 1400px;
     width: 100%;
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: 1px solid transparent;
-    border-radius: 100px;
-    padding: 10px 45px; /* Balanced padding */
+    padding: 16px 50px; /* Elegant padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: none;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-links-left {
@@ -95,14 +94,13 @@ body {
 .nav-logo-wrapper {
     display: flex;
     align-items: center;
-    padding-right: 32px;
 }
 
 .brand-logo {
-    height: 65px;
+    height: 56px;
     width: auto;
     display: block;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     filter:
         drop-shadow(0 0 12px rgba(212, 175, 55, 0.35))
         drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5))
@@ -119,28 +117,56 @@ body {
 
 .nav-links-wrapper {
     display: flex;
-    gap: 40px;
+    gap: 35px;
     align-items: center;
     flex: 1;
-    justify-content: flex-end; /* Push links to the right */
-    padding-right: 50px;
-    transform: translateY(4px); /* Shift down for perfect baseline alignment */
+    justify-content: center; /* Push links to center */
 }
 
 .nav-links-wrapper a {
+    position: relative;
     color: var(--text-primary);
     text-decoration: none;
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    transition: all 0.4s ease;
-    opacity: 0.7;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.8;
+}
+
+.nav-links-wrapper a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: var(--accent-gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-links-wrapper a:hover {
     color: var(--accent-gold);
     opacity: 1;
+}
+
+.nav-links-wrapper a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Active Nav Link Styling */
+.nav-links-wrapper a.active-nav-link {
+    color: var(--accent-gold) !important;
+    opacity: 1 !important;
+}
+
+.nav-links-wrapper a.active-nav-link::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 /* Services Dropdown Styling */
@@ -240,17 +266,11 @@ body {
 }
 
 #main-nav.scrolled .nav-container {
-    padding: 8px 35px;
-    max-width: 950px;
-    background: rgba(15, 5, 8, 0.45);
-    backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    padding: 10px 50px;
 }
 
 #main-nav.scrolled .brand-logo {
-    height: 45px;
+    height: 44px;
 }
 
 .btn-reserve {
@@ -695,8 +715,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.45); /* Elegant darkened overlay behind drawer */
-    backdrop-filter: blur(10px);
+    background: transparent;
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
@@ -826,13 +845,11 @@ body {
 /* Modern Hover Effect on Menu List */
 .menu-list:hover a {
     opacity: 0.3;
-    filter: blur(4px);
     transform: scale(0.98);
 }
 
 .menu-list a:hover {
     opacity: 1 !important;
-    filter: blur(0px) !important;
     color: var(--accent-gold) !important;
     transform: scale(1.05) translateX(15px) !important;
 }

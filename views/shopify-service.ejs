@@ -7,21 +7,22 @@
     height: 100%;
     object-fit: cover;
     object-position: left top; /* True full screen (no vertical offset) */
-    opacity: 1;
+    opacity: 1; /* Full opacity with no dimming */
     transition: all 0.5s ease;
 }
 
 /* Premium Crisp Heading Override for Shopify Hero (100% matched with Services page) */
 .ser-hero-content h1 {
     color: #24090D !important; /* Rich brand burgundy */
+    text-shadow: none !important; /* Completely clean, zero shadows */
 }
 .ser-hero-content h1 .masked {
     background: none !important;
     -webkit-background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
-    color: #D4AF37 !important; /* Royal brand gold (solid, high contrast light color) */
-    filter: none !important; /* Remove any drop shadow */
-    text-shadow: none !important; /* Remove any text shadow */
+    color: #D4AF37 !important; /* Royal brand gold */
+    filter: none !important;
+    text-shadow: none !important;
 }
 
 @media (max-width: 991px) {
@@ -50,11 +51,9 @@
     
     <!-- 1. HERO SECTION (Light/Aligned Full-Screen) -->
     <section class="section-anatomy section-light-anatomy" style="height: 100vh; min-height: 100vh; padding: 0; display: flex; align-items: center; overflow: hidden; position: relative; background-color: #FAF4F1;">
-        <!-- Subtle Premium Vignette for White Header Readability (True Full-Screen!) -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 160px; background: linear-gradient(to bottom, rgba(27, 5, 9, 0.45) 0%, rgba(27, 5, 9, 0) 100%); z-index: 2; pointer-events: none;"></div>
         
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
-            <img src="/shopify_service_hero.png" alt="Shopify Plus Luxury Development Background" class="shop-hero-img">
+            <img src="/shopify2.jpg" alt="Shopify Plus Luxury Development Background" class="shop-hero-img">
         </div>
 
         <!-- Floating Ambient Orbs -->
@@ -78,47 +77,449 @@
         </div>
     </section>
 
-    <!-- 2. HIGH-END DETAILS GRID (Dark) -->
-    <section class="section-anatomy" id="shopify-pillars" style="background-color: #24090D; padding: 120px 0; position: relative; z-index: 1;">
-        <div class="container-anatomy">
-            <div class="reveal" style="text-align: center; margin-bottom: 80px;">
-                <span class="section-label-anatomy" style="color: var(--accent-gold);">• SHOPIFY INFRASTRUCTURE •</span>
-                <h2 class="section-title-anatomy">Tailored for Heritage Silk &amp; Weaves</h2>
-                <p class="section-subtitle-anatomy" style="margin: 0 auto; max-width: 600px;">We don't use standard drop-shipping templates. We build bespoke direct-to-consumer store architectures designed for high-ticket ethnicwear sales.</p>
+    <!-- 2. THE COST OF AN AVERAGE STORE (Dark, Accordion layout) -->
+    <section class="section-anatomy" id="shopify-cost" style="background-color: #24090D; padding: 120px 0; position: relative; z-index: 1; overflow: hidden;">
+        <!-- Subtle red/burgundy ambient glow for the pain theme -->
+        <div style="position: absolute; width: 600px; height: 600px; top: 10%; right: -200px; background: radial-gradient(circle, rgba(166,41,46,0.05) 0%, transparent 70%); filter: blur(80px); pointer-events: none; z-index: 0;"></div>
+        <div style="position: absolute; width: 500px; height: 500px; bottom: -10%; left: -200px; background: radial-gradient(circle, rgba(139,0,0,0.03) 0%, transparent 70%); filter: blur(70px); pointer-events: none; z-index: 0;"></div>
+
+        <style>
+        .luxury-accordion-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+        .luxury-accordion-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        .luxury-accordion-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 15px 0;
+            cursor: pointer;
+            text-align: left;
+        }
+        .luxury-accordion-trigger-text {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .luxury-accordion-num {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--accent-gold);
+            opacity: 0.75;
+        }
+        .luxury-accordion-title {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 300;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        .luxury-accordion-icon {
+            color: var(--accent-gold);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .luxury-accordion-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.4s ease;
+            padding-left: 38px;
+            padding-right: 20px;
+        }
+        .luxury-accordion-desc {
+            font-family: var(--font-sans);
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            padding-bottom: 10px;
+        }
+        /* Active States */
+        .luxury-accordion-item.active {
+            border-bottom-color: rgba(212, 175, 55, 0.35);
+        }
+        .luxury-accordion-item.active .luxury-accordion-title {
+            color: var(--accent-gold);
+        }
+        .luxury-accordion-item.active .luxury-accordion-icon {
+            transform: rotate(45deg);
+        }
+        .luxury-accordion-item.active .luxury-accordion-content {
+            opacity: 1;
+            padding-top: 5px;
+            padding-bottom: 15px;
+        }
+        </style>
+
+        <div class="container-anatomy" style="position: relative; z-index: 2;">
+            <div style="display: flex; flex-wrap: wrap; gap: 80px; align-items: center;">
+                
+                <!-- Left Column: Luxury Saree Presentation Image -->
+                <div style="flex: 1; min-width: 320px; display: flex; justify-content: center; position: relative;">
+                    <div style="width: 100%; max-width: 480px; border-radius: 28px; overflow: hidden; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); aspect-ratio: 4 / 5; position: relative; background-color: rgba(255, 255, 255, 0.01);">
+                        <img src="/luxury_saree_ux.png" alt="Luxury Saree Digital Presentation Sourcing" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.92) contrast(1.05); transition: transform 0.8s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(36, 9, 13, 0.4) 0%, transparent 40%); pointer-events: none;"></div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Accordion of problems -->
+                <div style="flex: 1.2; min-width: 320px;">
+                    <span style="font-size: 11px; text-transform: uppercase; font-family: var(--font-sans); color: rgba(255,255,255,0.4); letter-spacing: 1.5px; display: block; margin-bottom: 10px;">THE COMMERCE GAP</span>
+                    <h2 style="font-family: var(--font-serif); font-size: clamp(30px, 3.8vw, 46px); font-weight: 300; color: #ffffff; line-height: 1.25; margin-bottom: 25px;">Exceptional Products. <br><span style="color: var(--accent-gold);">Exceptional Commerce.</span></h2>
+                    
+                    <p style="font-size: 15px; line-height: 1.65; color: var(--text-secondary); margin-bottom: 40px; max-width: 600px;">
+                        Many luxury saree and ethnicwear brands invest heavily in craftsmanship, photography, collections, and marketing—yet their digital experience fails to reflect the same standard. The result isn't a lack of demand. It's a disconnect between brand perception and online performance.
+                    </p>
+
+                    <!-- The Accordion -->
+                    <div class="luxury-accordion-container">
+                        
+                        <!-- Problem 1 -->
+                        <div class="luxury-accordion-item active" id="acc-item-1">
+                            <button class="luxury-accordion-header" onclick="toggleAccordion('acc-item-1')">
+                                <div class="luxury-accordion-trigger-text">
+                                    <span class="luxury-accordion-num">01</span>
+                                    <span class="luxury-accordion-title">Low Mobile Conversion</span>
+                                </div>
+                                <div class="luxury-accordion-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+                                        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="luxury-accordion-content" style="max-height: 100px;">
+                                <div class="luxury-accordion-desc">Most ethnicwear traffic comes from mobile.</div>
+                            </div>
+                        </div>
+
+                        <!-- Problem 2 -->
+                        <div class="luxury-accordion-item" id="acc-item-2">
+                            <button class="luxury-accordion-header" onclick="toggleAccordion('acc-item-2')">
+                                <div class="luxury-accordion-trigger-text">
+                                    <span class="luxury-accordion-num">02</span>
+                                    <span class="luxury-accordion-title">Slow Loading Stores</span>
+                                </div>
+                                <div class="luxury-accordion-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+                                        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="luxury-accordion-content">
+                                <div class="luxury-accordion-desc">Luxury buyers leave quickly.</div>
+                            </div>
+                        </div>
+
+                        <!-- Problem 3 -->
+                        <div class="luxury-accordion-item" id="acc-item-3">
+                            <button class="luxury-accordion-header" onclick="toggleAccordion('acc-item-3')">
+                                <div class="luxury-accordion-trigger-text">
+                                    <span class="luxury-accordion-num">03</span>
+                                    <span class="luxury-accordion-title">Generic Templates</span>
+                                </div>
+                                <div class="luxury-accordion-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+                                        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="luxury-accordion-content">
+                                <div class="luxury-accordion-desc">No premium perception.</div>
+                            </div>
+                        </div>
+
+                        <!-- Problem 4 -->
+                        <div class="luxury-accordion-item" id="acc-item-4">
+                            <button class="luxury-accordion-header" onclick="toggleAccordion('acc-item-4')">
+                                <div class="luxury-accordion-trigger-text">
+                                    <span class="luxury-accordion-num">04</span>
+                                    <span class="luxury-accordion-title">Poor Navigation</span>
+                                </div>
+                                <div class="luxury-accordion-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+                                        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="luxury-accordion-content">
+                                <div class="luxury-accordion-desc">Customers can't discover products.</div>
+                            </div>
+                        </div>
+
+                        <!-- Problem 5 -->
+                        <div class="luxury-accordion-item" id="acc-item-5">
+                            <button class="luxury-accordion-header" onclick="toggleAccordion('acc-item-5')">
+                                <div class="luxury-accordion-trigger-text">
+                                    <span class="luxury-accordion-num">05</span>
+                                    <span class="luxury-accordion-title">Weak Product Storytelling</span>
+                                </div>
+                                <div class="luxury-accordion-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+                                        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="luxury-accordion-content">
+                                <div class="luxury-accordion-desc">Visitors don't feel the value.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+        function toggleAccordion(itemId) {
+            const items = document.querySelectorAll('.luxury-accordion-item');
+            
+            items.forEach(item => {
+                const content = item.querySelector('.luxury-accordion-content');
+                if (item.id === itemId) {
+                    const isActive = item.classList.contains('active');
+                    if (isActive) {
+                        item.classList.remove('active');
+                        content.style.maxHeight = '0';
+                    } else {
+                        item.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                } else {
+                    item.classList.remove('active');
+                    content.style.maxHeight = '0';
+                }
+            });
+        }
+
+        // Initialize first item heights on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const activeContent = document.querySelector('.luxury-accordion-item.active .luxury-accordion-content');
+            if (activeContent) {
+                activeContent.style.maxHeight = activeContent.scrollHeight + 'px';
+            }
+        });
+        </script>
+    </section>
+
+    <!-- 3. WHY LUXURY SAREE BRANDS NEED A DIFFERENT APPROACH (Ultra-minimal Luxury Boutique style - Final Editorial Version) -->
+    <section class="section-anatomy section-light-anatomy" style="background-color: #FAF4F1; padding: 140px 0; overflow: hidden; position: relative;">
+
+        <div class="container-anatomy" style="position: relative; z-index: 2;">
+            
+            <!-- Section Header to restore context and eliminate empty space -->
+            <div style="text-align: center; margin-bottom: 70px;">
+                <span class="reveal" style="font-size: 11px; text-transform: uppercase; font-family: var(--font-sans); color: rgba(36, 9, 13, 0.45); letter-spacing: 2px; display: block; margin-bottom: 15px;">• THE APPROACH •</span>
+                <h2 class="reveal" style="font-family: var(--font-serif); font-size: clamp(28px, 4vw, 44px); font-weight: 300; color: #24090D; line-height: 1.2; margin: 0;">
+                    Luxury Commerce Is Different
+                </h2>
+                <div class="reveal" style="width: 50px; height: 1.5px; background-color: var(--accent-gold); margin: 25px auto 0 auto;"></div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+            <!-- Bento Luxury Layout Style Override -->
+            <style>
+            .luxury-bento-grid {
+                display: grid;
+                grid-template-columns: 1.55fr 1fr;
+                gap: 30px;
+                width: 100%;
+                position: relative;
+                z-index: 5;
+            }
+            .bento-card {
+                background-color: #FDFBF9;
+                border: 1px solid rgba(36, 9, 13, 0.04);
+                border-radius: 24px;
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                box-shadow: none;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .bento-card:hover {
+                transform: translateY(-2px);
+                border-color: rgba(212, 175, 55, 0.15);
+            }
+
+            /* Interactive Storytelling Full-Bleed Hover Card Styles */
+            .bento-card-story {
+                position: relative;
+                overflow: hidden;
+                background-color: #FAF4F1;
+                border-radius: 24px;
+                height: 100%;
+                min-height: 520px;
+                grid-row: span 2;
+                border: 1px solid rgba(36, 9, 13, 0.04);
+                cursor: pointer;
+                box-shadow: none;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .bento-card-story:hover {
+                transform: translateY(-2px);
+                border-color: rgba(212, 175, 55, 0.25);
+            }
+            .bento-story-img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 1;
+            }
+            .bento-story-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to top, rgba(36, 9, 13, 0.95) 0%, rgba(36, 9, 13, 0.4) 50%, transparent 100%);
+                z-index: 2;
+                opacity: 0.65;
+                transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .bento-story-content {
+                position: absolute;
+                inset: 0;
+                padding: clamp(30px, 4vw, 50px);
+                z-index: 3;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+            .bento-story-eyebrow {
+                font-family: var(--font-serif);
+                font-size: 13px;
+                color: var(--accent-gold);
+                letter-spacing: 2px;
+                font-weight: 300;
+                display: block;
+                opacity: 0;
+                transform: translateY(15px);
+                transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .bento-story-title {
+                font-family: var(--font-serif);
+                font-size: clamp(26px, 2.5vw, 34px);
+                font-weight: 300;
+                color: #ffffff;
+                margin: 5px 0 0 0;
+                letter-spacing: 0.5px;
+                transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .bento-story-desc {
+                font-family: var(--font-serif);
+                font-size: clamp(16px, 1.8vw, 22px);
+                line-height: 1.4;
+                color: rgba(255, 255, 255, 0.9);
+                font-weight: 300;
+                margin: 0;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, margin-top 0.6s ease;
+            }
+
+            /* Hover Actions for Left Large Card */
+            .bento-card-story:hover .bento-story-img {
+                transform: scale(1.05);
+            }
+            .bento-card-story:hover .bento-story-overlay {
+                opacity: 0.85;
+            }
+            .bento-card-story:hover .bento-story-eyebrow {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .bento-card-story:hover .bento-story-desc {
+                max-height: 180px;
+                opacity: 1;
+                margin-top: 20px;
+            }
+
+            @media (max-width: 991px) {
+                .luxury-bento-grid {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                }
+                .bento-card {
+                    padding: 30px;
+                }
+                .bento-card-story {
+                    min-height: 480px;
+                }
+            }
+            </style>
+
+            <!-- 3-Card Bento Luxury Grid -->
+            <div class="luxury-bento-grid">
                 
-                <!-- Pillar 1 -->
-                <div class="glass-panel-anatomy service-card-premium" style="padding: 35px; display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; border-radius: 40px;">
-                    <div>
-                        <div class="service-card-image-wrapper" style="width: 100%; height: 200px; border-radius: 24px; overflow: hidden; margin-bottom: 25px; border: 1px solid rgba(255, 255, 255, 0.06);">
-                            <img src="/shopify_luxury_saree_composition_1778581636038.png" alt="Shopify Custom Theme Coding" class="service-card-image" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
-                        </div>
-                        <h3 style="font-family: var(--font-serif); font-size: 24px; font-weight: 300; color: #ffffff; margin-bottom: 15px;">Bespoke Liquid &amp; API Development</h3>
-                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 30px;">Custom Shopify themes engineered from scratch with zero bloatware. High-fidelity layouts optimized for presenting rich handloom textures.</p>
+                <!-- Storytelling (Large Card, Spans 2 Rows on Desktop, Full-Bleed Interactive Hover Image) -->
+                <div class="reveal bento-card-story">
+                    <!-- Background Visual (Zari Silk Thread Macro close-up) -->
+                    <img src="/hero_saree_luxury_1778574360191.png" alt="Exquisite Zari Silk Thread Macro Closeup" class="bento-story-img">
+                    
+                    <!-- Ambient Dark Overlay -->
+                    <div class="bento-story-overlay"></div>
+                    
+                    <!-- Interactive Slide-in Content -->
+                    <div class="bento-story-content">
+                        <span class="bento-story-eyebrow">I. THE PRINCIPLE</span>
+                        <h3 class="bento-story-title">Storytelling</h3>
+                        <p class="bento-story-desc">
+                            Luxury customers purchase narratives before they purchase products.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Pillar 2 -->
-                <div class="glass-panel-anatomy service-card-premium" style="padding: 35px; display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; border-radius: 40px;">
-                    <div>
-                        <div class="service-card-image-wrapper" style="width: 100%; height: 200px; border-radius: 24px; overflow: hidden; margin-bottom: 25px; border: 1px solid rgba(255, 255, 255, 0.06);">
-                            <img src="/luxury_unboxing_packaging.png" alt="High-End Detailing" class="service-card-image" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+                <!-- Trust (Right Top Card) -->
+                <div class="reveal bento-card" style="padding: 35px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <span style="font-family: var(--font-serif); font-size: 13px; color: var(--accent-gold); letter-spacing: 2px; font-weight: 300; display: block; margin-bottom: 20px;">II. THE PERCEPTION</span>
+                    
+                    <div style="display: flex; gap: 25px; align-items: center; flex-wrap: wrap; width: 100%;">
+                        <div style="flex: 1.3; min-width: 180px;">
+                            <h3 style="font-family: var(--font-serif); font-size: 21px; font-weight: 300; color: #24090D; margin-bottom: 12px; letter-spacing: 0.5px;">Trust &amp; Confidence</h3>
+                            <p style="font-family: var(--font-sans); font-size: 14px; line-height: 1.55; color: rgba(36, 9, 13, 0.75); font-weight: 300; margin: 0;">
+                                Premium experiences eliminate hesitation and solidify long-term NRI customer loyalty.
+                            </p>
                         </div>
-                        <h3 style="font-family: var(--font-serif); font-size: 24px; font-weight: 300; color: #ffffff; margin-bottom: 15px;">Luxury Unboxing &amp; Personalization</h3>
-                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 30px;">Custom gift wraps, handmade master-artisan notes, and elite unboxing configurations integrated directly into the checkout pipeline.</p>
+                        <!-- Unboxing Image -->
+                        <div style="flex: 0.7; min-width: 100px; aspect-ratio: 1; border-radius: 12px; overflow: hidden; border: 1px solid rgba(36, 9, 13, 0.05); background-color: rgba(36, 9, 13, 0.01);">
+                            <img src="/luxury_unboxing_packaging.png" alt="Luxury Saree Unboxing Presentation" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                     </div>
                 </div>
 
-                <!-- Pillar 3 -->
-                <div class="glass-panel-anatomy service-card-premium" style="padding: 35px; display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; border-radius: 40px;">
-                    <div>
-                        <div class="service-card-image-wrapper" style="width: 100%; height: 200px; border-radius: 24px; overflow: hidden; margin-bottom: 25px; border: 1px solid rgba(255, 255, 255, 0.06);">
-                            <img src="/assets/stage6_data.png" alt="Global NRI Infrastructure" class="service-card-image" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+                <!-- Heritage (Right Bottom Card) -->
+                <div class="reveal bento-card" style="padding: 35px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <span style="font-family: var(--font-serif); font-size: 13px; color: var(--accent-gold); letter-spacing: 2px; font-weight: 300; display: block; margin-bottom: 20px;">III. THE CRAFT</span>
+                    
+                    <div style="display: flex; gap: 25px; align-items: center; flex-wrap: wrap; width: 100%;">
+                        <div style="flex: 1.3; min-width: 180px;">
+                            <h3 style="font-family: var(--font-serif); font-size: 21px; font-weight: 300; color: #24090D; margin-bottom: 12px; letter-spacing: 0.5px;">Heritage</h3>
+                            <p style="font-family: var(--font-sans); font-size: 14px; line-height: 1.55; color: rgba(36, 9, 13, 0.75); font-weight: 300; margin: 0;">
+                                Traditional craftsmanship should be visibly woven into every digital interaction, detail, and click.
+                            </p>
                         </div>
-                        <h3 style="font-family: var(--font-serif); font-size: 24px; font-weight: 300; color: #ffffff; margin-bottom: 15px;">NRI Global Architecture</h3>
-                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 30px;">Multi-currency, localized geo-pricing, and priority international shipping setups optimized to capture direct global premium market capital.</p>
+                        <!-- Heritage Craft Image -->
+                        <div style="flex: 0.7; min-width: 100px; aspect-ratio: 1; border-radius: 12px; overflow: hidden; border: 1px solid rgba(36, 9, 13, 0.05); background-color: rgba(36, 9, 13, 0.01);">
+                            <img src="/shopify_luxury_saree_composition_1778581636038.png" alt="Traditional Heritage Silk Weave Craft" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                     </div>
                 </div>
 
@@ -126,28 +527,573 @@
         </div>
     </section>
 
-    <!-- 3. SUB-SECOND SPEED HIGHLIGHT (Light) -->
-    <section class="section-anatomy section-light-anatomy" style="background-color: #FAF4F1; padding: 120px 0; border-bottom: 1px solid rgba(36, 9, 13, 0.08);">
+    <!-- 3.2 INFINITE TEXT MARQUEE (Pure CSS seamless looping, brand burgundy & gold) -->
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span>YOUR BRAND. YOUR SHOPIFY. DONE RIGHT.</span> <span class="marquee-bullet">✦</span> 
+                <span>LET'S MAKE IT HAPPEN.</span> <span class="marquee-bullet">✦</span> 
+                <span>NRI GLOBAL AUDIENCE.</span> <span class="marquee-bullet">✦</span> 
+                <span>SUB-SECOND SPEED.</span> <span class="marquee-bullet">✦</span>
+                <span>YOUR BRAND. YOUR SHOPIFY. DONE RIGHT.</span> <span class="marquee-bullet">✦</span> 
+                <span>LET'S MAKE IT HAPPEN.</span> <span class="marquee-bullet">✦</span> 
+                <span>NRI GLOBAL AUDIENCE.</span> <span class="marquee-bullet">✦</span> 
+                <span>SUB-SECOND SPEED.</span> <span class="marquee-bullet">✦</span>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    .marquee-container {
+        width: 100%;
+        overflow: hidden;
+        background-color: #ffffff;
+        border-top: 1px solid rgba(36, 9, 13, 0.06);
+        border-bottom: 1px solid rgba(36, 9, 13, 0.06);
+        padding: 22px 0;
+        position: relative;
+        z-index: 5;
+    }
+    .marquee-track {
+        display: flex;
+        width: max-content;
+    }
+    .marquee-content {
+        display: flex;
+        align-items: center;
+        font-family: var(--font-sans);
+        font-size: clamp(14px, 1.8vw, 22px);
+        font-weight: 600;
+        color: #24090D;
+        letter-spacing: 0.5px;
+        animation: scroll-marquee 22s linear infinite;
+        padding-right: 50px;
+    }
+    .marquee-bullet {
+        color: #D4AF37;
+        margin: 0 35px;
+        font-size: 15px;
+    }
+    @keyframes scroll-marquee {
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(-50%, 0, 0); }
+    }
+    </style>
+
+    <!-- 3.4 SHOPIFY STOREFRONT SAMPLES (Compact visual case studies, dark luxury theme) -->
+    <section class="section-anatomy" style="background-color: #140305; padding: 100px 0; position: relative; overflow: hidden; z-index: 5;">
+        <!-- Delicate gold glow in background for premium 3D depth -->
+        <div style="position: absolute; width: 450px; height: 450px; top: -50px; left: -100px; background: radial-gradient(circle, rgba(212,175,55,0.02) 0%, transparent 70%); filter: blur(70px); pointer-events: none;"></div>
+        <div style="position: absolute; width: 400px; height: 400px; bottom: -50px; right: -100px; background: radial-gradient(circle, rgba(212,175,55,0.015) 0%, transparent 70%); filter: blur(70px); pointer-events: none;"></div>
+
         <div class="container-anatomy">
-            <div class="detailed-service-row" style="border-bottom: none; padding: 0; gap: 80px; align-items: center; display: flex; flex-wrap: wrap;">
-                <div class="service-info" style="flex: 1; min-width: 320px;">
-                    <span class="service-index" style="color: #8c7453;">01</span>
-                    <h2 class="section-title-anatomy" style="font-size: 38px; color: #24090D; font-family: var(--font-serif); font-weight: 300;">Sub-Second Core Web Vitals <br>Speed Engineering</h2>
-                    <p style="font-size: 17px; line-height: 1.7; color: rgba(36, 9, 13, 0.75); margin-bottom: 25px;">
-                        A slow loading store destroys conversion rates for high-ticket silk handlooms. We write optimized JavaScript, use advanced image serving, and utilize premium edge hosting, delivering lightning-fast pages that keep customers converting instantly.
-                    </p>
+            <!-- Header row with visual context -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; flex-wrap: wrap; gap: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 25px;">
+                <div>
+                    <span style="font-size: 11px; text-transform: uppercase; font-family: var(--font-sans); color: rgba(255,255,255,0.45); letter-spacing: 2px; display: block; margin-bottom: 10px;">PORTFOLIO DEMONSTRATIONS</span>
+                    <h3 style="font-family: var(--font-serif); font-size: clamp(24px, 3vw, 36px); font-weight: 300; color: #ffffff; margin: 0;">Shopify Storefront Samples</h3>
                 </div>
-                <div class="service-visual" style="flex: 1; min-width: 320px; display: flex; align-items: center; justify-content: center;">
-                    <div class="glass-panel-anatomy glass-box" style="padding: 60px 45px; text-align: center; height: auto; width: 100%; border-color: rgba(36, 9, 13, 0.08); background: rgba(255, 255, 255, 0.65);">
-                        <span class="option-icon" style="font-size: 56px; display: block; margin-bottom: 20px;">⚡</span>
-                        <h4 style="font-size: 22px; font-weight: 400; line-height: 1.4; font-family: var(--font-serif); color: #24090D;">Sub-Second Speed Performance</h4>
-                        <p style="font-size: 14.5px; margin-top: 15px; line-height: 1.6; color: rgba(36, 9, 13, 0.7);">
-                            Custom-optimized JS scripts and image loading protocols ensuring elite speeds worldwide.
-                        </p>
+                <div style="font-family: var(--font-sans); font-size: 12px; color: var(--accent-gold); letter-spacing: 1.5px; font-weight: 400; text-transform: uppercase;">
+                    LIVE CASE MOCKS ✦ BANARASI &amp; ETHNICWEAR
+                </div>
+            </div>
+
+            <!-- 3-Column Screenshot Cards Row (Clean, compact, no shadows) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; width: 100%;">
+                
+                <!-- Sample 1 -->
+                <div class="reveal" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="width: 100%; height: clamp(160px, 18vw, 210px); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); background-color: rgba(255,255,255,0.01); position: relative; cursor: pointer; transition: border-color 0.4s ease;" onmouseover="this.style.borderColor='rgba(212,175,55,0.3)'; this.querySelector('img').style.transform='scale(1.04)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'; this.querySelector('img').style.transform='scale(1)';">
+                        <img src="/luxury_saree_ux.png" alt="Shopify Banarasi Silk Store Homepage Sample" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 5px;">
+                        <span style="font-family: var(--font-serif); font-size: 16px; color: #ffffff; font-weight: 300; letter-spacing: 0.5px;">Heritage Storefront</span>
+                        <span style="font-family: var(--font-sans); font-size: 11px; color: var(--accent-gold); letter-spacing: 1px; text-transform: uppercase; font-weight: 400;">01. HOMEPAGE</span>
+                    </div>
+                </div>
+
+                <!-- Sample 2 -->
+                <div class="reveal" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="width: 100%; height: clamp(160px, 18vw, 210px); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); background-color: rgba(255,255,255,0.01); position: relative; cursor: pointer; transition: border-color 0.4s ease;" onmouseover="this.style.borderColor='rgba(212,175,55,0.3)'; this.querySelector('img').style.transform='scale(1.04)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'; this.querySelector('img').style.transform='scale(1)';">
+                        <img src="/saree_social_instagram.png" alt="Shopify Mobile Catalog Discovery Saree Layout Sample" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 5px;">
+                        <span style="font-family: var(--font-serif); font-size: 16px; color: #ffffff; font-weight: 300; letter-spacing: 0.5px;">Discovery Catalog</span>
+                        <span style="font-family: var(--font-sans); font-size: 11px; color: var(--accent-gold); letter-spacing: 1px; text-transform: uppercase; font-weight: 400;">02. MOBILE SHOP</span>
+                    </div>
+                </div>
+
+                <!-- Sample 3 -->
+                <div class="reveal" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="width: 100%; height: clamp(160px, 18vw, 210px); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); background-color: rgba(255,255,255,0.01); position: relative; cursor: pointer; transition: border-color 0.4s ease;" onmouseover="this.style.borderColor='rgba(212,175,55,0.3)'; this.querySelector('img').style.transform='scale(1.04)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'; this.querySelector('img').style.transform='scale(1)';">
+                        <img src="/shopify_luxury_saree_composition_1778581636038.png" alt="Shopify Global NRI Multi-Currency Checkout Conversion Sample" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 5px;">
+                        <span style="font-family: var(--font-serif); font-size: 16px; color: #ffffff; font-weight: 300; letter-spacing: 0.5px;">Global Checkout</span>
+                        <span style="font-family: var(--font-sans); font-size: 11px; color: var(--accent-gold); letter-spacing: 1px; text-transform: uppercase; font-weight: 400;">03. NRI CONVERSION</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. THE PROPRIETARY FRAMEWORK (Dark background, Gold accents, Responsive Timeline) -->
+    <section class="section-anatomy" id="shopify-framework" style="background-color: #1A0709; padding: 140px 0; position: relative; overflow: hidden; z-index: 2;">
+        <!-- Subtle gold radial glow behind the timeline for premium 3D depth -->
+        <div style="position: absolute; width: 700px; height: 700px; top: 50%; left: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(212,175,55,0.035) 0%, transparent 70%); filter: blur(80px); pointer-events: none; z-index: 0;"></div>
+
+        <style>
+        .luxury-timeline-wrapper {
+            position: relative;
+            width: 100%;
+            margin-top: 60px;
+            padding: 40px 0;
+        }
+        .luxury-timeline-line {
+            position: absolute;
+            top: 60px; /* Aligned vertically with center of nodes */
+            left: 5%;
+            width: 90%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.3) 10%, rgba(212, 175, 55, 0.3) 90%, transparent);
+            z-index: 1;
+        }
+        .luxury-timeline-items {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .luxury-timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .luxury-timeline-node {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1A0709;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-serif);
+            font-size: 13px;
+            margin-bottom: 25px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.08);
+        }
+        .luxury-timeline-item:hover .luxury-timeline-node {
+            background-color: var(--accent-gold);
+            color: #1A0709;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.45);
+            transform: scale(1.1);
+        }
+        .luxury-timeline-content {
+            padding: 0 10px;
+        }
+        .luxury-timeline-title {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .luxury-timeline-desc {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.55);
+            font-weight: 300;
+        }
+
+        /* Responsive timeline transitions for tablets and mobile viewports */
+        @media (max-width: 1024px) {
+            .luxury-timeline-line {
+                top: 0;
+                left: 20px;
+                width: 1px;
+                height: 100%;
+                background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.3) 10%, rgba(212, 175, 55, 0.3) 90%, transparent);
+            }
+            .luxury-timeline-items {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                padding-left: 50px;
+                align-items: flex-start;
+            }
+            .luxury-timeline-item {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+                gap: 25px;
+                width: 100%;
+            }
+            .luxury-timeline-node {
+                margin-bottom: 0;
+                margin-left: -50px; /* Aligns nodes perfectly centered on the vertical gold track */
+                flex-shrink: 0;
+            }
+            .luxury-timeline-content {
+                padding: 0;
+            }
+            .luxury-timeline-title {
+                margin-bottom: 6px;
+            }
+        }
+        </style>
+
+        <div class="container-anatomy" style="position: relative; z-index: 2;">
+            <!-- Section Title -->
+            <div style="text-align: center; margin-bottom: 80px;">
+                <span class="reveal" style="font-size: 11px; text-transform: uppercase; font-family: var(--font-sans); color: rgba(255,255,255,0.45); letter-spacing: 2px; display: block; margin-bottom: 15px;">PROPRIETARY METHODOLOGY</span>
+                <h2 class="reveal" style="font-family: var(--font-serif); font-size: clamp(32px, 4.5vw, 54px); font-weight: 300; color: #ffffff; line-height: 1.2;">
+                    The Narizari <br><span style="color: var(--accent-gold);">Shopify Framework™</span>
+                </h2>
+                <div class="reveal" style="width: 50px; height: 1px; background-color: rgba(212, 175, 55, 0.4); margin: 30px auto 0 auto;"></div>
+            </div>
+
+            <!-- Timeline Component -->
+            <div class="luxury-timeline-wrapper reveal">
+                <div class="luxury-timeline-line"></div>
+
+                <div class="luxury-timeline-items">
+                    <!-- Step 1 -->
+                    <div class="luxury-timeline-item">
+                        <div class="luxury-timeline-node">01</div>
+                        <div class="luxury-timeline-content">
+                            <h4 class="luxury-timeline-title">Discovery</h4>
+                            <p class="luxury-timeline-desc">Mapping heritage legacy, NRI demographics, and catalog complexities.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="luxury-timeline-item">
+                        <div class="luxury-timeline-node">02</div>
+                        <div class="luxury-timeline-content">
+                            <h4 class="luxury-timeline-title">Strategy</h4>
+                            <p class="luxury-timeline-desc">Designing user narratives, global checkout flows, and scaling paths.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="luxury-timeline-item">
+                        <div class="luxury-timeline-node">03</div>
+                        <div class="luxury-timeline-content">
+                            <h4 class="luxury-timeline-title">Architecture</h4>
+                            <p class="luxury-timeline-desc">Building high-speed headless storefronts or optimized Liquid engines.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="luxury-timeline-item">
+                        <div class="luxury-timeline-node">04</div>
+                        <div class="luxury-timeline-content">
+                            <h4 class="luxury-timeline-title">Design</h4>
+                            <p class="luxury-timeline-desc">Crafting digital high-resolution textile presentations and typography.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="luxury-timeline-item">
+                        <div class="luxury-timeline-node">05</div>
+                        <div class="luxury-timeline-content">
+                            <h4 class="luxury-timeline-title">Development</h4>
+                            <p class="luxury-timeline-desc">Writing custom, clean Shopify code with 60fps hardware-accelerated movement.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="luxury-timeline-item">
+                        <div class="luxury-timeline-node">06</div>
+                        <div class="luxury-timeline-content">
+                            <h4 class="luxury-timeline-title">Optimization</h4>
+                            <p class="luxury-timeline-desc">Perfecting Core Web Vitals to eliminate delay and friction.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="luxury-timeline-item">
+                        <div class="luxury-timeline-node">07</div>
+                        <div class="luxury-timeline-content">
+                            <h4 class="luxury-timeline-title">Scale</h4>
+                            <p class="luxury-timeline-desc">Launching automated international multi-currency and logistics integrations.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- 3.5 DIGITAL LOOM ARCHITECTURE (Dark interactive section with 3D Glass Bucket) -->
+    <section class="section-anatomy" style="background-color: #1b0509; padding: 120px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); position: relative; overflow: hidden; z-index: 1;">
+        <!-- Glowing Ambient Orbs for 3D depth -->
+        <div style="position: absolute; width: 600px; height: 600px; top: 10%; right: -200px; background: radial-gradient(circle, rgba(166,141,106,0.06) 0%, transparent 70%); filter: blur(80px); pointer-events: none; z-index: 0;"></div>
+        <div style="position: absolute; width: 500px; height: 500px; bottom: -10%; left: -200px; background: radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 70%); filter: blur(80px); pointer-events: none; z-index: 0;"></div>
+
+        <style>
+        /* 3D Glass Bucket Styling */
+        .ejs-fill-card {
+            fill: rgba(255, 255, 255, 0.04) !important; /* Highly translucent premium glass! */
+            stroke: rgba(255, 255, 255, 0.12) !important; /* Glossy edge reflections! */
+            stroke-width: 1px !important;
+        }
+
+        .bucket-chip {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 12px 24px 12px 14px;
+            width: 290px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            transform-origin: bottom center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); /* Elite custom bounce curve mimicking spring motion! */
+        }
+
+        .bucket-chip-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .bucket-chip-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .bucket-chip-title {
+            font-family: var(--font-sans);
+            font-size: 14.5px;
+            font-weight: 500;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+
+        .bucket-chip-desc {
+            font-family: var(--font-sans);
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.2;
+        }
+
+        /* Centered states for perfect alignment mimicking spring-framer motion */
+        .bucket-chip.state-enter {
+            transform: translate(-50%, -320px) scale(0.85) !important;
+            opacity: 0;
+            z-index: 5;
+        }
+
+        .bucket-chip.state-active {
+            transform: translate(-50%, -200px) scale(1.22) !important;
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 15;
+        }
+
+        .bucket-chip.state-exit {
+            transform: translate(-50%, -80px) scale(0.85) !important;
+            opacity: 0;
+            z-index: 5;
+        }
+
+        @media (max-width: 767px) {
+            .bucket-chip {
+                width: 230px;
+                padding: 8px 16px 8px 10px;
+            }
+            .bucket-chip-title {
+                font-size: 12.5px;
+            }
+            .bucket-chip-desc {
+                font-size: 10.5px;
+            }
+            .bucket-chip-icon {
+                width: 34px;
+                height: 34px;
+            }
+            .bucket-chip.state-active {
+                transform: translate(-50%, -120px) scale(1.05) !important;
+            }
+            .bucket-chip.state-enter {
+                transform: translate(-50%, -180px) scale(0.8) !important;
+            }
+            .bucket-chip.state-exit {
+                transform: translate(-50%, -50px) scale(0.8) !important;
+            }
+        }
+        </style>
+
+        <div class="container-anatomy" style="position: relative; z-index: 2;">
+            <div class="detailed-service-row" style="border-bottom: none; padding: 0; gap: 80px; align-items: center; display: flex; flex-wrap: wrap;">
+                
+                <!-- Left Column: Content -->
+                <div class="service-info" style="flex: 1.1; min-width: 320px;">
+                    <span class="service-index" style="color: var(--accent-gold);">02</span>
+                    <h2 class="section-title-anatomy" style="font-size: 38px; color: #ffffff; font-family: var(--font-serif); font-weight: 300; margin-bottom: 25px;">
+                        The Digital Loom <br><span style="color: var(--accent-gold);">Feature Integration</span>
+                    </h2>
+                    <p style="font-size: 17px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 35px;">
+                        Our storefronts are built like premium Banarasi masterpieces. We load state-of-the-art interactive modules, 60fps animations, accessible navigation, and multi-currency frameworks into a unified, high-performance architecture.
+                    </p>
+                    
+                    <!-- Feature list showing what is inside the bucket -->
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="width: 20px; height: 20px; border-radius: 50%; background: rgba(212,175,55,0.15); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--accent-gold); flex-shrink: 0; margin-top: 3px;">✓</div>
+                            <div>
+                                <h4 style="font-family: var(--font-sans); font-size: 16px; font-weight: 500; color: #ffffff; margin-bottom: 4px;">Hardware-Accelerated Engineering</h4>
+                                <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5;">Every chip, banner, and transition is hardware-optimized for smooth 60fps scroll experiences on high-density iOS & mobile devices.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="width: 20px; height: 20px; border-radius: 50%; background: rgba(212,175,55,0.15); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--accent-gold); flex-shrink: 0; margin-top: 3px;">✓</div>
+                            <div>
+                                <h4 style="font-family: var(--font-sans); font-size: 16px; font-weight: 500; color: #ffffff; margin-bottom: 4px;">Universal Web Accessibility</h4>
+                                <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5;">Strict ARIA compliance and semantically sound structure to deliver high conversion across all user demographics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive 3D Glass Bucket -->
+                <div class="service-visual" style="flex: 0.9; min-width: 320px; display: flex; align-items: center; justify-content: center; position: relative;">
+                    
+                    <div class="bucket-interactive-wrapper" style="width: 100%; max-width: 600px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        
+                        <!-- 3D Glass Bucket Container -->
+                        <div class="bucket-container" style="position: relative; width: 100%; max-width: 580px; aspect-ratio: 655 / 352; display: flex; align-items: center; justify-content: center; overflow: visible;">
+                            
+                            <!-- Background Open Box SVG Watermark -->
+                            <svg viewBox="0 0 49.641 49.64" fill="currentColor" style="position: absolute; width: 340px; height: 340px; color: rgba(212, 175, 55, 0.14); filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.05)); z-index: 1; pointer-events: none; transform: translate3d(0,0,0);">
+                                <g>
+                                    <path d="M44.118,11.852c-0.008-0.014-0.022-0.021-0.03-0.034c-0.031-0.046-0.067-0.085-0.109-0.122c-0.014-0.01-0.023-0.021-0.036-0.03c-0.067-0.05-0.141-0.091-0.225-0.11L23.068,6.721c-0.108-0.024-0.226-0.019-0.336,0.015L8.002,11.57c-0.042,0.015-0.075,0.043-0.112,0.065c-0.024,0.014-0.053,0.017-0.074,0.033c-0.006,0.005-0.009,0.014-0.015,0.019c-0.006,0.006-0.016,0.007-0.022,0.014l-7.573,6.81c-0.222,0.202-0.271,0.533-0.116,0.788c0.112,0.187,0.317,0.303,0.535,0.303c0.076,0,0.149-0.014,0.218-0.039l6.73-2.508v20.163c0,0.286,0.193,0.535,0.471,0.604l19.957,5.092c0.048,0.014,0.1,0.021,0.158,0.021c0.069,0,0.137-0.011,0.202-0.032l14.935-5.094c0.254-0.085,0.424-0.323,0.424-0.591V24.155l5.5-1.904c0.177-0.062,0.315-0.196,0.381-0.371s0.051-0.367-0.043-0.53L44.118,11.852z M7.571,15.718l-4.086,1.524l4.086-3.677V15.718z M27.532,41.505l-18.71-4.773V12.978l18.71,5.012V41.505z M28.136,16.856l-17.749-4.754l12.568-4.124l18.377,4.302L28.136,16.856z M42.468,36.77l-13.686,4.666V18.815l5.607,8.089c0.118,0.168,0.31,0.27,0.515,0.27c0.065,0,0.134-0.012,0.205-0.034l7.359-2.55L42.468,36.77L42.468,36.77z M35.147,25.8l-5.619-8.104l13.763-4.772l4.805,8.392L35.147,25.8z"/>
+                                </g>
+                            </svg>
+
+                            <!-- 2. MIDDLE FLOATING CHIPS LAYER (Z-index: 10) -->
+                            <div class="bucket-chips-container" style="position: absolute; inset: 0; z-index: 10; pointer-events: none; transform: translate3d(0,0,0);">
+                                <div class="bucket-chips-sub-wrap" style="position: relative; width: 100%; height: 100%; padding-bottom: 25%;">
+                                    
+                                    <!-- Active rotating chips -->
+                                    <div class="bucket-chip state-active" id="chip-1">
+                                        <div class="bucket-chip-icon" style="background: rgba(212,175,55,0.15); color: var(--accent-gold);">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="bucket-chip-text">
+                                            <div class="bucket-chip-title">Production Ready</div>
+                                            <div class="bucket-chip-desc">Clean Liquid & tested code</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bucket-chip state-enter" id="chip-2">
+                                        <div class="bucket-chip-icon" style="background: rgba(212,175,55,0.15); color: var(--accent-gold);">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                            </svg>
+                                        </div>
+                                        <div class="bucket-chip-text">
+                                            <div class="bucket-chip-title">Fluid Motion</div>
+                                            <div class="bucket-chip-desc">60fps optimizations built-in</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bucket-chip state-enter" id="chip-3">
+                                        <div class="bucket-chip-icon" style="background: rgba(212,175,55,0.15); color: var(--accent-gold);">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="bucket-chip-text">
+                                            <div class="bucket-chip-title">Global NRI Ready</div>
+                                            <div class="bucket-chip-desc">Seamless multi-currency checkout</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bucket-chip state-enter" id="chip-4">
+                                        <div class="bucket-chip-icon" style="background: rgba(212,175,55,0.15); color: var(--accent-gold);">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                            </svg>
+                                        </div>
+                                        <div class="bucket-chip-text">
+                                            <div class="bucket-chip-title">Modern Design</div>
+                                            <div class="bucket-chip-desc">Bespoke luxury silk presentation</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 3D Glass Bucket Chips Auto-Rotation
+            let activeIndex = 0;
+            const chips = [
+                document.getElementById('chip-1'),
+                document.getElementById('chip-2'),
+                document.getElementById('chip-3'),
+                document.getElementById('chip-4')
+            ];
+
+            const rotateChips = () => {
+                const prevIndex = activeIndex;
+                activeIndex = (activeIndex + 1) % chips.length;
+                
+                chips.forEach((chip, idx) => {
+                    if (idx === activeIndex) {
+                        chip.className = 'bucket-chip state-active';
+                    } else if (idx === prevIndex) {
+                        chip.className = 'bucket-chip state-exit';
+                    } else {
+                        chip.className = 'bucket-chip state-enter';
+                    }
+                });
+            };
+
+            // Initialize states
+            chips.forEach((chip, idx) => {
+                if (idx === 0) {
+                    chip.className = 'bucket-chip state-active';
+                } else {
+                    chip.className = 'bucket-chip state-enter';
+                }
+            });
+
+            // Rotate every 2.5 seconds
+            setInterval(rotateChips, 2500);
+        });
+        </script>
     </section>
 
     <!-- 4. CTA SECTION (Light) -->

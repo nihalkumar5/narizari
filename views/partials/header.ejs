@@ -8,6 +8,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;600;800&family=Great+Vibes&family=Inter:wght@100;200;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/anatomy.css">
+    <style>
+    /* Premium Right-Aligned Dropdown overrides to prevent screen clipping next to hamburger */
+    .nav-dropdown-right .dropdown-content {
+        left: auto !important;
+        right: 0 !important;
+        transform: translateX(0) translateY(15px) !important;
+        min-width: 200px !important;
+        background: rgba(27, 5, 9, 0.98) !important;
+        border: 1px solid rgba(212, 175, 55, 0.25) !important;
+    }
+    .nav-dropdown-right:hover .dropdown-content {
+        transform: translateX(0) translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+    </style>
 </head>
 
 <body class="<%= (typeof path === 'undefined' || path === '/') ? 'anatomy-homepage' : '' %>">
@@ -27,19 +44,27 @@
                 <div class="nav-dropdown">
                     <a href="/services" class="dropdown-trigger">SERVICES <span class="arrow" style="font-size: 8px; margin-left: 2px;">▼</span></a>
                     <div class="dropdown-content">
+                        <a href="/shopify-service">🛒 Shopify Plus Build</a>
                         <a href="/ecommerce-marketing">🛍️ eCommerce & Marketing</a>
                         <a href="/digital-marketing">📈 Intelligent Marketing</a>
                         <a href="/branding">🎬 Creative Couture</a>
                     </div>
                 </div>
                 <a href="/industries">SECTORS</a>
+                <a href="/shop-sample" style="color: var(--accent-gold) !important; font-weight: 600; opacity: 1 !important;">SHOP SAMPLE</a>
                 <a href="/agency">AGENCY</a>
                 <a href="/about">ABOUT</a>
                 <a href="/our-team">ARCHITECTS</a>
             </div>
 
             <div class="nav-actions-wrapper">
-                <a href="/book-now" class="btn-reserve">BOOK NOW</a>
+                <div class="nav-dropdown nav-dropdown-right">
+                    <a href="#" class="btn-reserve dropdown-trigger" style="gap: 5px;">JOIN US <span class="arrow" style="font-size: 8px;">▼</span></a>
+                    <div class="dropdown-content">
+                        <a href="/connect?type=manufacturer">🏭 Manufacturer</a>
+                        <a href="/connect?type=wholesaler">🏛️ Wholesaler</a>
+                    </div>
+                </div>
                 <button class="hamburger" id="menu-toggle">
                     <span class="line-1"></span>
                     <span class="line-2"></span>
@@ -60,6 +85,8 @@
             </button>
             <ul class="menu-list">
                 <li><a href="/services" data-text="Strategic Solutions">SERVICES</a></li>
+                <li><a href="/shopify-service" data-text="Shopify Plus Build">SHOPIFY SERVICE</a></li>
+                <li><a href="/shop-sample" data-text="Shop Sample" style="color: var(--accent-gold) !important;">SHOP SAMPLE</a></li>
                 <li><a href="/industries" data-text="Market Expertise">INDUSTRIES</a></li>
                 <li><a href="/agency" data-text="The Laboratory">AGENCY</a></li>
                 <li><a href="/about" data-text="At home, with us">ABOUT</a></li>

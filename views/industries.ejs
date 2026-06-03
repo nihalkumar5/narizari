@@ -1,0 +1,634 @@
+<%- include('partials/header') %>
+
+<style>
+/* -------------------------------------------------------------
+   Visual Design System & Page Overrides
+   ------------------------------------------------------------- */
+
+/* Hero Banner */
+.ind-hero-section {
+    padding-top: 180px;
+    padding-bottom: 90px;
+    background: radial-gradient(circle at 50% 50%, #3d0d13 0%, #120305 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.ind-hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: -10%;
+    left: -10%;
+    background: radial-gradient(circle, rgba(166,141,106,0.06) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+}
+.ind-hero-subtitle {
+    margin: 20px auto 0 auto;
+    font-size: 15px;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-gold);
+    font-weight: 500;
+}
+
+/* Section 1: Intro DTC Brand Scale Split */
+.ind-intro-section {
+    background-color: #170406;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.ind-intro-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 70px;
+    align-items: center;
+}
+.ind-intro-content h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 4.2vw, 54px);
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    letter-spacing: 0.01em;
+}
+.ind-intro-content p {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+/* Mockup Frame Preview Panel */
+.ind-mockup-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ind-mockup-container {
+    background: linear-gradient(135deg, rgba(58, 13, 19, 0.35) 0%, rgba(20, 3, 5, 0.95) 100%);
+    border: 1px solid rgba(166, 141, 106, 0.25);
+    border-radius: 36px;
+    padding: 40px;
+    width: 100%;
+    max-width: 440px;
+    box-sizing: border-box;
+    box-shadow: 0 30px 65px rgba(0, 0, 0, 0.45);
+    position: relative;
+    overflow: hidden;
+}
+.ind-mockup-container::before {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: -20px;
+    right: -20px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+/* Simulated Phone Wrapper */
+.phone-mockup-shell {
+    background: #000000;
+    border: 8px solid #222;
+    border-radius: 28px;
+    overflow: hidden;
+    aspect-ratio: 9 / 16;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+.phone-mockup-header {
+    height: 35px;
+    background: #050102;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.phone-mockup-camera {
+    width: 50px;
+    height: 6px;
+    border-radius: 10px;
+    background: #222;
+}
+.phone-mockup-body {
+    height: calc(100% - 35px);
+    background: #120305;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.insta-post-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.insta-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+}
+.insta-username {
+    font-size: 10px;
+    font-weight: 600;
+    color: #fff;
+    font-family: var(--font-sans);
+}
+.insta-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.insta-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.insta-post-footer {
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.insta-btn-shop {
+    background-color: var(--accent-gold);
+    color: #24090D;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 14px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.insta-btn-shop:hover {
+    background-color: #ffffff;
+}
+.phone-mockup-reels {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%) rotate(4deg);
+    width: 120px;
+    aspect-ratio: 9 / 16;
+    background: #140305;
+    border: 4px solid #333;
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 10;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+}
+
+/* Section 2: White Card Sectors Grid */
+.ind-sectors-section {
+    background-color: #FAF4F1;
+    padding: 120px 0;
+    position: relative;
+    z-index: 2;
+}
+.ind-sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    width: 100%;
+}
+
+/* Custom premium white cards matching mockups */
+.sector-card-premium {
+    background-color: #ffffff !important;
+    border: 1.5px solid #24090D !important;
+    border-radius: 28px !important;
+    padding: 48px 36px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    min-height: 520px;
+    box-shadow: 0 15px 45px rgba(36, 9, 13, 0.05) !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-sizing: border-box;
+}
+.sector-card-premium:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 25px 55px rgba(36, 9, 13, 0.12) !important;
+}
+
+/* Circular Image Frame inside Cards */
+.sector-circle-frame {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 30px auto;
+    border: 2.5px solid var(--accent-gold);
+    background-color: #FAF4F1;
+    box-shadow: 0 8px 20px rgba(166, 141, 106, 0.15);
+}
+.sector-circle-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+.sector-card-premium:hover .sector-circle-frame img {
+    transform: scale(1.08);
+}
+
+/* Card typography selectors matching light-section overrides */
+.section-light-anatomy .sector-card-premium h3,
+.sector-card-premium h3 {
+    font-family: var(--font-serif) !important;
+    font-size: 25px !important;
+    font-weight: 300 !important;
+    color: #24090D !important; /* Rich contrast dark burgundy */
+    margin: 0 0 18px 0 !important;
+    line-height: 1.3 !important;
+}
+.section-light-anatomy .sector-card-premium p,
+.sector-card-premium p {
+    font-family: var(--font-sans) !important;
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+    color: rgba(36, 9, 13, 0.78) !important; /* Crisp readable gray/maroon */
+    margin: 0 0 35px 0 !important;
+    font-weight: 300 !important;
+}
+
+/* Custom rounded learn more button */
+.sector-card-premium .btn-learn-more {
+    display: inline-block;
+    padding: 14px 38px;
+    border-radius: 30px;
+    background-color: var(--accent-gold);
+    color: #24090D !important;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: 1.5px solid var(--accent-gold);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    align-self: center;
+}
+.sector-card-premium .btn-learn-more:hover {
+    background-color: transparent;
+    color: var(--accent-gold) !important;
+    border-color: var(--accent-gold);
+    box-shadow: 0 8px 20px rgba(166, 141, 106, 0.2);
+}
+
+/* Section 3: Ready to Scale Call to Action */
+.ind-cta-section {
+    background-color: #24090D;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.ind-cta-section::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+}
+.ind-cta-section h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 3.8vw, 48px);
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+.ind-cta-section p {
+    font-family: var(--font-serif);
+    font-size: clamp(16px, 1.8vw, 22px);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    font-style: italic;
+    max-width: 740px;
+    margin: 0 auto 40px auto;
+    font-weight: 300;
+}
+.ind-cta-section .btn-scale-call {
+    display: inline-block;
+    padding: 16px 42px;
+    border-radius: 35px;
+    background-color: var(--accent-gold);
+    color: #24090D !important;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: 1.5px solid var(--accent-gold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+}
+.ind-cta-section .btn-scale-call:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Section 4: Check The Numbers (Proof Section) */
+.ind-proof-section {
+    background-color: #FAF4F1;
+    padding: 120px 0;
+    position: relative;
+    z-index: 1;
+}
+.ind-proof-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+.section-light-anatomy .ind-proof-header h2,
+.ind-proof-header h2 {
+    font-family: var(--font-serif) !important;
+    font-size: clamp(32px, 4.5vw, 54px) !important;
+    font-weight: 300 !important;
+    color: #24090D !important;
+    margin-bottom: 20px !important;
+}
+.ind-dots-divider {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+.ind-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-gold);
+    opacity: 0.8;
+}
+
+.ind-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    width: 100%;
+}
+.proof-stat-card {
+    background: #1c0406;
+    border: 1.5px solid rgba(166, 141, 106, 0.2);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+}
+.proof-stat-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 45px rgba(166, 141, 106, 0.1);
+}
+.proof-stat-metric {
+    font-family: var(--font-serif);
+    font-size: 54px;
+    font-weight: 400;
+    color: var(--accent-gold);
+    line-height: 1.1;
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+}
+.proof-stat-label {
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.proof-stat-desc {
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    margin: 0;
+}
+
+/* Responsive Overrides */
+@media (max-width: 991px) {
+    .ind-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .ind-intro-content {
+        text-align: center;
+    }
+    .ind-sectors-grid, .ind-proof-grid {
+        gap: 30px;
+    }
+    .sector-card-premium {
+        padding: 40px 30px !important;
+        min-height: auto !important;
+    }
+    .phone-mockup-reels {
+        display: none; /* Hide reels layer on smaller viewports */
+    }
+}
+</style>
+
+<main class="anatomy-main">
+    
+    <!-- 1. HERO HEADER (Premium Burgundy Gradient) -->
+    <section class="ind-hero-section">
+        <div class="ind-hero-glow"></div>
+        <div class="container-anatomy" style="position: relative; z-index: 1;">
+            <div class="reveal">
+                <p class="section-label-anatomy" style="letter-spacing: 0.25em; font-weight: 600; color: var(--accent-gold); font-size: 11px;">• INDUSTRIES</p>
+                <h1 class="section-title-anatomy animate-fade-up delay-1" style="font-size: clamp(42px, 5.5vw, 76px); line-height: 1.15; margin-top: 15px; color: #ffffff;">Sectors We Transform</h1>
+                <p class="ind-hero-subtitle animate-fade-up delay-2">
+                    Home / Sectors We Transform
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. DTC BRAND INTRO SPLIT (Dark Background with Instagram Mockup Frame) -->
+    <section class="ind-intro-section reveal">
+        <div class="container-anatomy">
+            <div class="ind-intro-grid">
+                
+                <!-- Left Content Column -->
+                <div class="ind-intro-content">
+                    <h2>Helping Luxury Saree &amp; Heritage Brands Scale Profitably</h2>
+                    <p>
+                        At Narizari, we partner with ambitious luxury saree and ethnicwear brands across heritage, designer, and B2B sectors to help them grow smarter and faster. Our data-driven strategies, creative expertise, and full-funnel approach have delivered real results for brands looking to increase revenue, improve ROAS, and build loyal customer bases online.
+                    </p>
+                </div>
+                
+                <!-- Right Mockup Column -->
+                <div class="ind-mockup-wrapper">
+                    <div class="ind-mockup-container">
+                        <!-- Main Phone Shell -->
+                        <div class="phone-mockup-shell">
+                            <div class="phone-mockup-header">
+                                <div class="phone-mockup-camera"></div>
+                            </div>
+                            <div class="phone-mockup-body">
+                                <div>
+                                    <div class="insta-post-header">
+                                        <div class="insta-avatar"></div>
+                                        <span class="insta-username">narizari.official</span>
+                                    </div>
+                                    <div class="insta-image-wrapper">
+                                        <img src="/saree_fashion_editorial_1778574464550.png" alt="Luxury Saree Instagram Post" class="insta-image">
+                                    </div>
+                                </div>
+                                <div class="insta-post-footer">
+                                    <span class="insta-username">Sponsored</span>
+                                    <a href="/book-now" class="insta-btn-shop">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Reels Frame behind phone -->
+                        <div class="phone-mockup-reels">
+                            <img src="/luxury_saree_ux.png" alt="Luxury Saree Instagram Reels" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. THREE-CARD SECTORS GRID (Rose-Linen Champagne Section with White Cards) -->
+    <section class="ind-sectors-section reveal">
+        <div class="container-anatomy">
+            <div class="ind-sectors-grid">
+                
+                <!-- Card 1: Heritage Handloom Cooperatives -->
+                <div class="sector-card-premium">
+                    <div>
+                        <div class="sector-circle-frame">
+                            <img src="/saree_fashion_editorial_1778574464550.png" alt="Heritage Varanasi Handloom Weaving">
+                        </div>
+                        <h3>Heritage Handloom Cooperatives</h3>
+                        <p>We work directly with generation-old weaving families and local cooperatives in Varanasi to establish direct global retail pathways, skipping middlemen and retaining premium profit margins for the artisans.</p>
+                    </div>
+                    <a href="/book-now" class="btn-learn-more">Learn More</a>
+                </div>
+
+                <!-- Card 2: Premium D2C Saree Brands -->
+                <div class="sector-card-premium">
+                    <div>
+                        <div class="sector-circle-frame">
+                            <img src="/luxury_saree_ux.png" alt="Luxury Saree Visual Branding Product">
+                        </div>
+                        <h3>Premium D2C Saree Brands</h3>
+                        <p>For modern designer boutiques and high-scale online saree stores aiming for hyper-growth. We deploy hyper-optimized conversion layouts and AI performance ads targeting high-ticket bridal buyers globally.</p>
+                    </div>
+                    <a href="/book-now" class="btn-learn-more">Learn More</a>
+                </div>
+
+                <!-- Card 3: B2B Silk Exporters & Wholesalers -->
+                <div class="sector-card-premium">
+                    <div>
+                        <div class="sector-circle-frame">
+                            <img src="/shopify_luxury_saree_composition_1778581636038.png" alt="B2B Saree Fabrics and Logistics">
+                        </div>
+                        <h3>B2B Silk Exporters &amp; Wholesalers</h3>
+                        <p>We build institutional trust for major textile mills, exporters, and wholesale operations, establishing digital credibility that attracts high-volume luxury bridal retailers from London to Dubai.</p>
+                    </div>
+                    <a href="/book-now" class="btn-learn-more">Learn More</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. READY TO SCALE CALL TO ACTION (Dark Burgundy Backdrop) -->
+    <section class="ind-cta-section reveal">
+        <div class="container-anatomy">
+            <h2>Ready to Scale Your Brand Profitably?</h2>
+            <p>
+                💡 Let's turn your heritage potential into global profit. Book a Free Strategy Call Today!
+            </p>
+            <a href="/book-now" class="btn-scale-call">Let's Book a Call</a>
+        </div>
+    </section>
+
+    <!-- 5. CHECK THE NUMBERS (Rose-Linen Proof Section with Metrics Dashboard Panels) -->
+    <section class="ind-proof-section section-light-anatomy reveal">
+        <div class="container-anatomy">
+            <div class="ind-proof-header">
+                <h2>Check the Numbers</h2>
+                <div class="ind-dots-divider">
+                    <span class="ind-dot"></span>
+                    <span class="ind-dot" style="opacity: 0.6;"></span>
+                    <span class="ind-dot" style="opacity: 0.3;"></span>
+                </div>
+            </div>
+            
+            <div class="ind-proof-grid">
+                
+                <!-- Metric Card 1: ROAS -->
+                <div class="proof-stat-card">
+                    <div class="proof-stat-metric">12x+</div>
+                    <div class="proof-stat-label">Average Campaign ROAS</div>
+                    <p class="proof-stat-desc">
+                        Our proprietary audience model targets high-intent NRI bridal buyers, yielding unmatched efficiency on ad-spend.
+                    </p>
+                </div>
+
+                <!-- Metric Card 2: Speed -->
+                <div class="proof-stat-card">
+                    <div class="proof-stat-metric">800ms</div>
+                    <div class="proof-stat-label">Sub-Second Load Times</div>
+                    <p class="proof-stat-desc">
+                        Optimized Liquid architecture and headless infrastructure ensure fluid page speeds and maximum mobile retention.
+                    </p>
+                </div>
+
+                <!-- Metric Card 3: Checkout Conversion -->
+                <div class="proof-stat-card">
+                    <div class="proof-stat-metric">+34%</div>
+                    <div class="proof-stat-label">Checkout Conversion Lift</div>
+                    <p class="proof-stat-desc">
+                        Advanced multi-currency setup and frictionless NRI localized gateways eliminate purchase friction globally.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<%- include('partials/footer') %>

@@ -223,6 +223,15 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Premium Saree Marketing Agency Application Submitted:', bookingData);
         });
     }
+
+    // 7. HIGHLIGHT ACTIVE NAVIGATION LINK
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-links-wrapper a');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active-nav-link');
+        }
+    });
 });
 
 // Menu Toggle Logic

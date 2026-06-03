@@ -1,0 +1,1478 @@
+<%- include('partials/header') %>
+
+<style>
+/* -------------------------------------------------------------
+   Tilfi-Style Pure Frontend Lookbook Design System
+   ------------------------------------------------------------- */
+#main-nav {
+    display: none !important; /* Hide the standard Narizari navbar on this page to let the replica shine */
+}
+
+.tilfi-lookbook-container {
+    background-color: #FAF9F6; /* Luxury warm linen color */
+    color: #24090D; /* Deep luxury warm burgundy */
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding-top: 0;
+    overflow-x: hidden;
+}
+
+/* Typography Overrides */
+.tilfi-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Custom Tilfi Replica Header Navigation */
+.tilfi-navbar-wrapper {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(36, 9, 13, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.tilfi-top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tilfi-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Spacing between hamburger and logo */
+}
+
+/* Sub-nav menu links centered in the middle of desktop header */
+.tilfi-subnav-menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tilfi-subnav-menu a {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #24090D;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tilfi-subnav-menu a:hover {
+    color: #A68D6A;
+}
+
+.nav-arrow {
+    font-size: 7px;
+    opacity: 0.6;
+}
+
+.tilfi-hamburger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tilfi-hamburger-btn span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background-color: #24090D;
+    transition: all 0.3s ease;
+}
+
+.tilfi-nav-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tilfi-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #24090D;
+}
+
+.tilfi-paisley-logo {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.1));
+}
+
+.tilfi-logo-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #24090D;
+    text-transform: capitalize;
+}
+
+.tilfi-nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 25px;
+}
+
+.tilfi-utility-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tilfi-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #24090D;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.tilfi-icon-btn:hover {
+    color: #A68D6A;
+}
+
+.tilfi-currency-selector {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    color: #24090D;
+}
+
+.tilfi-currency-selector:hover {
+    background-color: rgba(36, 9, 13, 0.04);
+}
+
+.tilfi-globe-icon {
+    font-size: 13px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: #A68D6A;
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: 700;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Premium Mega Dropdown Styling */
+.has-dropdown {
+    position: relative;
+}
+
+.tilfi-dropdown-pane {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    background-color: #ffffff;
+    border: 1px solid rgba(36, 9, 13, 0.08);
+    box-shadow: 0 20px 45px rgba(36, 9, 13, 0.1);
+    padding: 30px 35px;
+    width: 600px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 0px;
+}
+
+.has-dropdown:hover .tilfi-dropdown-pane {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-columns {
+    display: flex;
+    gap: 30px;
+    text-align: left;
+}
+
+.dropdown-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 155px;
+}
+
+.dropdown-column h4 {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #A68D6A;
+    margin: 0 0 8px 0;
+    border-bottom: 1px solid rgba(36, 9, 13, 0.05);
+    padding-bottom: 4px;
+}
+
+.dropdown-column a {
+    font-size: 12.5px !important;
+    text-transform: none !important;
+    letter-spacing: 0.03em !important;
+    color: rgba(36, 9, 13, 0.75) !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 400 !important;
+    display: block;
+    padding: 2px 0;
+}
+
+.dropdown-column a:hover {
+    color: #24090D !important;
+    transform: translateX(4px);
+}
+
+.dropdown-featured {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-left: 1px solid rgba(36, 9, 13, 0.06);
+    padding-left: 25px;
+}
+
+.dropdown-featured img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border: 1px solid rgba(36, 9, 13, 0.05);
+    transition: transform 0.8s ease;
+}
+
+.has-dropdown:hover .dropdown-featured img {
+    transform: scale(1.02);
+}
+
+.dropdown-featured span {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 500;
+    color: #24090D;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Dropdown Drawer menu overrides for Tilfi replica */
+.replica-drawer {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 320px;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 10000;
+    box-shadow: 15px 0 40px rgba(36, 9, 13, 0.08);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.replica-drawer.open {
+    left: 0;
+}
+
+.drawer-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #24090D;
+    margin-bottom: 40px;
+}
+
+.drawer-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.drawer-menu-list a {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 24px;
+    text-decoration: none;
+    color: #24090D;
+    transition: color 0.3s ease;
+}
+
+.drawer-menu-list a:hover {
+    color: #A68D6A;
+}
+
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(36, 9, 13, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* SECTION 1: Lookbook Hero Slide Show (Premium Fading Ken Burns effect) */
+.lookbook-hero-section {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 80px); /* 80px for a unified header bar height */
+    min-height: 550px;
+    overflow: hidden;
+    background-color: #120305;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 1.4s;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.hero-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%; /* Shifts the model slightly up to reveal more saree body while keeping head fully shown */
+    transform: scale(1.08);
+    transition: transform 7s cubic-bezier(0.1, 0.2, 0.3, 1);
+}
+
+.hero-slide.active .hero-slide-img {
+    transform: scale(1);
+}
+
+.hero-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(36, 9, 13, 0.05) 0%, rgba(36, 9, 13, 0.4) 100%);
+    z-index: 2;
+}
+
+.hero-slide-content {
+    position: absolute;
+    left: 8%;
+    bottom: 15%;
+    z-index: 10;
+    max-width: 600px;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s;
+}
+
+.hero-slide.active .hero-slide-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-slide-content h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(38px, 5.5vw, 68px);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 10px rgba(36, 9, 13, 0.3);
+}
+
+.hero-slide-content p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2vw, 20px);
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 30px;
+    text-shadow: 0 2px 8px rgba(36, 9, 13, 0.3);
+}
+
+.btn-discover-capsule {
+    display: inline-block;
+    padding: 12px 38px;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    color: #ffffff !important;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.btn-discover-capsule:hover {
+    background-color: #ffffff;
+    color: #24090D !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Hero Slide Navigation Controls */
+.hero-nav-arrow {
+    position: absolute;
+    bottom: 40px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.hero-nav-arrow:hover {
+    background-color: #ffffff;
+    color: #24090D;
+}
+
+.hero-arrow-left {
+    left: 40px;
+}
+
+.hero-arrow-right {
+    right: 40px;
+}
+
+/* Bullet Indicators at Bottom Center */
+.slideshow-bullets {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    gap: 12px;
+}
+
+.slide-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.slide-bullet.active {
+    background-color: #ffffff;
+    transform: scale(1.3);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+
+/* SECTION 2: Handwoven Stories & Excellence Portrait Grid */
+.excellence-section {
+    padding: 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.excellence-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.excellence-quote {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 300;
+    line-height: 1.4;
+    color: #24090D;
+    max-width: 850px;
+    margin: 0 auto 25px auto;
+}
+
+.excellence-intro {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(36, 9, 13, 0.65);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* 3-Column Portrait Grid */
+.portrait-grid-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 70px;
+}
+
+.portrait-card {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #eaeaea;
+}
+
+.portrait-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portrait-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Link Overlay Icon */
+.card-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(36, 9, 13, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.portrait-card:hover .card-hover-overlay {
+    opacity: 1;
+}
+
+.link-svg-icon {
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 1.5;
+}
+
+/* Section Footnote */
+.excellence-footnote {
+    text-align: center;
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.excellence-footnote h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    margin-bottom: 18px;
+    color: #24090D;
+}
+
+.excellence-footnote p {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: rgba(36, 9, 13, 0.75);
+    letter-spacing: 0.04em;
+    font-weight: 300;
+}
+
+
+/* SECTION 3: Split Category Banner */
+.split-category-section {
+    padding: 0 5% 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.split-category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.category-card {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* Align top so models heads are fully visible */
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.category-card:hover img {
+    transform: scale(1.04);
+}
+
+.category-label {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* SECTION 4: Menswear Showcase */
+.menswear-section {
+    padding: 0 5% 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.menswear-banner {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 480px;
+    overflow: hidden;
+}
+
+.menswear-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* Align top of image so model head is fully visible */
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menswear-banner:hover .menswear-img {
+    transform: scale(1.03);
+}
+
+.menswear-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(36, 9, 13, 0.45) 0%, rgba(36, 9, 13, 0.1) 100%);
+}
+
+.menswear-content {
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    max-width: 450px;
+    color: #ffffff;
+}
+
+.menswear-content h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 52px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+}
+
+.menswear-content p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+}
+
+.btn-explore-capsule-gold {
+    display: inline-block;
+    padding: 12px 42px;
+    border-radius: 30px;
+    background-color: #A68D6A;
+    color: #ffffff !important;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #A68D6A;
+    box-shadow: 0 10px 25px rgba(166, 141, 106, 0.3);
+}
+
+.btn-explore-capsule-gold:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #24090D !important;
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+
+/* SECTION 5: Four-Column Gifting Grid */
+.gifting-section {
+    padding: 0 5% 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gifting-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gifting-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gifting-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gifting-card:hover img {
+    transform: scale(1.05);
+}
+
+.gifting-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(36, 9, 13, 0) 60%, rgba(36, 9, 13, 0.6) 100%);
+}
+
+.gifting-label {
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+    z-index: 10;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    width: 90%;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.gifting-card:hover .gifting-label {
+    transform: translate(-50%, -5px);
+}
+
+
+/* -------------------------------------------------------------
+   Responsive Styles
+   ------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .portrait-grid-row {
+        gap: 20px;
+    }
+    .tilfi-subnav-menu {
+        display: none !important; /* Hide split subnav links on mobile */
+    }
+    .tilfi-top-nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 20px;
+    }
+    .tilfi-nav-right .tilfi-currency-selector,
+    .tilfi-nav-right .tilfi-icon-btn:nth-child(1),
+    .tilfi-nav-right .tilfi-icon-btn:nth-child(3) {
+        display: none !important; /* Hide extra icons to prevent clutter on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .tilfi-top-nav {
+        padding: 15px 20px;
+    }
+    .portrait-grid-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        max-width: 480px;
+        margin: 0 auto 50px auto;
+    }
+    .portrait-card {
+        aspect-ratio: 3 / 4;
+    }
+    .split-category-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .gifting-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .menswear-banner {
+        height: 50vh;
+    }
+    .menswear-content h2 {
+        font-size: 38px;
+    }
+    .hero-slide-content {
+        left: 20px;
+        right: 20px;
+        bottom: 80px;
+    }
+    .hero-nav-arrow {
+        bottom: 20px;
+    }
+    .hero-arrow-left {
+        left: 20px;
+    }
+    .hero-arrow-right {
+        right: 20px;
+    }
+}
+
+/* SECTION: Cinema Storytelling Section */
+.tilfi-cinema-section {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 480px;
+    overflow: hidden;
+    margin-bottom: 100px;
+    background-color: #120305;
+}
+
+.cinema-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.cinema-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(36, 9, 13, 0.25) 0%, rgba(36, 9, 13, 0.6) 100%);
+    z-index: 2;
+}
+
+.cinema-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: #ffffff;
+    width: 90%;
+    max-width: 800px;
+}
+
+.cinema-content h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 300;
+    margin-bottom: 15px;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 10px rgba(36, 9, 13, 0.4);
+}
+
+.cinema-content p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.05em;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 8px rgba(36, 9, 13, 0.4);
+}
+
+.cinema-content span.sub-badge {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #A68D6A;
+    display: block;
+    margin-bottom: 15px;
+}
+</style>
+
+<main class="tilfi-lookbook-container">
+    
+    <!-- CUSTOM REPLICA NAVBAR -->
+    <header class="tilfi-navbar-wrapper">
+        <div class="tilfi-top-nav">
+            <!-- Left Side: Hamburger & Brand Logo on Left -->
+            <div class="tilfi-nav-left">
+                <button class="tilfi-hamburger-btn" id="tilfiHamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a href="/" class="tilfi-logo-link">
+                    <!-- Elegant gold paisley emblem -->
+                    <svg class="tilfi-paisley-logo" viewBox="0 0 100 100">
+                        <path fill="url(#goldGrad)" d="M50,15 C45,15 40,25 40,35 C40,48 55,55 55,68 C55,75 48,82 40,82 C32,82 25,75 25,65 C25,60 28,55 28,50 C28,48 26,46 24,46 C22,46 20,48 20,53 C20,68 30,88 50,88 C70,88 80,72 80,55 C80,35 60,15 50,15 Z" />
+                        <path fill="rgba(36, 9, 13, 0.15)" d="M50,22 C48,22 44,28 44,35 C44,43 51,48 51,58 C51,64 47,68 42,68 C38,68 35,64 35,58 C35,56 36,54 36,52 C36,51 35,50 34,50 C33,50 32,51 32,53 C32,62 36,74 46,74 C56,74 61,64 61,54 C61,42 52,22 50,22 Z" />
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#D4AF37" />
+                                <stop offset="50%" stop-color="#F3E5AB" />
+                                <stop offset="100%" stop-color="#AA7C11" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="tilfi-logo-text">Narizari</span>
+                </a>
+            </div>
+            
+            <!-- Center: Full Unified Subnav Links Centered -->
+            <div class="tilfi-nav-center">
+                <ul class="tilfi-subnav-menu">
+                    <!-- 1. SHOP Mega Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#">SHOP <span class="nav-arrow">▾</span></a>
+                        <div class="tilfi-dropdown-pane">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <h4>By Category</h4>
+                                    <a href="#">Sarees</a>
+                                    <a href="#">Dupattas</a>
+                                    <a href="#">Lehengas</a>
+                                    <a href="#">Menswear</a>
+                                    <a href="#">Art & Collectibles</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>By Technique</h4>
+                                    <a href="#">Katan Weave</a>
+                                    <a href="#">Brocade Art</a>
+                                    <a href="#">Organza Border</a>
+                                    <a href="#">Zarkashi Heritage</a>
+                                    <a href="#">Kadwa Technique</a>
+                                </div>
+                                <div class="dropdown-featured">
+                                    <img src="/hero_saree_luxury_1778574360191.png" alt="Featured Brocade Silk">
+                                    <span>Discover Brocades ✦</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 2. COLLECTIONS Mega Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#">COLLECTIONS <span class="nav-arrow">▾</span></a>
+                        <div class="tilfi-dropdown-pane">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <h4>Heritage</h4>
+                                    <a href="#">Sacred Ghats</a>
+                                    <a href="#">Kashi Heritage</a>
+                                    <a href="#">The Artisan Loom</a>
+                                    <a href="#">Eternal Banaras</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Seasonal</h4>
+                                    <a href="#">Summer in Georgettes</a>
+                                    <a href="#">Classic Ombrés</a>
+                                    <a href="#">Excellence Series</a>
+                                    <a href="#">Pre-pleated Silks</a>
+                                </div>
+                                <div class="dropdown-featured">
+                                    <img src="/saree_fashion_editorial_1778574464550.png" alt="Summer Georgettes">
+                                    <span>Summer Lookout ✦</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 3. CAMPAIGNS Mega Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#">CAMPAIGNS <span class="nav-arrow">▾</span></a>
+                        <div class="tilfi-dropdown-pane">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <h4>Lookbooks</h4>
+                                    <a href="#">Varanasi Editorial</a>
+                                    <a href="#">Bridal Couture</a>
+                                    <a href="#">Tactile Luxury</a>
+                                    <a href="#">Shikargah Motifs</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Visual Stories</h4>
+                                    <a href="#">Ghats Cinematic Film</a>
+                                    <a href="#">Artisan Portraits</a>
+                                    <a href="#">Neural Loom Campaign</a>
+                                </div>
+                                <div class="dropdown-featured">
+                                    <img src="/luxury_saree_ux.png" alt="Bridal Couture">
+                                    <span>Bridal Lookbook ✦</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 4. CRAFT Mega Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#">CRAFT <span class="nav-arrow">▾</span></a>
+                        <div class="tilfi-dropdown-pane">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <h4>Pit Looms</h4>
+                                    <a href="#">Traditional Weaving</a>
+                                    <a href="#">Artisan Masterclass</a>
+                                    <a href="#">Middlemen Bypass</a>
+                                    <a href="#">Weaver Cooperatives</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Materials</h4>
+                                    <a href="#">Pure Mulberry Silk</a>
+                                    <a href="#">Gold & Silver Zari</a>
+                                    <a href="#">Translucent Organza</a>
+                                    <a href="#">Chiffon Georgettes</a>
+                                </div>
+                                <div class="dropdown-featured">
+                                    <img src="/shopify2.jpg" alt="Our Traditional Loom">
+                                    <span>Our Pit Looms ✦</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 5. STORIES Mega Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#">STORIES <span class="nav-arrow">▾</span></a>
+                        <div class="tilfi-dropdown-pane">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <h4>Legacy</h4>
+                                    <a href="#">Ghats History</a>
+                                    <a href="#">Weaver Families</a>
+                                    <a href="#">Preservation Projects</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Modernity</h4>
+                                    <a href="#">Sub-second Speed</a>
+                                    <a href="#">Global NRI Markets</a>
+                                    <a href="#">Couture Tech Blog</a>
+                                </div>
+                                <div class="dropdown-featured">
+                                    <img src="/luxury_unboxing_packaging.png" alt="Tactile Unboxing">
+                                    <span>Luxury Unboxing ✦</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 6. ABOUT US Mega Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#">ABOUT US <span class="nav-arrow">▾</span></a>
+                        <div class="tilfi-dropdown-pane">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <h4>Our Agency</h4>
+                                    <a href="#">Strategic Partners</a>
+                                    <a href="#">Architects of Silk</a>
+                                    <a href="#">The Neural Laboratory</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Connect</h4>
+                                    <a href="#">Request Strategy</a>
+                                    <a href="#">Careers</a>
+                                    <a href="#">Contact Office</a>
+                                </div>
+                                <div class="dropdown-featured">
+                                    <img src="/shopify_luxury_saree_composition_1778581636038.png" alt="Our Philosophy">
+                                    <span>Our Philosophy ✦</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Right Side: Utility Icons -->
+            <div class="tilfi-nav-right">
+                <div class="tilfi-utility-icons">
+                    <button class="tilfi-icon-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                    <div class="tilfi-currency-selector">
+                        <span class="tilfi-globe-icon">🌐</span>
+                        <span class="currency-code">INR</span>
+                        <span class="arrow-down" style="font-size: 7px; margin-left: 2px;">▼</span>
+                    </div>
+                    <button class="tilfi-icon-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </button>
+                    <button class="tilfi-icon-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </button>
+                    <button class="tilfi-icon-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <span class="cart-badge">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Custom Replica Navigation Drawer for mobile -->
+    <div class="drawer-overlay" id="tilfiDrawerOverlay"></div>
+    <div class="replica-drawer" id="tilfiDrawer">
+        <button class="drawer-close" id="tilfiDrawerClose">×</button>
+        <ul class="drawer-menu-list">
+            <li><a href="#">SHOP</a></li>
+            <li><a href="#">COLLECTIONS</a></li>
+            <li><a href="#">CAMPAIGNS</a></li>
+            <li><a href="#">CRAFT</a></li>
+            <li><a href="#">STORIES</a></li>
+            <li><a href="#">ABOUT US</a></li>
+        </ul>
+    </div>
+
+
+    <!-- SECTION 1: Lookbook Hero Slide Show -->
+    <section class="lookbook-hero-section">
+        <div class="slideshow-container">
+            
+            <!-- Slide 1 (Crimson Drape) -->
+            <div class="hero-slide active">
+                <img src="/saree_fashion_editorial_1778574464550.png" alt="Hand-embroidered Georgettes" class="hero-slide-img">
+                <div class="hero-slide-overlay"></div>
+                <div class="hero-slide-content">
+                    <h2 class="tilfi-serif">Hand-embroidered Georgettes</h2>
+                    <p class="tilfi-serif">Classic styles and pre-pleated ombrés.</p>
+                    <a href="#" class="btn-discover-capsule">Discover</a>
+                </div>
+            </div>
+
+            <!-- Slide 2 (Emerald Green Haveli) -->
+            <div class="hero-slide">
+                <img src="/slide_saree_green.png" alt="Imperial Banaras Brocades" class="hero-slide-img">
+                <div class="hero-slide-overlay"></div>
+                <div class="hero-slide-content">
+                    <h2 class="tilfi-serif">Imperial Banaras Brocades</h2>
+                    <p class="tilfi-serif">Exquisite handloomed pure mulberry silk in royal emerald gold.</p>
+                    <a href="#" class="btn-discover-capsule">Discover</a>
+                </div>
+            </div>
+
+            <!-- Slide 3 (Blush Pink Terrace) -->
+            <div class="hero-slide">
+                <img src="/slide_saree_pink.png" alt="Ethereal Silk Organza" class="hero-slide-img">
+                <div class="hero-slide-overlay"></div>
+                <div class="hero-slide-content">
+                    <h2 class="tilfi-serif">Ethereal Silk Organza</h2>
+                    <p class="tilfi-serif">Translucent drapes highlighted with delicate handloomed borders.</p>
+                    <a href="#" class="btn-discover-capsule">Discover</a>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <button class="hero-nav-arrow hero-arrow-left" id="prevHeroSlide">←</button>
+            <button class="hero-nav-arrow hero-arrow-right" id="nextHeroSlide">→</button>
+
+            <!-- Bullet Indicators -->
+            <div class="slideshow-bullets" id="heroSlideBullets">
+                <span class="slide-bullet active" data-slide="0"></span>
+                <span class="slide-bullet" data-slide="1"></span>
+                <span class="slide-bullet" data-slide="2"></span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SECTION 2: Handwoven Stories & Excellence Portrait Grid -->
+    <section class="excellence-section">
+        <div class="excellence-header">
+            <blockquote class="excellence-quote tilfi-serif">"Handwoven stories written in eternal Banaras"</blockquote>
+            <p class="excellence-intro">Each Tilfi piece has been made by the hands of a dedicated, trained artisan, with skills passed down through generations.</p>
+        </div>
+
+        <!-- 3-Column Portrait Grid -->
+        <div class="portrait-grid-row">
+            <!-- Card 1 (Red Saree Drape) -->
+            <div class="portrait-card">
+                <img src="/saree_fashion_editorial_1778574464550.png" alt="Varanasi Crimson Saree Drape">
+                <div class="card-hover-overlay">
+                    <svg class="link-svg-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </div>
+            </div>
+
+            <!-- Card 2 (Green Brocade Weave) -->
+            <div class="portrait-card">
+                <img src="/hero_saree_luxury_1778574360191.png" alt="Shikargah Green Brocade Weave">
+                <div class="card-hover-overlay">
+                    <svg class="link-svg-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </div>
+            </div>
+
+            <!-- Card 3 (Ivory Elegance Drape) -->
+            <div class="portrait-card">
+                <img src="/luxury_saree_ux.png" alt="Audrey Organza Border Drape">
+                <div class="card-hover-overlay">
+                    <svg class="link-svg-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Footnote -->
+        <div class="excellence-footnote">
+            <h3 class="tilfi-serif">Excellence Series</h3>
+            <p>Expressions of craft perfection at Tilfi. Rarefied symbols of our unwavering dedication to preserving the finest traditions and techniques of Indian craft.</p>
+        </div>
+    </section>
+
+
+    <!-- SECTION 3: Split Category Banner (Sarees & Dupattas) -->
+    <section class="split-category-section">
+        <div class="split-category-grid">
+            <!-- Left Side: Sarees -->
+            <div class="category-card">
+                <img src="/real_saree_red.png" alt="Luxury Banarasi Sarees">
+                <span class="category-label">Sarees</span>
+            </div>
+
+            <!-- Right Side: Dupattas -->
+            <div class="category-card">
+                <img src="/real_dupatta_luxury.png" alt="Luxury Silk Dupattas">
+                <span class="category-label">Dupattas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Cinematic Storytelling Video Section -->
+    <section class="tilfi-cinema-section">
+        <video autoplay loop muted playsinline class="cinema-video">
+            <source src="/assets/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="cinema-overlay"></div>
+        <div class="cinema-content">
+            <span class="sub-badge">✦ Masterpieces in Motion ✦</span>
+            <h2>Generational Craftsmanship</h2>
+            <p>Experience the tactile beauty of Varanasi silk handloomed over traditional pit looms, captured in eternal motion.</p>
+            <a href="#" class="btn-discover-capsule">Play Story</a>
+        </div>
+    </section>
+
+
+    <!-- SECTION 4: Menswear Showcase -->
+    <section class="menswear-section">
+        <div class="menswear-banner">
+            <img src="/menswear_editorial_model.png" alt="Tilfi Menswear Collection" class="menswear-img">
+            <div class="menswear-overlay"></div>
+            
+            <div class="menswear-content">
+                <h2 class="tilfi-serif">Menswear</h2>
+                <p class="tilfi-serif">Classic weaves and signature tailoring</p>
+                <a href="#" class="btn-explore-capsule-gold">Explore</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 5: Four-Column Gifting Grid -->
+    <section class="gifting-section">
+        <div class="gifting-grid">
+            <!-- Card 1: BRIDAL -->
+            <div class="gifting-card">
+                <img src="/saree_fashion_editorial_1778574464550.png" alt="Bridal Couture">
+                <div class="gifting-card-overlay"></div>
+                <span class="gifting-label">Bridal</span>
+            </div>
+
+            <!-- Card 2: GIFTING -->
+            <div class="gifting-card">
+                <img src="/luxury_unboxing_packaging.png" alt="Luxury Gifting Box">
+                <div class="gifting-card-overlay"></div>
+                <span class="gifting-label">Gifting</span>
+            </div>
+
+            <!-- Card 3: ZARKASHI -->
+            <div class="gifting-card">
+                <img src="/luxury_saree_ux.png" alt="Zarkashi Heritage Collection">
+                <div class="gifting-card-overlay"></div>
+                <span class="gifting-label">Zarkashi</span>
+            </div>
+
+            <!-- Card 4: ART & COLLECTIBLES -->
+            <div class="gifting-card">
+                <img src="/zari_art_motif.png" alt="Antique Gold Zari Art Detail">
+                <div class="gifting-card-overlay"></div>
+                <span class="gifting-label">Art & Collectibles</span>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+// Interactive Lookbook Hamburger Drawer & Premium Slideshow Script
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Hamburger Drawer logic
+    const hamburger = document.getElementById('tilfiHamburger');
+    const drawer = document.getElementById('tilfiDrawer');
+    const closeBtn = document.getElementById('tilfiDrawerClose');
+    const overlay = document.getElementById('tilfiDrawerOverlay');
+
+    if (hamburger && drawer && closeBtn && overlay) {
+        hamburger.addEventListener('click', function() {
+            drawer.classList.add('open');
+            overlay.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', function() {
+            drawer.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', function() {
+            drawer.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+    }
+
+    // 2. Premium slideshow logic
+    const slides = document.querySelectorAll('.hero-slide');
+    const bullets = document.querySelectorAll('.slide-bullet');
+    const prevBtn = document.getElementById('prevHeroSlide');
+    const nextBtn = document.getElementById('nextHeroSlide');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        // Reset active state before transition
+        slides.forEach((slide, idx) => {
+            slide.classList.remove('active');
+            bullets[idx].classList.remove('active');
+        });
+
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        bullets[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    function startAutoPlay() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000); // Transition slides every 5 seconds
+    }
+
+    // Control triggers
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            nextSlide();
+            startAutoPlay(); // Restart timer on manual click
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            prevSlide();
+            startAutoPlay(); // Restart timer on manual click
+        });
+    }
+
+    bullets.forEach(bullet => {
+        bullet.addEventListener('click', function() {
+            const slideIdx = parseInt(this.getAttribute('data-slide'));
+            showSlide(slideIdx);
+            startAutoPlay(); // Restart timer on bullet click
+        });
+    });
+
+    // Start slideshow
+    if (slides.length > 0) {
+        startAutoPlay();
+    }
+});
+</script>
+
+<%- include('partials/footer') %>
