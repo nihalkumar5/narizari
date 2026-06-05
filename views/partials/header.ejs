@@ -9,20 +9,14 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/anatomy.css">
     <style>
-    /* Premium Right-Aligned Dropdown overrides to prevent screen clipping next to hamburger */
+    /* Premium Right-Aligned Dropdown alignment overrides */
     .nav-dropdown-right .dropdown-content {
         left: auto !important;
         right: 0 !important;
         transform: translateX(0) translateY(15px) !important;
-        min-width: 200px !important;
-        background: rgba(27, 5, 9, 0.98) !important;
-        border: 1px solid rgba(212, 175, 55, 0.25) !important;
     }
     .nav-dropdown-right:hover .dropdown-content {
         transform: translateX(0) translateY(0) !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
     }
     </style>
 </head>
@@ -44,10 +38,62 @@
                 <div class="nav-dropdown">
                     <a href="/services" class="dropdown-trigger">SERVICES <span class="arrow" style="font-size: 8px; margin-left: 2px;">▼</span></a>
                     <div class="dropdown-content">
-                        <a href="/shopify-service">🛒 Shopify Plus Build</a>
-                        <a href="/ecommerce-marketing">🛍️ eCommerce & Marketing</a>
-                        <a href="/digital-marketing">📈 Intelligent Marketing</a>
-                        <a href="/branding">🎬 Creative Couture</a>
+                        <a href="/shopify-service" class="dropdown-item">
+                            <div class="dropdown-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="dropdown-svg-icon">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </div>
+                            <div class="dropdown-text-wrapper">
+                                <span class="dropdown-item-title">Shopify Plus Build</span>
+                                <span class="dropdown-item-desc">Enterprise scaling for handlooms</span>
+                            </div>
+                        </a>
+                        <a href="/ecommerce-marketing" class="dropdown-item">
+                            <div class="dropdown-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="dropdown-svg-icon">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                </svg>
+                            </div>
+                            <div class="dropdown-text-wrapper">
+                                <span class="dropdown-item-title">eCommerce &amp; Marketing</span>
+                                <span class="dropdown-item-desc">Complete end-to-end growth suite</span>
+                            </div>
+                        </a>
+                        <a href="/digital-marketing" class="dropdown-item">
+                            <div class="dropdown-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="dropdown-svg-icon">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="dropdown-text-wrapper">
+                                <span class="dropdown-item-title">Intelligent Marketing</span>
+                                <span class="dropdown-item-desc">Precision-targeted high-ROAS ads</span>
+                            </div>
+                        </a>
+                        <a href="/branding" class="dropdown-item">
+                            <div class="dropdown-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="dropdown-svg-icon">
+                                    <rect x="2" y="2" width="18" height="18" rx="2.18" ry="2.18"></rect>
+                                    <line x1="7" y1="2" x2="7" y2="22"></line>
+                                    <line x1="17" y1="2" x2="17" y2="22"></line>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <line x1="2" y1="7" x2="7" y2="7"></line>
+                                    <line x1="2" y1="17" x2="7" y2="17"></line>
+                                    <line x1="17" y1="17" x2="22" y2="17"></line>
+                                    <line x1="17" y1="7" x2="22" y2="7"></line>
+                                </svg>
+                            </div>
+                            <div class="dropdown-text-wrapper">
+                                <span class="dropdown-item-title">Creative Couture</span>
+                                <span class="dropdown-item-desc">Cinematic visual storytelling &amp; DNA</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <a href="/industries">SECTORS</a>
@@ -61,8 +107,33 @@
                 <div class="nav-dropdown nav-dropdown-right">
                     <a href="#" class="btn-reserve dropdown-trigger" style="gap: 5px;">JOIN US <span class="arrow" style="font-size: 8px;">▼</span></a>
                     <div class="dropdown-content">
-                        <a href="/connect?type=manufacturer">🏭 Manufacturer</a>
-                        <a href="/connect?type=wholesaler">🏛️ Wholesaler</a>
+                        <a href="/connect?type=manufacturer" class="dropdown-item">
+                            <div class="dropdown-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="dropdown-svg-icon">
+                                    <path d="M17 18a2 2 0 0 0 2-2V4l-5 3v3l-5-3v3L4 7v9a2 2 0 0 0 2 2h11z"></path>
+                                </svg>
+                            </div>
+                            <div class="dropdown-text-wrapper">
+                                <span class="dropdown-item-title">Manufacturer Portal</span>
+                                <span class="dropdown-item-desc">Loom &amp; production sourcing</span>
+                            </div>
+                        </a>
+                        <a href="/connect?type=wholesaler" class="dropdown-item">
+                            <div class="dropdown-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="dropdown-svg-icon">
+                                    <line x1="4" y1="21" x2="20" y2="21"></line>
+                                    <line x1="4" y1="14" x2="20" y2="14"></line>
+                                    <line x1="12" y1="6" x2="12" y2="14"></line>
+                                    <line x1="16" y1="6" x2="16" y2="14"></line>
+                                    <line x1="8" y1="6" x2="8" y2="14"></line>
+                                    <polyline points="4 6 12 2 20 6"></polyline>
+                                </svg>
+                            </div>
+                            <div class="dropdown-text-wrapper">
+                                <span class="dropdown-item-title">Wholesaler Portal</span>
+                                <span class="dropdown-item-desc">Bulk exports &amp; catalog orders</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <button class="hamburger" id="menu-toggle">
